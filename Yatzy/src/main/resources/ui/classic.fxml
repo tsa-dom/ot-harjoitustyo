@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.ClassicController">
+   <children>
+      <MenuBar prefHeight="26.0" prefWidth="1050.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="612.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="470.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="329.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="329.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="612.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="470.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="754.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView layoutX="32.0" layoutY="78.0" prefHeight="520.0" prefWidth="260.0">
+        <columns>
+          <TableColumn prefWidth="130.0" text="Name" />
+          <TableColumn prefWidth="130.0" text="Points" />
+        </columns>
+      </TableView>
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="754.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fitHeight="120.0" fitWidth="120.0" layoutX="893.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true" />
+      <Label alignment="TOP_LEFT" layoutX="32.0" layoutY="612.0" prefHeight="55.0" prefWidth="260.0" text="Gametype:&#10;current gamemode&#10;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="893.0" layoutY="187.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="120.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label layoutX="32.0" layoutY="49.0" prefHeight="30.0" prefWidth="260.0" text="Objectives:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="329.0" layoutY="228.0" prefHeight="30.0" prefWidth="120.0" text="Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="470.0" layoutY="228.0" prefHeight="30.0" prefWidth="120.0" text="Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="612.0" layoutY="228.0" prefHeight="30.0" prefWidth="120.0" text="Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="754.0" layoutY="228.0" prefHeight="30.0" prefWidth="120.0" text="Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="893.0" layoutY="228.0" prefHeight="30.0" prefWidth="120.0" text="Information">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Button layoutX="818.0" layoutY="287.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Reroll">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="350.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Make your choice">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="624.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="42.0" prefWidth="194.0" text="Quit game">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="562.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Save game">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="501.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Give up">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
