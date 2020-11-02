@@ -5,8 +5,6 @@
  */
 package generator;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 import ui.YatzyUi;
 
@@ -15,11 +13,11 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class LoginGenerator {
-    public boolean login(String givenUsername,String givenPassword){
+    public boolean logIn(String givenUsername,String givenPassword){
         String sql = "SELECT password FROM users WHERE username='"+givenUsername+"';";
-        List<String> list = YatzyUi.databaseManager.selectFrom(sql, "database","password");
+        List<String> columnList = YatzyUi.databaseManager.selectFrom(sql, "database","password");
         try{
-            String foundPassword = list.get(0);
+            String foundPassword = columnList.get(0);
             if(givenPassword.equals(foundPassword)){
                 return true;
             }else {

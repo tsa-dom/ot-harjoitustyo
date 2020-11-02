@@ -12,7 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.MenuController">
    <children>
-      <MenuBar prefHeight="26.0" prefWidth="1050.0">
+      <MenuBar layoutY="1.0" prefHeight="26.0" prefWidth="1050.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
@@ -69,5 +69,10 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Button>
+      <Label fx:id="userLabel" alignment="TOP_LEFT" layoutX="25.0" layoutY="627.0" prefHeight="59.0" prefWidth="158.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

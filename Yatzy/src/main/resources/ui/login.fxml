@@ -86,5 +86,10 @@
             <Font size="18.0" />
          </font>
       </Button>
+      <Label fx:id="infoLabel" layoutX="106.0" layoutY="500.0" prefHeight="35.0" prefWidth="480.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -5,8 +5,10 @@
  */
 package uicontroller;
 
-import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import ui.YatzyUi;
 
 /**
@@ -15,23 +17,45 @@ import ui.YatzyUi;
  */
 public class MenuController {
     @FXML
-    public void newGame() throws IOException{
-        YatzyUi.setRoot("newgame");
+    private Label userLabel;
+    @FXML
+    public void newGame() {
+        try {
+            YatzyUi.setRoot("newgame");
+        } catch (Exception ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     @FXML
-    public void loadGame() throws IOException{
-        YatzyUi.setRoot("loadgame");
+    public void loadGame() {
+        try {
+            YatzyUi.setRoot("loadgame");
+        } catch (Exception ex) {
+            
+        }
     }
     @FXML
-    public void statistics() throws IOException{
-        YatzyUi.setRoot("scoreboard");
+    public void statistics() {
+        try {
+            YatzyUi.setRoot("scoreboard");
+        } catch (Exception ex) {
+            
+        }
     }
     @FXML
-    public void logOut() throws IOException{
-        YatzyUi.setRoot("login");
+    public void logOut() {
+        try {
+            YatzyUi.currentUser = null;
+            YatzyUi.setRoot("login");
+        } catch (Exception ex) {
+            
+        }
     }
     @FXML
     public void quit(){
         System.exit(0);
+    }
+    public void initialize(){
+        userLabel.setText("Current user:\n-> "+YatzyUi.currentUser);
     }
 }
