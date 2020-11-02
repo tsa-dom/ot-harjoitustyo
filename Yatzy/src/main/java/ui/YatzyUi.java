@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import manager.DatabaseManager;
 
 /**
  * JavaFX App
@@ -14,14 +15,16 @@ import java.io.IOException;
 public class YatzyUi extends Application {
 
     private static Scene scene;
+    public static DatabaseManager databaseManager;
 
     @Override
     public void init(){
-        
+        databaseManager = new DatabaseManager();
+        databaseManager.createTestConnection("database");
     }
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("menu"), 1050, 700);
+        scene = new Scene(loadFXML("login"), 1050, 700);
         stage.setScene(scene);
         stage.show();
     }

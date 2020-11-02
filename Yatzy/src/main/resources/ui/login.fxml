@@ -71,7 +71,7 @@
             <Font size="18.0" />
          </font>
       </PasswordField>
-      <Button fx:id="login" layoutX="106.0" layoutY="445.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="146.0" text="Log in">
+      <Button fx:id="login" layoutX="106.0" layoutY="445.0" mnemonicParsing="false" onAction="#logIn" prefHeight="39.0" prefWidth="146.0" text="Log in">
          <font>
             <Font size="18.0" />
          </font>

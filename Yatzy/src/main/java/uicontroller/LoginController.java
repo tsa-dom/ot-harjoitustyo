@@ -5,7 +5,10 @@
  */
 package uicontroller;
 
+import generator.LoginGenerator;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
@@ -29,7 +32,18 @@ public class LoginController {
     private Button quit;
     @FXML
     public void logIn(){
-        
+        LoginGenerator loginGenerator = new LoginGenerator();
+        if (loginGenerator.login(username.getText(), password.getText())){
+            try {
+                YatzyUi.setRoot("menu");
+            } catch (IOException ex) {
+                username.clear();
+                password.clear();
+            }
+        }else{
+            username.clear();
+            password.clear();
+        }
     }
     @FXML
     public void signUp() throws IOException{
