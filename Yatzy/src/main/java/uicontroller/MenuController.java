@@ -23,8 +23,8 @@ public class MenuController {
         YatzyUi.setRoot("loadgame");
     }
     @FXML
-    public void statistics(){
-        
+    public void statistics() throws IOException{
+        YatzyUi.setRoot("scoreboard");
     }
     @FXML
     public void logOut() throws IOException{

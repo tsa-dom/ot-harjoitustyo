@@ -20,27 +20,29 @@ import java.util.logging.Logger;
 public class DataManager {
     private static Connection connection;
     private static Statement statement;
-    private static PreparedStatement preparedstatement;
-    public static boolean createTable(String content){
+    private static PreparedStatement preparedStatement;
+    public static boolean createTable(String givenContent,String givenDatabase){
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase);
             statement = connection.createStatement();
-            statement.execute(content);
+            statement.execute(givenContent);
             statement.close();
             connection.close();
+            return true;
         } catch (SQLException ex) {
             return false;
         }
-        return true;
     }
-    public static boolean insertInTo(String content){
+    public static boolean insertInTo(String givenContent,String givenDatabase){
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:database.db");
+            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase);
+            statement = connection.createStatement();
+            statement.execute(givenContent);
+            statement.close();
             connection.close();
+            return true;
         } catch (SQLException ex) {
             return false;
         }
-        return true;
     }
-    
 }

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.ScoreBoardController">
+   <children>
+      <Label alignment="CENTER" layoutX="276.0" layoutY="78.0" prefHeight="87.0" prefWidth="498.0" rotate="-5.0" scaleX="2.0" text="Yatzy">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="64.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.5222222222222223" centerY="0.496183191546957" radius="0.5">
+               <stops>
+                  <Stop color="#fd35df" />
+                  <Stop color="#56d7e5" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <Label layoutX="126.0" layoutY="212.0" prefHeight="58.0" prefWidth="164.0" scaleX="1.75" text="Leaderboards">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="65.0" layoutY="270.0" prefHeight="30.0" prefWidth="286.0" text="Choose gamemode:">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <TableView layoutX="435.0" layoutY="270.0" prefHeight="390.0" prefWidth="560.0">
+        <columns>
+          <TableColumn prefWidth="140.0" text="Gamemode" />
+          <TableColumn minWidth="3.20001220703125" prefWidth="140.0" text="Player" />
+            <TableColumn prefWidth="140.0" text="Score" />
+            <TableColumn prefWidth="139.2000732421875" text="Max score" />
+        </columns>
+      </TableView>
+      <ChoiceBox layoutX="65.0" layoutY="308.0" prefHeight="30.0" prefWidth="286.0" />
+      <CheckBox layoutX="65.0" layoutY="358.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="153.0" text="Show custom">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="65.0" layoutY="402.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="207.0" text="Show experimental">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="65.0" layoutY="449.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="286.0" text="Uppdate scoreboard">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <Button layoutX="65.0" layoutY="620.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="38.0" prefWidth="286.0" text="Back to menu">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
