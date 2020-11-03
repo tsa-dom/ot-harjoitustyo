@@ -5,10 +5,9 @@
  */
 package uicontroller;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import manager.SetUpManager;
 import ui.YatzyUi;
 
 /**
@@ -23,7 +22,7 @@ public class MenuController {
         try {
             YatzyUi.setRoot("newgame");
         } catch (Exception ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
     @FXML
@@ -45,7 +44,7 @@ public class MenuController {
     @FXML
     public void logOut() {
         try {
-            YatzyUi.currentUser = null;
+            SetUpManager.currentUser = null;
             YatzyUi.setRoot("login");
         } catch (Exception ex) {
             
@@ -56,6 +55,6 @@ public class MenuController {
         System.exit(0);
     }
     public void initialize(){
-        userLabel.setText("Current user:\n-> "+YatzyUi.currentUser);
+        userLabel.setText("Current user:\n-> "+SetUpManager.currentUser);
     }
 }

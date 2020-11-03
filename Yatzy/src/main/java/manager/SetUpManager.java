@@ -12,10 +12,13 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class SetUpManager {
-    public void executeSetUpTest(){
-        System.out.println(createTable("database"));
+    
+    public static String currentUser;
+    
+    public void executeSetUp(){
+        createUsers("database");
     }
-    private boolean createTable(String givenDatabase){
+    private boolean createUsers(String givenDatabase){
         String sql = "CREATE TABLE users (username TEXT UNIQUE,password TEXT);";
         return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
     }
