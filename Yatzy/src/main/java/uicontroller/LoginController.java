@@ -6,6 +6,7 @@
 package uicontroller;
 
 import generator.LoginGenerator;
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -31,7 +32,7 @@ public class LoginController {
             try {
                 SetUpManager.currentUser = username.getText();
                 YatzyUi.setRoot("menu");
-            } catch (Exception ex) {
+            } catch (IOException ex) {
                 
             }
         }
@@ -40,12 +41,8 @@ public class LoginController {
         infoLabel.setText("Wrong username or password!");
     }
     @FXML
-    public void signUp(){
-        try {
-            YatzyUi.setRoot("signup");
-        } catch (Exception ex) {
-            
-        }
+    public void signUp() throws IOException{
+        YatzyUi.setRoot("signup");
     }
     @FXML
     public void quit(){

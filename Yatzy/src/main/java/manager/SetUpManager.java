@@ -5,6 +5,7 @@
  */
 package manager;
 
+import setup.ObjectivesSetUp;
 import ui.YatzyUi;
 
 /**
@@ -14,12 +15,26 @@ import ui.YatzyUi;
 public class SetUpManager {
     
     public static String currentUser;
+    public static long lastReroll;
     
     public void executeSetUp(){
         createUsers("database");
+        createScoreTable("database");
+        if (createObjectives("database")){
+            ObjectivesSetUp objetivesSetUp = new ObjectivesSetUp();
+            objetivesSetUp.launchSetUp();
+        };
     }
     private boolean createUsers(String givenDatabase){
         String sql = "CREATE TABLE users (username TEXT UNIQUE,password TEXT);";
+        return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
+    }
+    private boolean createScoreTable(String givenDatabase){
+        String sql = "CREATE TABLE score (username TEXT,score INTEGER,gamemode TEXT,maxScore INTEGER);";
+        return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
+    }
+    private boolean createObjectives(String givenDatabase){
+        String sql = "CREATE TABLE objectives (name TEXT UNIQUE,maxScore INTEGER,requirements TEXT);";
         return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
     }
 }

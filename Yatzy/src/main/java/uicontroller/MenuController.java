@@ -5,6 +5,7 @@
  */
 package uicontroller;
 
+import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import manager.SetUpManager;
@@ -18,37 +19,21 @@ public class MenuController {
     @FXML
     private Label userLabel;
     @FXML
-    public void newGame() {
-        try {
-            YatzyUi.setRoot("newgame");
-        } catch (Exception ex) {
-            
-        }
+    public void newGame() throws IOException {
+        YatzyUi.setRoot("newgame");
     }
     @FXML
-    public void loadGame() {
-        try {
-            YatzyUi.setRoot("loadgame");
-        } catch (Exception ex) {
-            
-        }
+    public void loadGame() throws IOException {
+        YatzyUi.setRoot("loadgame");
     }
     @FXML
-    public void statistics() {
-        try {
-            YatzyUi.setRoot("scoreboard");
-        } catch (Exception ex) {
-            
-        }
+    public void statistics() throws IOException {
+        YatzyUi.setRoot("scoreboard");
     }
     @FXML
-    public void logOut() {
-        try {
-            SetUpManager.currentUser = null;
-            YatzyUi.setRoot("login");
-        } catch (Exception ex) {
-            
-        }
+    public void logOut() throws IOException {
+        SetUpManager.currentUser = null;
+        YatzyUi.setRoot("login");
     }
     @FXML
     public void quit(){

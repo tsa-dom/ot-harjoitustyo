@@ -13,14 +13,25 @@ import java.util.*;
  */
 public class DatabaseManager {
     private Connection connection;
-    private Statement statement;
     
     public boolean executeStatement(String givenContent,String givenDatabase){
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
-            statement = connection.createStatement();
-            statement.execute(givenContent);
-            statement.close();
+            connection.createStatement().execute(givenContent);
+            connection.close();
+            return true;
+        } catch (SQLException ex) {
+            return false;
+        }
+    }
+    public boolean executeStatements(List<String> givenContentList,String givenDatabase){
+        try {
+            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
+            connection.createStatement().execute("BEGIN TRANSACTION");
+            for(int i=0;i<givenContentList.size();i++){
+                connection.createStatement().execute(givenContentList.get(i));
+            }
+            connection.createStatement().execute("COMMIT");
             connection.close();
             return true;
         } catch (SQLException ex) {
@@ -30,14 +41,12 @@ public class DatabaseManager {
     public List<String> selectFrom(String givenContent, String givenDatabase, String columnLabel){
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
-            statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(givenContent);
+            ResultSet resultSet = connection.createStatement().executeQuery(givenContent);
             List<String> columnList = new ArrayList<>();
             while(resultSet.next()){
                 columnList.add(resultSet.getString(columnLabel));
             }
             resultSet.close();
-            statement.close();
             connection.close();
             return columnList;
         } catch (SQLException ex) {

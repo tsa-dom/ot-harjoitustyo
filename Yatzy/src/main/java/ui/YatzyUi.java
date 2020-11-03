@@ -28,6 +28,7 @@ public class YatzyUi extends Application {
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("login"), 1050, 700);
         stage.setScene(scene);
+        stage.setTitle("Yatzy");
         stage.setResizable(false);
         stage.show();
     }

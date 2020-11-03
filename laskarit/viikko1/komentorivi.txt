@@ -1,0 +1,16 @@
+C:\USERS\TAPIO SALONEN\KURSSIT
+└───ot2020
+    └───viikko1
+        └───Unicafe
+            ├───.settings
+            └───src
+                ├───main
+                │   └───java
+                │       └───com
+                │           └───mycompany
+                │               └───unicafe
+                └───test
+                    └───java
+                        └───com
+                            └───mycompany
+                                └───unicafe
