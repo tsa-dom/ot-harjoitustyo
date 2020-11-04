@@ -1,0 +1,17 @@
+CREATE TABLE objectives (name TEXT,maxScore INTEGER,requirements TEXT,gamemode TEXT);
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Ones','5','11111A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Twos','10','22222A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Threes','15','33333A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Fours','20','44444A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Fives','25','55555A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Sixes','30','66666A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Bonus','50','N63A','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('One pair','12','xx','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Two pairs','22','xxyy','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Three of a Kind','18','xxx','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Four of a Kind','24','xxxx','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Small Straight','15','54321','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Large Straight','20','65432','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full house','28','xxxyy','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Chance','30','','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Yatzy','50','xxxxx','classic');

@@ -132,7 +132,7 @@
          </font>
       </Label>
       <ChoiceBox layoutX="454.0" layoutY="350.0" prefHeight="42.0" prefWidth="316.0" />
-      <Label alignment="TOP_LEFT" layoutX="454.0" layoutY="419.0" prefHeight="249.0" prefWidth="316.0" text="Infolabel&#10;info here">
+      <Label alignment="TOP_LEFT" layoutX="454.0" layoutY="419.0" prefHeight="145.0" prefWidth="316.0" text="Infolabel&#10;info here">
          <font>
             <Font size="14.0" />
          </font>
@@ -231,6 +231,16 @@
       <Label fx:id="reRollWarning" layoutX="818.0" layoutY="315.0" prefHeight="30.0" prefWidth="194.0" textFill="#fa0000">
          <font>
             <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="454.0" layoutY="618.0" prefHeight="42.0" prefWidth="316.0" text="Your score: ">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="454.0" layoutY="575.0" prefHeight="42.0" prefWidth="316.0" text="Dice sum: ">
+         <font>
+            <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Label>
    </children>

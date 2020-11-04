@@ -5,7 +5,13 @@
  */
 package manager;
 
-import setup.ObjectivesSetUp;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 import ui.YatzyUi;
 
 /**
@@ -20,10 +26,7 @@ public class SetUpManager {
     public void executeSetUp(){
         createUsers("database");
         createScoreTable("database");
-        if (createObjectives("database")){
-            ObjectivesSetUp objetivesSetUp = new ObjectivesSetUp();
-            objetivesSetUp.launchSetUp();
-        };
+        createObjectives("database");
     }
     private boolean createUsers(String givenDatabase){
         String sql = "CREATE TABLE users (username TEXT UNIQUE,password TEXT);";
@@ -34,7 +37,21 @@ public class SetUpManager {
         return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
     }
     private boolean createObjectives(String givenDatabase){
-        String sql = "CREATE TABLE objectives (name TEXT UNIQUE,maxScore INTEGER,requirements TEXT);";
-        return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
+        List<String> objectiveStatements = searchStatements("objectives");
+        return YatzyUi.databaseManager.executeStatements(objectiveStatements, givenDatabase);
+    }
+    private List<String> searchStatements(String givenPath){
+        InputStream inputStream = SetUpManager.class.getResourceAsStream(givenPath+".sql");
+        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        String statement = null;
+        List<String> statementList = new ArrayList<>();
+        try {
+            while((statement=reader.readLine())!=null){
+                statementList.add(statement);
+            }
+        } catch (IOException ex) {
+            return null;
+        }
+        return statementList;
     }
 }
