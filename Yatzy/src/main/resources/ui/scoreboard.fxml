@@ -42,10 +42,10 @@
       </Label>
       <TableView layoutX="435.0" layoutY="270.0" prefHeight="390.0" prefWidth="560.0">
         <columns>
-          <TableColumn prefWidth="140.0" text="Gamemode" />
-          <TableColumn minWidth="3.20001220703125" prefWidth="140.0" text="Player" />
-            <TableColumn prefWidth="140.0" text="Score" />
-            <TableColumn prefWidth="139.2000732421875" text="Max score" />
+          <TableColumn prefWidth="140.0" text="Player" />
+          <TableColumn minWidth="3.20001220703125" prefWidth="140.0" text="Score" />
+            <TableColumn prefWidth="137.60003662109375" text="Gamemode" />
+            <TableColumn prefWidth="142.4000244140625" text="Max score" />
         </columns>
       </TableView>
       <ChoiceBox layoutX="65.0" layoutY="308.0" prefHeight="30.0" prefWidth="286.0" />
