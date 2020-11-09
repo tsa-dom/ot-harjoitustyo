@@ -5,7 +5,11 @@
  */
 package game;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import ui.YatzyUi;
@@ -18,8 +22,17 @@ import uicontroller.ClassicController;
 public class Classic extends ClassicController{
     public ObservableList<Objective> objectives;
     public ObservableList<Objective> objectiveNames;
+    public ClassicCalculator classicCalc;
+    public Random random;
+    public int reRollCount;
+    
+    public void setRandom(){
+        this.random = new Random();
+    }
     
     public void setObjectives(){
+        this.classicCalc = new ClassicCalculator();
+        this.reRollCount = 0;
         this.objectives = FXCollections.observableArrayList();
         this.objectiveNames = FXCollections.observableArrayList();
         String sql = "SELECT * FROM objectives WHERE gamemode='classic';";
@@ -36,16 +49,41 @@ public class Classic extends ClassicController{
     public void setReady(int givenId,int givenPoints){
         this.objectives.get(givenId).setPoints(String.valueOf(givenPoints));
     }
+    public String[] getStatus(String givenText){
+        String[] status = new String[2];
+        if (givenText.equals("Select")){
+            status[0] = "Unselect";
+            status[1] = "Selected";
+        } else{
+            status[0] = "Select";
+            status[1] = "";
+        }
+        return status;
+    }
+    public String getDices(String givenStatus, String givenDice){
+        if(givenStatus.equals("")){
+            return String.valueOf(this.random.nextInt(6)+1);
+        }
+        if(givenDice.equals("-")){
+            return String.valueOf(this.random.nextInt(6)+1);
+        }
+        return givenDice;
+    }
     public void endSession(){
         Objective.nextId = 0;
         this.objectiveNames.clear();
         this.objectives.clear();
     }
-    public int getPoints(int givenId, String givenDices){
-        String requirement = this.objectives.get(givenId).getRequirement();
-        
-        
-        
-        return 1;
+    public int getPoints(Objective givenObjective, String givenDices){
+        return this.classicCalc.getPoints(givenObjective, givenDices);
+    }
+    public int getScore(){
+        int sum = 0;
+        for(Objective objective:this.objectives){
+            if(objective.getPoints().equals("---")==false){
+                sum += Integer.valueOf(objective.getPoints());
+            }
+        }
+        return sum;
     }
 }

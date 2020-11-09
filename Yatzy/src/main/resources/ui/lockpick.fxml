@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.ClassicController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.LockPickController">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="1050.0">
          <menus>
@@ -35,11 +35,6 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="selectFirst" layoutX="329.0" layoutY="188.0" mnemonicParsing="false" onAction="#selectFirst" prefHeight="26.0" prefWidth="120.0" text="Select">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Button fx:id="selectSecond" layoutX="470.0" layoutY="187.0" mnemonicParsing="false" onAction="#selectSecond" prefHeight="26.0" prefWidth="120.0" text="Select">
          <font>
             <Font size="14.0" />
@@ -76,7 +71,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusFirst" alignment="CENTER" layoutX="329.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+      <Label fx:id="statusFirst" alignment="CENTER" layoutX="329.0" layoutY="187.0" prefHeight="30.0" prefWidth="120.0" text="Locked" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -151,9 +146,9 @@
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
-                  <Stop color="#00f9ff" />
-                  <Stop color="#f5f5f5" offset="0.9961832061068702" />
-                  <Stop color="#f5f5f5" offset="1.0" />
+                  <Stop color="#ff0054" />
+                  <Stop color="WHITESMOKE" offset="0.9961832061068702" />
+                  <Stop color="WHITESMOKE" offset="1.0" />
                </stops>
             </RadialGradient>
          </fill>
