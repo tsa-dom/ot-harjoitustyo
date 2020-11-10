@@ -13,4 +13,4 @@
 |7.11.2020|3h|Pelimekaniikkojen toteutusta|
 |8.11.2020|3h|Pelimekaniikkojen toteutusta|
 |10.11.2020|2h|Vaatimusmäärittely|
-|Yht|40||
+|Yht|40h||
