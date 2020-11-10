@@ -25,4 +25,5 @@
 ### Kehitysideoita
 #### Peliä olisi tarkoitus voida kehittää siten, että pelissä olisi useita pelimuotoja ja mahdollisuus custom pelimuodoille. Peliä voitaisiin kehittää myös siten, että se tukisi myös pelimuotojen luontia, jossa käyttäjä lähettää pelisääntöjä vastaavan oikein kirjoitetun tekstitiedoston generoidakseen pelille säännöt. Vaihtoehtoisesti peli voisi luoda ensimmäisen käynnistyksensä yhteydessä tiedoston, jota kautta pelaajalla olisi mahdollisuus kenties luoda oma erityinen pelimuotonsa. Tällaisten pelimuotojen scene toteutus voisi kuitenkin aiheutua haasteeksi.
 #### Mahdollinen toinen kehitysidea voisi olla tuki useammille kielille englannin kielen lisäksi. Peli voisi antaa mahdollisuuden asettaa kieli ainakin englanniksi ja suomeksi, sekä ehkä myös norjaksi. Peliin voitaisiin myös luoda mahdollisuus, jossa pelaaja voisi ladata niin sanotun kielipaketin, joka syötetään ohjelmalle oikein täytettynä teksittiedostona. Uusi ladattu kieli tallennettaisiin tämän jälkeen pelin tietokantaan.
+### Pelinäkymä classic pelimuodossa
 ![Classic screen](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/classicscreen.png "Classic screen")
