@@ -4,11 +4,13 @@
 |31.10.2020|3h|Näkymien luontia|
 |1.11.2020|4h|SQL rakenteen suunnittelua ja toteutusta|
 |2.11.2020|4h|SQL rakenteen suunnittelua ja toteutusta|
-|3.11.2020|5h|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|
-|4.11.2020|5h|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|
+|3.11.2020|5h|SQL rakenteen parantelua|
+|||pelimekaniikkojen suunnittelua|
+|4.11.2020|5h|SQL rakenteen parantelua|
+|||pelimekaniikkojen suunnittelua|
 |5.11.2020|3h|TableView ongelman ratkaisua|
 |6.11.2020|4h|TableView ongelma ratkaistu|
 |7.11.2020|3h|Pelimekaniikkojen toteutusta|
 |8.11.2020|3h|Pelimekaniikkojen toteutusta|
 |10.11.2020|2h|Vaatimusmäärittely|
-|Yht||40||
+|Yht|40||
