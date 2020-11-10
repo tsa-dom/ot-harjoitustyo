@@ -19,7 +19,7 @@ public class YatzyUi extends Application {
     public static SetUpManager setUpManager;
 
     @Override
-    public void init(){
+    public void init() {
         databaseManager = new DatabaseManager();
         setUpManager = new SetUpManager();
         setUpManager.executeSetUp();
@@ -33,7 +33,7 @@ public class YatzyUi extends Application {
         stage.show();
     }
     @Override
-    public void stop(){
+    public void stop() {
         System.exit(0);
     }
 

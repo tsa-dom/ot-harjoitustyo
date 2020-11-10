@@ -15,7 +15,7 @@ import ui.YatzyUi;
  */
 public class ScoreBoardController {
     @FXML
-    public void backToMenu() throws IOException{
+    public void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
     }
 }

@@ -15,11 +15,11 @@ import ui.YatzyUi;
  */
 public class NewGameController {
     @FXML
-    public void backToMenu() throws IOException{
+    public void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
     }
     @FXML
-    public void startGame() throws IOException{
+    public void startGame() throws IOException {
         //Tarksitaa pelimuodon yms
         YatzyUi.setRoot("classic");
     }

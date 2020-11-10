@@ -26,7 +26,7 @@ public class SignUpController {
     @FXML
     private PasswordField password;
     @FXML
-    public void backToLogin(){
+    public void backToLogin() {
         try {
             YatzyUi.setRoot("login");
         } catch (IOException ex) {
@@ -34,22 +34,18 @@ public class SignUpController {
         }
     }
     @FXML
-    public void signUp(){
+    public void signUp() {
         SignUpGenerator signUpGenerator = new SignUpGenerator();
-        if (username.getText().length()>20){
+        if (username.getText().length() > 20) {
             infoLabel.setText("Username is too long");
-        }
-        else if (username.getText().length()<5){
+        } else if (username.getText().length() < 5) {
             infoLabel.setText("Username is too short");
-        }
-        else if (password.getText().length()>20){
+        } else if (password.getText().length() > 20) {
             infoLabel.setText("Password is too long");
-        }
-        else if (password.getText().length()<5){
+        } else if (password.getText().length() < 5) {
             infoLabel.setText("Password is too short");
-        }
-        else{
-            if (signUpGenerator.signUp(username.getText(), password.getText())){
+        } else {
+            if (signUpGenerator.signUp(username.getText(), password.getText())) {
                 try {
                     SetUpManager.currentUser = username.getText();
                     YatzyUi.setRoot("menu");

@@ -6,5 +6,6 @@ module yatzy.yatzy {
 
     opens uicontroller to javafx.fxml;
     opens manager to java.sql;
+    opens game to javafx.fxml;
     exports ui;
 }

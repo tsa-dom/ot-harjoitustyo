@@ -26,9 +26,9 @@ public class LoginController {
     @FXML
     private PasswordField password;
     @FXML
-    public void logIn(){
+    public void logIn() {
         LoginGenerator loginGenerator = new LoginGenerator();
-        if (loginGenerator.logIn(username.getText(), password.getText())){
+        if (loginGenerator.logIn(username.getText(), password.getText())) {
             try {
                 SetUpManager.currentUser = username.getText();
                 YatzyUi.setRoot("menu");
@@ -41,11 +41,11 @@ public class LoginController {
         infoLabel.setText("Wrong username or password!");
     }
     @FXML
-    public void signUp() throws IOException{
+    public void signUp() throws IOException {
         YatzyUi.setRoot("signup");
     }
     @FXML
-    public void quit(){
+    public void quit() {
         System.exit(0);
     }
 }

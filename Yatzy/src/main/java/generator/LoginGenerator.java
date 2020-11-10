@@ -13,17 +13,17 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class LoginGenerator {
-    public boolean logIn(String givenUsername,String givenPassword){
-        String sql = "SELECT password FROM users WHERE username='"+givenUsername+"';";
-        List<String> columnList = YatzyUi.databaseManager.selectFrom(sql, "database","password");
-        try{
+    public boolean logIn(String givenUsername, String givenPassword) {
+        String sql = "SELECT password FROM users WHERE username='" + givenUsername + "';";
+        List<String> columnList = YatzyUi.databaseManager.selectFrom(sql, "database", "password");
+        try {
             String foundPassword = columnList.get(0);
-            if(givenPassword.equals(foundPassword)){
+            if (givenPassword.equals(foundPassword)) {
                 return true;
-            }else {
+            } else {
                 return false;
             }
-        }catch (Exception e){
+        } catch (Exception e) {
             return false;
         }
     }

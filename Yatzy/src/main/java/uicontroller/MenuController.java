@@ -36,10 +36,10 @@ public class MenuController {
         YatzyUi.setRoot("login");
     }
     @FXML
-    public void quit(){
+    public void quit() {
         System.exit(0);
     }
-    public void initialize(){
-        userLabel.setText("Current user:\n-> "+SetUpManager.currentUser);
+    public void initialize() {
+        userLabel.setText("Current user:\n-> " + SetUpManager.currentUser);
     }
 }

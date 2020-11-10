@@ -18,39 +18,39 @@ public class Objective {
     private final SimpleIntegerProperty id;
     private final SimpleStringProperty requirement;
     private final SimpleStringProperty points;
-    public Objective(String givenName, String givenRequirement){
+    public Objective(String givenName, String givenRequirement) {
         this.requirement = new SimpleStringProperty(givenRequirement);
         this.name = new SimpleStringProperty(givenName);
         this.points  = new SimpleStringProperty("---");
         this.id = new SimpleIntegerProperty(nextId);
         Objective.nextId += 1;
     }
-    public String getName(){
+    public String getName() {
         return name.get();
     }
-    public String getPoints(){
+    public String getPoints() {
         return points.get();
     }
-    public int getId(){
+    public int getId() {
         return this.id.get();
     }
-    public String getRequirement(){
+    public String getRequirement() {
         return this.requirement.get();
     }
-    public void setName(String name){
+    public void setName(String name) {
         this.name.set(name);
     }
-    public void setPoints(String points){
+    public void setPoints(String points) {
         this.points.set(points);
     }
-    public SimpleStringProperty nameProperty(){
+    public SimpleStringProperty nameProperty() {
         return this.name;
     }
-    public SimpleStringProperty pointsProperty(){
+    public SimpleStringProperty pointsProperty() {
         return this.points;
     }
     @Override
-    public String toString(){
+    public String toString() {
         return this.name.get();
     }
 }

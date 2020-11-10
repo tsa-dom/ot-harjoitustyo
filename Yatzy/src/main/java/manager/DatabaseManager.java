@@ -14,9 +14,9 @@ import java.util.*;
 public class DatabaseManager {
     private Connection connection;
     
-    public boolean executeStatement(String givenContent,String givenDatabase){
+    public boolean executeStatement(String givenContent, String givenDatabase) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
             connection.createStatement().execute(givenContent);
             connection.close();
             return true;
@@ -24,11 +24,11 @@ public class DatabaseManager {
             return false;
         }
     }
-    public boolean executeStatements(List<String> givenContentList,String givenDatabase){
+    public boolean executeStatements(List<String> givenContentList, String givenDatabase) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
             connection.createStatement().execute("BEGIN TRANSACTION");
-            for(int i=0;i<givenContentList.size();i++){
+            for (int i = 0; i < givenContentList.size(); i++) {
                 connection.createStatement().execute(givenContentList.get(i));
             }
             connection.createStatement().execute("COMMIT");
@@ -38,12 +38,12 @@ public class DatabaseManager {
             return false;
         }
     }
-    public List<String> selectFrom(String givenContent, String givenDatabase, String columnLabel){
+    public List<String> selectFrom(String givenContent, String givenDatabase, String columnLabel) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:"+givenDatabase+".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
             ResultSet resultSet = connection.createStatement().executeQuery(givenContent);
             List<String> columnList = new ArrayList<>();
-            while(resultSet.next()){
+            while (resultSet.next()) {
                 columnList.add(resultSet.getString(columnLabel));
             }
             resultSet.close();

@@ -15,7 +15,7 @@ import ui.YatzyUi;
  */
 public class LoadGameController {
     @FXML
-    public void backToMenu() throws IOException{
+    public void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
     }
 }
