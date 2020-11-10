@@ -1,5 +1,5 @@
 |Päivämäärä|Käytetty aika|Mitä tehty|
-|:-:|:-:|:-:|
+|---|---|---|
 |30.10.2020|4h|FXML tutustumista ja näkymien luontia|
 |31.10.2020|3h|Näkymien luontia|
 |1.11.2020|4h|SQL rakenteen suunnittelua ja toteutusta|
