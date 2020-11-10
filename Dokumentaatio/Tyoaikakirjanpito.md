@@ -1,13 +1,14 @@
-|Päivämäärä|Mitä tehty|Käytetty aika|
+|Päivämäärä|Käytetty aika|Mitä tehty|
 |:-:|:-:|:-:|
-|8.11.2020|FXML tutustumista ja näkymien luontia|4h|
-|8.11.2020|Näkymien luontia|3h|
-|8.11.2020|SQL rakenteen suunnittelua ja toteutusta|4h|
-|8.11.2020|SQL rakenteen suunnittelua ja toteutusta|4h|
-|8.11.2020|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|5h|
-|8.11.2020|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|5h|
-|8.11.2020|TableView ongelman ratkaisua|3h|
-|8.11.2020|TableView ongelma ratkaistu|4h|
-|8.11.2020|Pelimekaniikkojen toteutusta|3h|
-|8.11.2020|Pelimekaniikkojen toteutusta|3h|
-|10.11.2020|Vaatimusmäärittely|2h|
+|30.10.2020|4h|FXML tutustumista ja näkymien luontia|
+|31.10.2020|3h|Näkymien luontia|
+|1.11.2020|4h|SQL rakenteen suunnittelua ja toteutusta|
+|2.11.2020|4h|SQL rakenteen suunnittelua ja toteutusta|
+|3.11.2020|5h|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|
+|4.11.2020|5h|SQL rakenteen parantelua ja pelimekaniikkojen suunnittelua|
+|5.11.2020|3h|TableView ongelman ratkaisua|
+|6.11.2020|4h|TableView ongelma ratkaistu|
+|7.11.2020|3h|Pelimekaniikkojen toteutusta|
+|8.11.2020|3h|Pelimekaniikkojen toteutusta|
+|10.11.2020|2h|Vaatimusmäärittely|
+|Yht||40||
