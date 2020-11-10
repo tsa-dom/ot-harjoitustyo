@@ -12,5 +12,7 @@
 |6.11.2020|4h|TableView ongelma ratkaistu|
 |7.11.2020|3h|Pelimekaniikkojen toteutusta|
 |8.11.2020|3h|Pelimekaniikkojen toteutusta|
-|10.11.2020|2h|Vaatimusmäärittely|
-|Yht|40h||
+|10.11.2020|6h|Vaatimusmäärittely|
+|||Checkstyle virheiden korjausta|
+|||Toisteisen koodin poistamista|
+|Yht|44h||
