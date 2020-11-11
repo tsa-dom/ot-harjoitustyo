@@ -10,8 +10,8 @@ INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('One Pair',
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Two Pairs','22','2x2xm','classic');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Three of a Kind','18','3xm','classic');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Four of a Kind','24','4xm','classic');
-INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Small Straight','15','d5m','classic');
-INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Large Straight','20','d6m','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Small Straight','15','d51m','classic');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Large Straight','20','d62m','classic');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full House','28','3x2xm','classic');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Chance','30','5rm','classic');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Yatzy','50','5xc/50','classic');
@@ -28,9 +28,9 @@ INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Three Pair
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Three of a Kind','18','3xm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Four of a Kind','24','4xm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Five of a Kind','30','5xm','maxi');
-INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Small Straight','15','d5m','maxi');
-INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Large Straight','20','d6m','maxi');
-INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full Straight','21','dd6m','maxi');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Small Straight','15','d51m','maxi');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Large Straight','20','d62m','maxi');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full Straight','21','d61m','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Cabin','28','3x2xm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Tower','34','4x2xm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full House','36','3x3xm','maxi');

@@ -20,7 +20,6 @@ import ui.YatzyUi;
  */
 public class SetUpManager {
     
-    public static String currentUser;
     public static long lastReroll;
     
     public void executeSetUp() {

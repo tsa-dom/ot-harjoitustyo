@@ -8,7 +8,7 @@ package uicontroller;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import manager.SetUpManager;
+import manager.GameManager;
 import ui.YatzyUi;
 
 /**
@@ -32,7 +32,7 @@ public class MenuController {
     }
     @FXML
     public void logOut() throws IOException {
-        SetUpManager.currentUser = null;
+        GameManager.currentUser = null;
         YatzyUi.setRoot("login");
     }
     @FXML
@@ -40,6 +40,6 @@ public class MenuController {
         System.exit(0);
     }
     public void initialize() {
-        userLabel.setText("Current user:\n-> " + SetUpManager.currentUser);
+        userLabel.setText("Current user:\n-> " + GameManager.currentUser);
     }
 }

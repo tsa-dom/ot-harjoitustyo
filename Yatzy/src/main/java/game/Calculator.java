@@ -15,26 +15,13 @@ import javafx.scene.control.Label;
  *
  * @author Tapio Salonen
  */
-public class ClassicCalculator {
+public class Calculator {
     public int upperComplete;
-    public ClassicCalculator() {
+    public Calculator() {
         this.upperComplete = 0;
     }
-    public int getPoints(Objective objective, int k) {
-        return k;
-    }
-    public int getPoints(Objective objective, Label[] dicesLabel) {
-        String dices = "";
-        for (int i = 0; i < dicesLabel.length; i++) {
-            dices += dicesLabel[i].getText();
-        }
-        Classic classic = new Classic();
+    public int getPoints(Objective objective, List<Integer> diceList) {
         int points = 0;
-        List<Integer> diceList = new ArrayList<>();
-        for (int i = 0; i < dices.length(); i++) {
-            diceList.add(Integer.valueOf(dices.charAt(i)));
-        }
-        Collections.sort(diceList, Collections.reverseOrder());
         String requirement = objective.getRequirement();
         if (requirement.charAt(0) == 121) {
             points = upperSection(requirement, diceList);
@@ -45,40 +32,41 @@ public class ClassicCalculator {
         }
         return points;
     }
-    public int upperSection(String givenRequirement, List<Integer> diceList) {
+    public int upperSection(String requirement, List<Integer> diceList) {
         int count = 0;
-        int diceFace = Integer.valueOf(givenRequirement.charAt(1));
+        int diceFace = Integer.valueOf(requirement.charAt(1));
         for (int i = 0; i < diceList.size(); i++) {
             if (diceFace == diceList.get(i)) {
                 count += diceFace - 48;
             }
         }
-        return count;
+        upperComplete++;
+        return ifCustomPoints(count, requirement.charAt(2), requirement);
     }
-    public int straight(String givenRequirement, List<Integer> diceList) {
+    public int straight(String requirement, List<Integer> diceList) {
         int count = 0;
-        int startFace = Integer.valueOf(givenRequirement.charAt(1));
+        int startFace = Integer.valueOf(requirement.charAt(1));
         boolean coming = true;
         for (int i = 0; i < diceList.size(); i++) {
             if (diceList.get(i) == startFace) {
                 count += startFace - 48;
                 startFace--;
-            } else {
-                coming = false;
-            }
+                continue;
+            } 
+            coming = false;
         }
         if (coming) {
-            return count;
+            return ifCustomPoints(count, requirement.charAt(3), requirement);
         }
         return 0;
     }
-    public int counter(String givenRequirement, List<Integer> diceList) {
+    public int counter(String requirement, List<Integer> diceList) {
         int count = 0;
-        int amount = givenRequirement.charAt(0) - 48;
+        int amount = requirement.charAt(0) - 48;
         boolean sessionEnd = true;
         HashSet<Integer> calculated = new HashSet<>();
-        for (int i = 1; i < givenRequirement.length(); i++) {
-            if (givenRequirement.charAt(i) == 120) {
+        for (int i = 1; i < requirement.length(); i++) {
+            if (requirement.charAt(i) == 120) {
                 int numberCount = 1;
                 for (int j = 0; j < diceList.size() - 1; j++) {
                     if (diceList.get(j) == diceList.get(j + 1)) {
@@ -95,20 +83,42 @@ public class ClassicCalculator {
                         sessionEnd = false;
                     }
                 }
-            } else if (givenRequirement.charAt(i) == 114) {
+            } else if (requirement.charAt(i) == 114) {
                 for (int j = 0; j < amount; j++) {
                     count += diceList.get(j) - 48;
                 }
-            } else if (givenRequirement.charAt(i) > 48 && givenRequirement.charAt(i) < 58) {
-                amount = givenRequirement.charAt(i) - 48;
-            } else if (givenRequirement.charAt(i) == 109 && sessionEnd == true) {
-                return count;
-            } else if (givenRequirement.charAt(i) == 99 && sessionEnd == true) {
-                String[] customPoints = givenRequirement.split("/");
-                return Integer.valueOf(customPoints[1]);
+            } else if (requirement.charAt(i) > 48 && requirement.charAt(i) < 58) {
+                amount = requirement.charAt(i) - 48;
+            } else if (ifCustomPoints(count, requirement.charAt(i), requirement) != -1 && sessionEnd == true) {
+                return ifCustomPoints(count, requirement.charAt(i), requirement);
             }
         }
         return 0;
+    }
+    /*
+    public HashSet<Integer> amountSession(int amount, HashSet<Integer> calculated, List<Integer> diceList) {
+        int numberCount = 1;
+        for (int j = 0; j < diceList.size() - 1; j++) {
+            if (diceList.get(j) == diceList.get(j + 1)) {
+                numberCount++;
+            } else {
+                numberCount = 1;
+            }
+            if (numberCount == amount && calculated.contains(diceList.get(j)) == false) {
+                count += amount * (diceList.get(j) - 48);
+                calculated.add(diceList.get(j));
+                break;
+            }
+        }    
+    }
+    */
+    public int ifCustomPoints(int points, char identifier, String requirement){
+        if (identifier == 99) {
+            return Integer.valueOf(requirement.split("/")[1]);
+        } else if (identifier == 109) {
+            return points;
+        }
+        return -1;
     }
 }
 

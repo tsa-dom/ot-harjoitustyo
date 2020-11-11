@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import manager.SetUpManager;
+import manager.GameManager;
 import ui.YatzyUi;
 
 /**
@@ -47,7 +47,7 @@ public class SignUpController {
         } else {
             if (signUpGenerator.signUp(username.getText(), password.getText())) {
                 try {
-                    SetUpManager.currentUser = username.getText();
+                    GameManager.currentUser = username.getText();
                     YatzyUi.setRoot("menu");
                 } catch (IOException ex) {
                     infoLabel.setText("Failed to sign up");

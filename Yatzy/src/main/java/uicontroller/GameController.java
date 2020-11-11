@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.TextFieldTableCell;
+import manager.GameManager;
 import manager.SetUpManager;
 import ui.YatzyUi;
 
@@ -21,24 +22,19 @@ import ui.YatzyUi;
  *
  * @author Tapio Salonen
  */
-public class ClassicController implements Initializable {
+public class GameController implements Initializable {
     @FXML private Label dice1, dice2, dice3, dice4, dice5;
     @FXML private Label status1, status2, status3, status4, status5;
     @FXML private Button select1, select2, select3, select4, select5;
-    Label[] dices;
-    Label[] status;
-    Button[] select;
-    @FXML private Label reRollWarning;
-    @FXML private Label diceSum;
-    @FXML private Label score;
-    @FXML private Label player;
-    @FXML private Label reRollsLeft;
+    @FXML private Label reRollWarning, diceSum, score, player, reRollsLeft, gameInfo;
     @FXML private TableView topTable;
     @FXML private ComboBox objectivesLeft;
     @FXML private TableView<Objective> objectivesTable;
-    @FXML public TableColumn<Objective, String> name;
-    @FXML public TableColumn<Objective, String> points;
-    private Classic classic;
+    @FXML public TableColumn<Objective, String> name, points;
+    private Game classic;
+    private Label[] dices;
+    private Label[] status;
+    private Button[] select;
     
     @FXML
     public void backToMenu() throws IOException {
@@ -89,7 +85,7 @@ public class ClassicController implements Initializable {
     @FXML
     public void giveUp() throws IOException {
         classic.endSession();
-        YatzyUi.setRoot("menu");
+        YatzyUi.setRoot("classic");
     }
     @FXML
     public void select(ActionEvent event) {
@@ -105,11 +101,12 @@ public class ClassicController implements Initializable {
         dices = new Label[]{dice1, dice2, dice3, dice4, dice5};
         status = new Label[]{status1, status2, status3, status4, status5};
         select = new Button[]{select1, select2, select3, select4, select5};
-        classic = new Classic();
-        player.setText("Player: " + YatzyUi.setUpManager.currentUser);
+        classic = new Game();
+        player.setText("Player: " + GameManager.currentUser);
+        gameInfo.setText("Gamemode: " + GameManager.currentGameMode.getShownName());
         name.setCellFactory(TextFieldTableCell.forTableColumn());
-        points.setCellFactory(TextFieldTableCell.forTableColumn());
         name.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getName()));
+        points.setCellFactory(TextFieldTableCell.forTableColumn());
         points.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getPoints()));
         classic.setObjectives();
         objectivesTable.setItems(classic.objectives);

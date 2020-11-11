@@ -16,17 +16,18 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import manager.GameManager;
 import ui.YatzyUi;
-import uicontroller.ClassicController;
+import uicontroller.GameController;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class Classic extends ClassicController {
+public class Game extends GameController {
     public ObservableList<Objective> objectives;
     public ObservableList<Objective> objectiveNames;
-    public ClassicCalculator classicCalc;
+    public Calculator classicCalc;
     public Random random;
     public int reRollCount;
     
@@ -35,17 +36,17 @@ public class Classic extends ClassicController {
     }
     
     public void setObjectives() {
-        this.classicCalc = new ClassicCalculator();
+        this.classicCalc = new Calculator();
         this.reRollCount = 0;
         this.objectives = FXCollections.observableArrayList();
         this.objectiveNames = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM objectives WHERE gamemode='classic';";
+        String sql = "SELECT * FROM objectives WHERE gamemode='" + GameManager.currentGameMode.getCollection() + "';";
         List<String> names = YatzyUi.databaseManager.selectFrom(sql, "database", "name");
         List<String> requirements = YatzyUi.databaseManager.selectFrom(sql, "database", "requirements");
         for (int i = 0; i < names.size(); i++) {
             Objective object = new Objective(names.get(i), requirements.get(i));
             this.objectives.add(object);
-            if (names.get(i).equals("Bonus") == false) {
+            if (requirements.get(i).charAt(0) != 'b') {
                 this.objectiveNames.add(object);
             }
         }
@@ -65,10 +66,7 @@ public class Classic extends ClassicController {
         return status;
     }
     public String getDices(String givenStatus, String givenDice) {
-        if (givenStatus.equals("")) {
-            return String.valueOf(this.random.nextInt(6) + 1);
-        }
-        if (givenDice.equals("-")) {
+        if (givenStatus.equals("") || givenDice.equals("-")) {
             return String.valueOf(this.random.nextInt(6) + 1);
         }
         return givenDice;
@@ -79,15 +77,20 @@ public class Classic extends ClassicController {
         this.objectives.clear();
     }
     public int getPoints(Objective givenObjective, Label[] dices) {
-        return this.classicCalc.getPoints(givenObjective, dices);
+        List<Integer> diceList = new ArrayList<>();
+        for (int i = 0; i < dices.length; i++) {
+            diceList.add(Integer.valueOf(dices[i].getText().subSequence(0, 1).charAt(0)));
+        }
+        Collections.sort(diceList, Collections.reverseOrder());
+        return this.classicCalc.getPoints(givenObjective, diceList);
     }
     public int getScore() {
-        int sum = 0;
+        int score = 0;
         for (Objective objective:this.objectives) {
             if (objective.getPoints().equals("---") == false) {
-                sum += Integer.valueOf(objective.getPoints());
+                score += Integer.valueOf(objective.getPoints());
             }
         }
-        return sum;
+        return score;
     }
 }

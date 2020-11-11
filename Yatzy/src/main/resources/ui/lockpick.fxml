@@ -14,7 +14,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.LockPickController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.GameController">
    <children>
       <MenuBar prefHeight="26.0" prefWidth="1050.0">
          <menus>
@@ -35,22 +35,22 @@
             </Menu>
          </menus>
       </MenuBar>
-      <Button fx:id="selectSecond" layoutX="470.0" layoutY="187.0" mnemonicParsing="false" onAction="#selectSecond" prefHeight="26.0" prefWidth="120.0" text="Select">
+      <Button fx:id="select1" layoutX="470.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="selectThird" layoutX="612.0" layoutY="187.0" mnemonicParsing="false" onAction="#selectThird" prefHeight="26.0" prefWidth="120.0" text="Select">
+      <Button fx:id="select2" layoutX="612.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="selectFourth" layoutX="754.0" layoutY="187.0" mnemonicParsing="false" onAction="#selectFourth" prefHeight="26.0" prefWidth="120.0" text="Select">
+      <Button fx:id="select3" layoutX="754.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
          <font>
             <Font size="14.0" />
          </font>
       </Button>
-      <Button fx:id="selectFifth" layoutX="893.0" layoutY="187.0" mnemonicParsing="false" onAction="#selectFifth" prefHeight="26.0" prefWidth="120.0" text="Select">
+      <Button fx:id="select4" layoutX="893.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
          <font>
             <Font size="14.0" />
          </font>
@@ -71,27 +71,27 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusFirst" alignment="CENTER" layoutX="329.0" layoutY="187.0" prefHeight="30.0" prefWidth="120.0" text="Locked" textFill="RED">
+      <Label fx:id="status5" alignment="CENTER" layoutX="329.0" layoutY="187.0" prefHeight="30.0" prefWidth="120.0" text="Locked" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusSecond" alignment="CENTER" layoutX="470.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+      <Label fx:id="status1" alignment="CENTER" layoutX="470.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusThird" alignment="CENTER" layoutX="612.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+      <Label fx:id="status2" alignment="CENTER" layoutX="612.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusFourth" alignment="CENTER" layoutX="754.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+      <Label fx:id="status3" alignment="CENTER" layoutX="754.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="statusFifth" alignment="CENTER" layoutX="893.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+      <Label fx:id="status4" alignment="CENTER" layoutX="893.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
          <font>
             <Font name="System Bold" size="14.0" />
          </font>
@@ -153,7 +153,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Label fx:id="first" alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice5" alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>
@@ -202,22 +202,22 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Label fx:id="second" alignment="CENTER" layoutX="470.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice1" alignment="CENTER" layoutX="470.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="third" alignment="CENTER" layoutX="612.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice2" alignment="CENTER" layoutX="612.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="fourth" alignment="CENTER" layoutX="754.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice3" alignment="CENTER" layoutX="754.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="fifth" alignment="CENTER" layoutX="893.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice4" alignment="CENTER" layoutX="893.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>

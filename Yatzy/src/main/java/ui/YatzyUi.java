@@ -17,10 +17,12 @@ public class YatzyUi extends Application {
     private static Scene scene;
     public static DatabaseManager databaseManager;
     public static SetUpManager setUpManager;
+    public static GameManager gameManager;
 
     @Override
     public void init() {
         databaseManager = new DatabaseManager();
+        gameManager = new GameManager();
         setUpManager = new SetUpManager();
         setUpManager.executeSetUp();
     }
