@@ -16,4 +16,5 @@
 |||Checkstyle virheiden korjausta|
 |||Toisteisen koodin poistamista|
 |11.11.2020|4h|Lisätty tuki uusien pelimuotojen lisäämiselle|
-|Yht|48h||
+|11.11.2020|4h|Lisätty ominaisuuksia custom pelimuodoille|
+|Yht|52h||
