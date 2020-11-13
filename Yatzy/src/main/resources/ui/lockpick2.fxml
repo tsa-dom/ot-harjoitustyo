@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.GameController">
+   <children>
+      <MenuBar prefHeight="26.0" prefWidth="1050.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Button fx:id="select1" layoutX="470.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="select2" layoutX="612.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="select3" layoutX="754.0" layoutY="187.0" mnemonicParsing="false" onAction="#select" prefHeight="26.0" prefWidth="120.0" text="Select">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <TableView fx:id="objectivesTable" layoutX="32.0" layoutY="310.0" prefHeight="360.0" prefWidth="374.0">
+        <columns>
+          <TableColumn fx:id="name" prefWidth="231.99998092651367" sortable="false" text="Objective name" />
+          <TableColumn fx:id="points" minWidth="0.0" prefWidth="120.00006103515625" sortable="false" text="Points" />
+        </columns>
+      </TableView>
+      <Label fx:id="gameInfo" alignment="TOP_LEFT" layoutX="32.0" layoutY="49.0" prefHeight="26.0" prefWidth="260.0" text="Gamemode: Classic&#10;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="32.0" layoutY="277.0" prefHeight="30.0" prefWidth="373.0" text="Objectives:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status1" alignment="CENTER" layoutX="470.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status2" alignment="CENTER" layoutX="612.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status3" alignment="CENTER" layoutX="754.0" layoutY="218.0" prefHeight="30.0" prefWidth="120.0" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status4" alignment="CENTER" layoutX="329.0" layoutY="187.0" prefHeight="30.0" prefWidth="120.0" text="Locked" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="status5" alignment="CENTER" layoutX="893.0" layoutY="187.0" prefHeight="30.0" prefWidth="120.0" text="Locked" textFill="RED">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Button fx:id="reRollButton" layoutX="818.0" layoutY="271.0" mnemonicParsing="false" onAction="#reRoll" prefHeight="42.0" prefWidth="194.0" text="Reroll">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="350.0" mnemonicParsing="false" onAction="#makeChoice" prefHeight="42.0" prefWidth="194.0" text="Make your choice">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="563.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="42.0" prefWidth="194.0" text="Quit game">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="818.0" layoutY="501.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Give up">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" layoutX="818.0" layoutY="618.0" prefHeight="42.0" prefWidth="194.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="454.0" layoutY="308.0" prefHeight="42.0" prefWidth="316.0" text="Choose objective :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="infoLabel" alignment="TOP_LEFT" layoutX="454.0" layoutY="419.0" prefHeight="145.0" prefWidth="316.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TableView fx:id="topTable" layoutX="32.0" layoutY="135.0" prefHeight="120.0" prefWidth="260.0">
+        <columns>
+          <TableColumn prefWidth="145.5999755859375" text="Player" />
+          <TableColumn prefWidth="118.39999389648438" text="Score" />
+        </columns>
+      </TableView>
+      <Label fx:id="rerollCount" layoutX="818.0" layoutY="398.0" prefHeight="42.0" prefWidth="194.0">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="329.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#ff0054" />
+                  <Stop color="WHITESMOKE" offset="0.9961832061068702" />
+                  <Stop color="WHITESMOKE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="470.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#00f9ff" />
+                  <Stop color="#f5f5f5" offset="0.9961832061068702" />
+                  <Stop color="#f5f5f5" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="612.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#00f9ff" />
+                  <Stop color="#f5f5f5" offset="0.9961832061068702" />
+                  <Stop color="#f5f5f5" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="754.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#00f9ff" />
+                  <Stop color="#f5f5f5" offset="0.9961832061068702" />
+                  <Stop color="#f5f5f5" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="893.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#00f9ff" />
+                  <Stop color="#f5f5f5" offset="0.9961832061068702" />
+                  <Stop color="#f5f5f5" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="120.0" layoutX="893.0" layoutY="49.0" stroke="BLACK" strokeType="INSIDE" width="120.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#ff0054" />
+                  <Stop color="WHITESMOKE" offset="0.9961832061068702" />
+                  <Stop color="WHITESMOKE" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Label fx:id="dice1" alignment="CENTER" layoutX="470.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+         <font>
+            <Font name="Comic Sans MS" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="dice2" alignment="CENTER" layoutX="612.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+         <font>
+            <Font name="Comic Sans MS" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="dice3" alignment="CENTER" layoutX="754.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+         <font>
+            <Font name="Comic Sans MS" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="dice4" alignment="CENTER" layoutX="893.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+         <font>
+            <Font name="Comic Sans MS" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="dice5" alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+         <font>
+            <Font name="Comic Sans MS" size="72.0" />
+         </font>
+      </Label>
+      <Label fx:id="reRollWarning" layoutX="818.0" layoutY="315.0" prefHeight="30.0" prefWidth="194.0" textFill="#fa0000">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="diceSum" layoutX="454.0" layoutY="603.0" prefHeight="30.0" prefWidth="316.0" text="Dice sum: 0">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="player" alignment="TOP_LEFT" layoutX="32.0" layoutY="69.0" prefHeight="26.0" prefWidth="260.0" text="Player: &#10;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="gameInfo2" alignment="TOP_LEFT" layoutX="32.0" layoutY="109.0" prefHeight="26.0" prefWidth="260.0" text="Top 3:">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="objectivesLeft" layoutX="454.0" layoutY="350.0" prefHeight="42.0" prefWidth="316.0" />
+      <Label fx:id="score" layoutX="454.0" layoutY="630.0" prefHeight="30.0" prefWidth="316.0" text="Your score: 0">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="reRollsLeft" layoutX="454.0" layoutY="574.0" prefHeight="30.0" prefWidth="316.0" text="Rerolls left: 3">
+         <font>
+            <Font name="Comic Sans MS" size="18.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

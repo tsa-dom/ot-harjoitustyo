@@ -5,41 +5,73 @@
  */
 package game;
 
-import javafx.beans.property.SimpleStringProperty;
+import java.util.Properties;
 
 /**
  *
  * @author Tapio Salonen
  */
 public class GameMode {
-    private final SimpleStringProperty gameModeName;
-    private final SimpleStringProperty shownName;
-    private final SimpleStringProperty objectiveCollection;
-    public GameMode(String gameName, String collection) {
-        this.gameModeName = new SimpleStringProperty(gameName);
-        this.shownName = new SimpleStringProperty(gameName.substring(0, 1).toUpperCase() + gameName.substring(1));
-        this.objectiveCollection = new SimpleStringProperty(collection);
-    }
-    public void setName(String name) {
-        this.gameModeName.set(name);
+    String gameName;
+    Long reRollWarningTime;
+    int reRollCount;
+    boolean storeReRolls;
+    int minDiceNum;
+    int maxDiceNum;
+    String diceRandomType;
+    String objectiveType;
+    String extraType;
+    String controller;
+    boolean diceLockMode;
+    
+    public GameMode(Properties properties) {
+        this.gameName = properties.getProperty("game_name");
+        this.reRollWarningTime = Long.valueOf(properties.getProperty("reroll_warning_time"));
+        this.reRollCount = Integer.valueOf(properties.getProperty("reroll_count"));
+        this.storeReRolls = Boolean.valueOf(properties.getProperty("store_rerolls"));
+        this.minDiceNum = Integer.valueOf(properties.getProperty("minimum_dice_number"));
+        this.maxDiceNum = Integer.valueOf(properties.getProperty("maximum_dice_number"));
+        this.diceRandomType = properties.getProperty("dice_random_type");
+        this.objectiveType = properties.getProperty("objective_type");
+        this.extraType = properties.getProperty("extra_objective_type");
+        this.controller = properties.getProperty("controller");
+        this.diceLockMode = Boolean.valueOf(properties.getProperty("dice_lock_mode"));
     }
     public String getName() {
-        return this.gameModeName.get();
+        return this.gameName;
     }
-    public void setCollection(String collection) {
-        this.objectiveCollection.set(collection);
+    public long getReRollTime() {
+        return this.reRollWarningTime;
     }
-    public String getCollection() {
-        return this.objectiveCollection.get();
+    public int getReRollCount() {
+        return this.reRollCount;
     }
-    public String getShownName() {
-        return this.shownName.get();
+    public boolean getStoreStatus() {
+        return this.storeReRolls;
     }
-    public void setShownName(String name) {
-        this.shownName.set(name);
+    public int getMinDiceNum() {
+        return this.minDiceNum;
+    }
+    public int getMaxDiceNum() {
+        return this.maxDiceNum;
+    }
+    public String getRandomType() {
+        return this.diceRandomType;
+    }
+    public String getObjectiveType() {
+        return this.objectiveType;
+    }
+    public String getExtraType() {
+        return this.extraType;
+    }
+    public String getController() {
+        return this.controller;
+    }
+    public boolean getLockStatus() {
+        return this.diceLockMode;
     }
     @Override
     public String toString() {
-        return this.getShownName();
+        return this.gameName;
     }
 }

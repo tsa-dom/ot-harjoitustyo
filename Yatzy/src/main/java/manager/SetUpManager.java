@@ -6,10 +6,7 @@
 package manager;
 
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import ui.YatzyUi;
@@ -19,8 +16,6 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class SetUpManager {
-    
-    public static long lastReroll;
     
     public void executeSetUp() {
         createUsers("database");

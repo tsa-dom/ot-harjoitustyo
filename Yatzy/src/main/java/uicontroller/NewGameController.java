@@ -31,7 +31,7 @@ public class NewGameController implements Initializable{
     public void startGame() throws IOException {
         try {
             GameManager.currentGameMode = (GameMode) gameModes.getSelectionModel().getSelectedItem();
-            YatzyUi.setRoot(GameManager.currentGameMode.getName());
+            YatzyUi.setRoot(GameManager.currentGameMode.getController());
         } catch (Exception ex) {
             warning.setText("Choose gamemode");
         }
@@ -40,7 +40,7 @@ public class NewGameController implements Initializable{
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         YatzyUi.gameManager.gameModes.clear();
-        YatzyUi.gameManager.LoadProperties("gamemode");
+        YatzyUi.gameManager.loadGameModes(YatzyUi.gameManager.loadProperties("gamemode"));
         gameModes.setItems(YatzyUi.gameManager.gameModes);
     }
 }

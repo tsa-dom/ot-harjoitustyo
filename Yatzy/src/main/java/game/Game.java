@@ -7,14 +7,11 @@ package game;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import manager.GameManager;
 import ui.YatzyUi;
@@ -30,6 +27,7 @@ public class Game extends GameController {
     public Calculator classicCalc;
     public Random random;
     public int reRollCount;
+    public boolean openLocks;
     
     public void setRandom() {
         this.random = new Random();
@@ -37,10 +35,10 @@ public class Game extends GameController {
     
     public void setObjectives() {
         this.classicCalc = new Calculator();
-        this.reRollCount = 0;
+        this.reRollCount = GameManager.currentGameMode.reRollCount;
         this.objectives = FXCollections.observableArrayList();
         this.objectiveNames = FXCollections.observableArrayList();
-        String sql = "SELECT * FROM objectives WHERE gamemode='" + GameManager.currentGameMode.getCollection() + "';";
+        String sql = "SELECT * FROM objectives WHERE gamemode='" + GameManager.currentGameMode.getObjectiveType() + "';";
         List<String> names = YatzyUi.databaseManager.selectFrom(sql, "database", "name");
         List<String> requirements = YatzyUi.databaseManager.selectFrom(sql, "database", "requirements");
         for (int i = 0; i < names.size(); i++) {
@@ -56,13 +54,17 @@ public class Game extends GameController {
     }
     public String[] getStatus(String givenText) {
         String[] status = new String[2];
-        if (givenText.equals("Select")) {
+        if (GameManager.currentGameMode.diceLockMode && openLocks == false) {
+            status[0] = "---";
+            status[1] = "Locked";
+        } else if (givenText.equals("Select")) {
             status[0] = "Unselect";
             status[1] = "Selected";
         } else {
             status[0] = "Select";
             status[1] = "";
         }
+        openLocks = false;
         return status;
     }
     public String getDices(String givenStatus, String givenDice) {
@@ -92,5 +94,17 @@ public class Game extends GameController {
             }
         }
         return score;
+    }
+    public int numberOfReRolls(int oldCount) {
+        reRollCount = GameManager.currentGameMode.getReRollCount();
+        if (GameManager.currentGameMode.getStoreStatus()) {
+            return GameManager.currentGameMode.getReRollCount() + oldCount;
+        }
+        return GameManager.currentGameMode.getReRollCount();
+    }
+    public void executeIfEnd() throws IOException{
+        if (this.objectiveNames.isEmpty()) {
+            YatzyUi.setRoot("login");
+        }
     }
 }

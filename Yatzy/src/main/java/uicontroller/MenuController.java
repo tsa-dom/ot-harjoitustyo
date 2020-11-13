@@ -24,7 +24,7 @@ public class MenuController {
     }
     @FXML
     public void loadGame() throws IOException {
-        YatzyUi.setRoot("loadgame");
+        //YatzyUi.setRoot("loadgame");
     }
     @FXML
     public void statistics() throws IOException {

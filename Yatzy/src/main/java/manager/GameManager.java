@@ -9,10 +9,7 @@ import game.GameMode;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.*;
 
 /**
  *
@@ -22,19 +19,24 @@ public class GameManager {
     public ObservableList<GameMode> gameModes;
     public static GameMode currentGameMode;
     public static String currentUser;
+    public static long lastReroll;
+    
     public GameManager() {
         this.gameModes = FXCollections.observableArrayList();
     }
-    public boolean LoadProperties(String givenPath){
+    public Properties loadProperties(String givenPath) {
         InputStream inputStream = SetUpManager.class.getResourceAsStream(givenPath + ".properties");
         Properties properties = new Properties();
         try {
             properties.load(inputStream);
         } catch (IOException ex) {
-            return false;
+            return null;
         }
+        return properties;
+    }
+    public boolean loadGameModes(Properties properties) {
         properties.stringPropertyNames().forEach((gameName) -> {
-            GameMode gameMode = new GameMode(gameName, properties.getProperty(gameName));
+            GameMode gameMode = new GameMode(loadProperties(gameName));
             gameModes.add(gameMode);
         });
         return true;
