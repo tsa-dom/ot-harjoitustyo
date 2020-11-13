@@ -15,4 +15,5 @@
 |10.11.2020|6h|Vaatimusmäärittely|
 |||Checkstyle virheiden korjausta|
 |||Toisteisen koodin poistamista|
-|Yht|44h||
+|11.11.2020|4h|Lisätty tuki uusien pelimuotojen lisäämiselle|
+|Yht|48h||
