@@ -17,4 +17,5 @@
 |||Toisteisen koodin poistamista|
 |11.11.2020|4h|Lisätty tuki uusien pelimuotojen lisäämiselle|
 |13.11.2020|4h|Lisätty ominaisuuksia custom pelimuodoille|
-|Yht|52h||
+|14.11.2020|8h|Selvitelty mahdollisuuksia testata controller luokkia|
+|Yht|60h||
