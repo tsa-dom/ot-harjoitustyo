@@ -5,12 +5,10 @@
  */
 package uicontroller;
 
-import generator.SignUpGenerator;
+import service.SignUp;
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import manager.GameManager;
 import ui.YatzyUi;
 
@@ -35,7 +33,7 @@ public class SignUpController {
     }
     @FXML
     public void signUp() {
-        SignUpGenerator signUpGenerator = new SignUpGenerator();
+        SignUp signUpGenerator = new SignUp();
         if (username.getText().length() > 20) {
             infoLabel.setText("Username is too long");
         } else if (username.getText().length() < 5) {

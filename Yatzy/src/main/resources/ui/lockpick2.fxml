@@ -218,12 +218,12 @@
             <Font name="Comic Sans MS" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="dice4" alignment="CENTER" layoutX="893.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice5" alignment="CENTER" layoutX="893.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="dice5" alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
+      <Label fx:id="dice4" alignment="CENTER" layoutX="329.0" layoutY="49.0" prefHeight="120.0" prefWidth="120.0" text="-">
          <font>
             <Font name="Comic Sans MS" size="72.0" />
          </font>

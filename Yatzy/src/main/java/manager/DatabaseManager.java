@@ -16,7 +16,7 @@ public class DatabaseManager {
     
     public boolean executeStatement(String givenContent, String givenDatabase) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");
             connection.createStatement().execute(givenContent);
             connection.close();
             return true;
@@ -26,7 +26,7 @@ public class DatabaseManager {
     }
     public boolean executeStatements(List<String> givenContentList, String givenDatabase) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");
             connection.createStatement().execute("BEGIN TRANSACTION");
             for (int i = 0; i < givenContentList.size(); i++) {
                 connection.createStatement().execute(givenContentList.get(i));
@@ -40,7 +40,7 @@ public class DatabaseManager {
     }
     public List<String> selectFrom(String givenContent, String givenDatabase, String columnLabel) {
         try {
-            connection = DriverManager.getConnection("jdbc:sqlite:" + givenDatabase + ".db");
+            connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");
             ResultSet resultSet = connection.createStatement().executeQuery(givenContent);
             List<String> columnList = new ArrayList<>();
             while (resultSet.next()) {

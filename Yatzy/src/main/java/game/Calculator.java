@@ -5,11 +5,7 @@
  */
 package game;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.List;
-import javafx.scene.control.Label;
+import java.util.*;
 
 /**
  *
@@ -95,23 +91,6 @@ public class Calculator {
         }
         return 0;
     }
-    /*
-    public HashSet<Integer> amountSession(int amount, HashSet<Integer> calculated, List<Integer> diceList) {
-        int numberCount = 1;
-        for (int j = 0; j < diceList.size() - 1; j++) {
-            if (diceList.get(j) == diceList.get(j + 1)) {
-                numberCount++;
-            } else {
-                numberCount = 1;
-            }
-            if (numberCount == amount && calculated.contains(diceList.get(j)) == false) {
-                count += amount * (diceList.get(j) - 48);
-                calculated.add(diceList.get(j));
-                break;
-            }
-        }    
-    }
-    */
     public int ifCustomPoints(int points, char identifier, String requirement){
         if (identifier == 99) {
             return Integer.valueOf(requirement.split("/")[1]);

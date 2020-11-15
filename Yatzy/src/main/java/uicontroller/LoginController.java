@@ -5,12 +5,10 @@
  */
 package uicontroller;
 
-import generator.LoginGenerator;
+import service.Login;
 import java.io.IOException;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import manager.GameManager;
 import ui.YatzyUi;
 
@@ -27,7 +25,7 @@ public class LoginController {
     private PasswordField password;
     @FXML
     public void logIn() {
-        LoginGenerator loginGenerator = new LoginGenerator();
+        Login loginGenerator = new Login();
         if (loginGenerator.logIn(username.getText(), password.getText())) {
             try {
                 GameManager.currentUser = username.getText();

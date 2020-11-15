@@ -6,8 +6,7 @@
 package manager;
 
 import game.GameMode;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.Properties;
 import javafx.collections.*;
 
@@ -25,20 +24,40 @@ public class GameManager {
         this.gameModes = FXCollections.observableArrayList();
     }
     public Properties loadProperties(String givenPath) {
-        InputStream inputStream = SetUpManager.class.getResourceAsStream(givenPath + ".properties");
-        Properties properties = new Properties();
         try {
-            properties.load(inputStream);
-        } catch (IOException ex) {
+            Properties properties = new Properties();
+            properties.load(getClass().getResourceAsStream(givenPath + ".properties"));
+            return properties;
+        } catch (Exception ex) {
             return null;
         }
-        return properties;
+    }
+    public Properties loadFromPath(String givenPath) {
+        try {
+            Properties properties = new Properties();
+            properties.load(new FileInputStream(givenPath + ".properties"));
+            return properties;
+        } catch (Exception ex) {
+            return null;
+        }
     }
     public boolean loadGameModes(Properties properties) {
         properties.stringPropertyNames().forEach((gameName) -> {
-            GameMode gameMode = new GameMode(loadProperties(gameName));
-            gameModes.add(gameMode);
+            if (properties.getProperty(gameName).equals("main")) {
+                loadGameMode(loadProperties(gameName));
+            } else if (properties.getProperty(gameName).equals("cluster")) {
+                loadGameMode(loadFromPath(InstallManager.getJarPath() + "ProgramFiles/Cluster/" + gameName));
+            }
         });
         return true;
+    }
+    public boolean loadGameMode(Properties gameProperties) {
+        if (gameProperties != null) {
+            if (gameProperties.getProperty("enabled").equals("true")) {
+                GameMode gameMode = new GameMode(gameProperties);
+                gameModes.add(gameMode);
+            }
+        } 
+        return false;
     }
 }

@@ -53,17 +53,18 @@ public class GameController implements Initializable {
         }
     }
     @FXML
-    public void makeChoice() {
+    public void makeChoice() throws IOException {
         try {
             updateObjectives();
-            score.setText("Your score: " + game.getScore());
+            game.updateScore();
+            score.setText("Your score: " + GameManager.currentGameMode.getScore());
             game.executeIfEnd();
             clearDices();
             game.reRollCount = game.numberOfReRolls(game.reRollCount);
             reRollsLeft.setText("Rerolls left: " + game.reRollCount);
             diceSum.setText("Dice sum: 0");
         } catch (Exception ex) {
-            System.out.println(ex);
+            
         }
     }
     @FXML
@@ -116,7 +117,11 @@ public class GameController implements Initializable {
             dices[i].setText("-");
             if (status[i].getText().equals("Selected") || status[i].getText().equals("Locked")) {
                 game.openLocks = true;
-                select[i].fire();
+                try {
+                    select[i].fire();
+                } catch (Exception ex) {
+                    game.openLocks = false;
+                }
             }
         }
     }

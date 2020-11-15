@@ -12,19 +12,21 @@ import java.util.Properties;
  * @author Tapio Salonen
  */
 public class GameMode {
-    String gameName;
-    Long reRollWarningTime;
-    int reRollCount;
-    boolean storeReRolls;
-    int minDiceNum;
-    int maxDiceNum;
-    String diceRandomType;
-    String objectiveType;
-    String extraType;
-    String controller;
-    boolean diceLockMode;
+    private int score;
+    private final String gameName;
+    private final Long reRollWarningTime;
+    private final int reRollCount;
+    private final boolean storeReRolls;
+    private final int minDiceNum;
+    private final int maxDiceNum;
+    private final String diceRandomType;
+    private final String objectiveType;
+    private final String extraType;
+    private final String controller;
+    private final boolean diceLockMode;
     
     public GameMode(Properties properties) {
+        this.score = 0;
         this.gameName = properties.getProperty("game_name");
         this.reRollWarningTime = Long.valueOf(properties.getProperty("reroll_warning_time"));
         this.reRollCount = Integer.valueOf(properties.getProperty("reroll_count"));
@@ -36,6 +38,12 @@ public class GameMode {
         this.extraType = properties.getProperty("extra_objective_type");
         this.controller = properties.getProperty("controller");
         this.diceLockMode = Boolean.valueOf(properties.getProperty("dice_lock_mode"));
+    }
+    public void setScore(int score) {
+        this.score = score;
+    }
+    public int getScore() {
+        return this.score;
     }
     public String getName() {
         return this.gameName;

@@ -5,27 +5,42 @@
  */
 package game;
 
-import java.io.IOException;
-import java.util.*;
-import javafx.collections.*;
-import javafx.scene.control.Label;
-import manager.GameManager;
-import ui.YatzyUi;
-import uicontroller.GameController;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class Game extends GameController {
-    public ObservableList<Objective> objectives;
-    public ObservableList<Objective> objectiveNames;
-    public Calculator classicCalc;
-    public Random random;
-    public int reRollCount;
-    public boolean openLocks;
+public class GameTest {
     
-    public void setRandom() {
+    public GameTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+
+}
+
+/*
+public void setRandom() {
         this.random = new Random();
     }
     
@@ -35,8 +50,8 @@ public class Game extends GameController {
         this.objectives = FXCollections.observableArrayList();
         this.objectiveNames = FXCollections.observableArrayList();
         String sql = "SELECT * FROM objectives WHERE gamemode='" + GameManager.currentGameMode.getObjectiveType() + "';";
-        List<String> names = YatzyUi.databaseManager.selectFrom(sql, "data", "name");
-        List<String> requirements = YatzyUi.databaseManager.selectFrom(sql, "data", "requirements");
+        List<String> names = YatzyUi.databaseManager.selectFrom(sql, "database", "name");
+        List<String> requirements = YatzyUi.databaseManager.selectFrom(sql, "database", "requirements");
         Objective.nextId = 0;
         for (int i = 0; i < names.size(); i++) {
             Objective object = new Objective(names.get(i), requirements.get(i));
@@ -106,4 +121,4 @@ public class Game extends GameController {
             YatzyUi.setRoot("endgame");
         }
     }
-}
+*/

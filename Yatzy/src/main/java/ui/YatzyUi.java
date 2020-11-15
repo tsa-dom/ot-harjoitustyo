@@ -16,14 +16,14 @@ public class YatzyUi extends Application {
 
     private static Scene scene;
     public static DatabaseManager databaseManager;
-    public static SetUpManager setUpManager;
+    public static InstallManager setUpManager;
     public static GameManager gameManager;
 
     @Override
     public void init() {
         databaseManager = new DatabaseManager();
         gameManager = new GameManager();
-        setUpManager = new SetUpManager();
+        setUpManager = new InstallManager();
         setUpManager.executeSetUp();
     }
     @Override
@@ -33,6 +33,7 @@ public class YatzyUi extends Application {
         stage.setTitle("Yatzy");
         stage.setResizable(false);
         stage.show();
+        stage.toFront();
     }
     @Override
     public void stop() {

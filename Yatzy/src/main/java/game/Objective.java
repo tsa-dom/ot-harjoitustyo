@@ -4,53 +4,40 @@
  * and open the template in the editor.
  */
 package game;
-
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
-
 /**
  *
  * @author Tapio Salonen
  */
 public class Objective {
     public static int nextId = 0;
-    private final SimpleStringProperty name;
-    private final SimpleIntegerProperty id;
-    private final SimpleStringProperty requirement;
-    private final SimpleStringProperty points;
+    private final String name;
+    private final int id;
+    private final String requirement;
+    private String points;
     public Objective(String givenName, String givenRequirement) {
-        this.requirement = new SimpleStringProperty(givenRequirement);
-        this.name = new SimpleStringProperty(givenName);
-        this.points  = new SimpleStringProperty("---");
-        this.id = new SimpleIntegerProperty(nextId);
+        this.requirement = givenRequirement;
+        this.name = givenName;
+        this.points  = "---";
+        this.id = nextId;
         Objective.nextId += 1;
     }
     public String getName() {
-        return name.get();
-    }
-    public String getPoints() {
-        return points.get();
-    }
-    public int getId() {
-        return this.id.get();
-    }
-    public String getRequirement() {
-        return this.requirement.get();
-    }
-    public void setName(String name) {
-        this.name.set(name);
-    }
-    public void setPoints(String points) {
-        this.points.set(points);
-    }
-    public SimpleStringProperty nameProperty() {
         return this.name;
     }
-    public SimpleStringProperty pointsProperty() {
+    public String getPoints() {
         return this.points;
+    }
+    public int getId() {
+        return this.id;
+    }
+    public String getRequirement() {
+        return this.requirement;
+    }
+    public void setPoints(String givenPoints) {
+        this.points = givenPoints;
     }
     @Override
     public String toString() {
-        return this.name.get();
+        return this.name;
     }
 }

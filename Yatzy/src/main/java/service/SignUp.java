@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package generator;
+package service;
 
 import ui.YatzyUi;
 
@@ -11,10 +11,10 @@ import ui.YatzyUi;
  *
  * @author Tapio Salonen
  */
-public class SignUpGenerator {
+public class SignUp {
     public boolean signUp(String givenUsername, String givenPassword) {
         String sql = "INSERT INTO users (username,password) VALUES ('" + givenUsername + "','" + givenPassword + "');";
-        if (YatzyUi.databaseManager.executeStatement(sql, "database")) {
+        if (YatzyUi.databaseManager.executeStatement(sql, "data")) {
             return true;
         }
         return false;
