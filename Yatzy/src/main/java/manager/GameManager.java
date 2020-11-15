@@ -46,7 +46,7 @@ public class GameManager {
             if (properties.getProperty(gameName).equals("main")) {
                 loadGameMode(loadProperties(gameName));
             } else if (properties.getProperty(gameName).equals("cluster")) {
-                loadGameMode(loadFromPath(InstallManager.getJarPath() + "ProgramFiles/Cluster/" + gameName));
+                loadGameMode(loadFromPath(InstallManager.getJarPath() + "Programfiles/Cluster/" + gameName));
             }
         });
         return true;
