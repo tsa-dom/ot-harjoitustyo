@@ -9,15 +9,15 @@
 ## Komentorivitoiminnot
 ### Testaaminen
 ##### Ohjelman testaus tapahtuu komennolla
-<p>mvn test</p>
+> mvn test
 ##### Testikattavuusraportti voidaan generoida komennolla
-<p>mvn jacoco:report</p>
+> mvn jacoco:report
 ##### Testikattavuus raportti tallennetaan polkuun *target/site/jacoco/index.html*.
 ### Checkstyle
 ##### Checkstyle raportti voidaan generoida komennolla
-<p>mvn jxr:jxr checkstyle:checkstyle</p>
+> mvn jxr:jxr checkstyle:checkstyle
 ##### Checkstyle raportti on tarkasteltavissa polussa *target/site/checkstyle.html*
 ### Jarin generointi
 ##### Suoritettavissa oleva jar tiedosto voidaan generoida komennolla
-<p>mvn package</p>
+> mvn package
 ##### Jar tiedosto löytyy polusta *target/Yatzy-1.0-SNAPSHOT*
