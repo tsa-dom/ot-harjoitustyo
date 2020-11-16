@@ -11,14 +11,18 @@ Ei valmiita julkaisuja
 ### Testaaminen
 Ohjelman testaus tapahtuu komennolla
 > mvn test
+
 Testikattavuusraportti voidaan generoida komennolla
 > mvn jacoco:report
+
 Testikattavuus raportti tallennetaan polkuun *target/site/jacoco/index.html*.
 ### Checkstyle
 Checkstyle raportti voidaan generoida komennolla
 > mvn jxr:jxr checkstyle:checkstyle
+
 Checkstyle raportti on tarkasteltavissa polussa *target/site/checkstyle.html*
 ### Jarin generointi
 Suoritettavissa oleva jar tiedosto voidaan generoida komennolla
 > mvn package
+
 Jar tiedosto löytyy polusta *target/Yatzy-1.0-SNAPSHOT*
