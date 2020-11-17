@@ -14,7 +14,7 @@ import ui.YatzyUi;
 public class SignUp {
     public boolean signUp(String givenUsername, String givenPassword) {
         String sql = "INSERT INTO users (username,password) VALUES ('" + givenUsername + "','" + givenPassword + "');";
-        if (YatzyUi.databaseManager.executeStatement(sql, "data")) {
+        if (Core.sqlAsker().executeStatement(sql, "data")) {
             return true;
         }
         return false;

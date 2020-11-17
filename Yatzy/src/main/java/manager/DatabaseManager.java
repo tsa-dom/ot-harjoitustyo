@@ -7,13 +7,15 @@ package manager;
 
 import java.sql.*;
 import java.util.*;
+import domain.DataInterface;
 /**
  *
  * @author Tapio Salonen
  */
-public class DatabaseManager {
+public class DatabaseManager implements DataInterface{
     private Connection connection;
     
+    @Override
     public boolean executeStatement(String givenContent, String givenDatabase) {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");
@@ -24,6 +26,7 @@ public class DatabaseManager {
             return false;
         }
     }
+    @Override
     public boolean executeStatements(List<String> givenContentList, String givenDatabase) {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");
@@ -38,6 +41,7 @@ public class DatabaseManager {
             return false;
         }
     }
+    @Override
     public List<String> selectFrom(String givenContent, String givenDatabase, String columnLabel) {
         try {
             connection = DriverManager.getConnection("jdbc:sqlite:Programfiles/" + givenDatabase + ".db");

@@ -5,9 +5,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import manager.*;
+import service.Core;
 
 /**
  * JavaFX App
@@ -15,16 +15,12 @@ import manager.*;
 public class YatzyUi extends Application {
 
     private static Scene scene;
-    public static DatabaseManager databaseManager;
-    public static InstallManager setUpManager;
-    public static GameManager gameManager;
+    private Core mainNode;
 
     @Override
     public void init() {
-        databaseManager = new DatabaseManager();
-        gameManager = new GameManager();
-        setUpManager = new InstallManager();
-        setUpManager.executeSetUp();
+        mainNode = new Core();
+        mainNode.install();
     }
     @Override
     public void start(Stage stage) throws IOException {
@@ -33,7 +29,6 @@ public class YatzyUi extends Application {
         stage.setTitle("Yatzy");
         stage.setResizable(false);
         stage.show();
-        stage.toFront();
     }
     @Override
     public void stop() {

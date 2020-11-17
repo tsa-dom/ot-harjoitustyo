@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.NewGameController">
    <children>
-      <Label alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="507.0" layoutY="330.0" lineSpacing="2.0" prefHeight="202.0" prefWidth="422.0" text="Tietoa tästä pelimuodosta:&#10;Tätä pelimuotoa voidaan pelata seuraavasti&#10;Tätä pelimuotoa ei ole olemassa vielä&#10;Näyttää siltä että tämä toimii">
+      <Label alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="507.0" layoutY="330.0" lineSpacing="2.0" prefHeight="202.0" prefWidth="422.0">
          <font>
             <Font size="14.0" />
          </font></Label>
@@ -70,9 +70,9 @@
          </font>
       </Button>
       <ComboBox fx:id="gameModes" layoutX="116.0" layoutY="330.0" prefHeight="39.0" prefWidth="352.0" />
-      <Label fx:id="warning" layoutX="116.0" layoutY="425.0" prefHeight="39.0" prefWidth="352.0" textFill="RED">
+      <Label fx:id="warning" alignment="TOP_LEFT" layoutX="116.0" layoutY="433.0" prefHeight="68.0" prefWidth="352.0" textFill="RED">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font>
       </Label>
    </children>

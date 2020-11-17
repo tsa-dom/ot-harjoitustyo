@@ -24,6 +24,7 @@ public class GameMode {
     private final String extraType;
     private final String controller;
     private final boolean diceLockMode;
+    private final int bonusRequirement;
     
     public GameMode(Properties properties) {
         this.score = 0;
@@ -38,6 +39,7 @@ public class GameMode {
         this.extraType = properties.getProperty("extra_objective_type");
         this.controller = properties.getProperty("controller");
         this.diceLockMode = Boolean.valueOf(properties.getProperty("dice_lock_mode"));
+        this.bonusRequirement = Integer.valueOf(properties.getProperty("bonus_required_points"));
     }
     public void setScore(int score) {
         this.score = score;
@@ -77,6 +79,9 @@ public class GameMode {
     }
     public boolean getLockStatus() {
         return this.diceLockMode;
+    }
+    public int getBonusRequirement() {
+        return this.bonusRequirement;
     }
     @Override
     public String toString() {

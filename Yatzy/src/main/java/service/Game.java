@@ -3,27 +3,27 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package service;
 
-import java.io.IOException;
+import game.Calculator;
+import game.Objective;
 import java.util.*;
 import javafx.collections.*;
 import javafx.scene.control.Label;
 import manager.GameManager;
 import ui.YatzyUi;
-import uicontroller.GameController;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class Game extends GameController {
+public class Game {
     public ObservableList<Objective> objectives;
     public ObservableList<Objective> objectiveNames;
-    public Calculator classicCalc;
-    public Random random;
     public int reRollCount;
     public boolean openLocks;
+    private Calculator classicCalc;
+    private Random random;
     
     public void setRandom() {
         this.random = new Random();
@@ -35,8 +35,8 @@ public class Game extends GameController {
         this.objectives = FXCollections.observableArrayList();
         this.objectiveNames = FXCollections.observableArrayList();
         String sql = "SELECT * FROM objectives WHERE gamemode='" + GameManager.currentGameMode.getObjectiveType() + "';";
-        List<String> names = YatzyUi.databaseManager.selectFrom(sql, "data", "name");
-        List<String> requirements = YatzyUi.databaseManager.selectFrom(sql, "data", "requirements");
+        List<String> names = Core.sqlAsker().selectFrom(sql, "data", "name");
+        List<String> requirements = Core.sqlAsker().selectFrom(sql, "data", "requirements");
         Objective.nextId = 0;
         for (int i = 0; i < names.size(); i++) {
             Objective object = new Objective(names.get(i), requirements.get(i));
@@ -67,9 +67,13 @@ public class Game extends GameController {
     }
     public String getDices(String givenStatus, String givenDice) {
         if (givenStatus.equals("") || givenDice.equals("-")) {
-            int min = GameManager.currentGameMode.getMinDiceNum();
-            int max = GameManager.currentGameMode.getMaxDiceNum();
-            return String.valueOf(this.random.nextInt(max - min + 1) + min);
+            try {
+                int min = GameManager.currentGameMode.getMinDiceNum();
+                int max = GameManager.currentGameMode.getMaxDiceNum();
+                return String.valueOf(this.random.nextInt(max - min + 1) + min);
+            } catch (Exception ex) {
+                
+            }
         }
         return givenDice;
     }
@@ -101,9 +105,13 @@ public class Game extends GameController {
         }
         return GameManager.currentGameMode.getReRollCount();
     }
-    public void executeIfEnd() throws IOException{
-        if (this.objectiveNames.isEmpty()) {
-            YatzyUi.setRoot("endgame");
+    public boolean bonusRequirement() {
+        boolean current = false;
+        for (Objective objective:this.objectives) {
+            if (objective.getRequirement().charAt(0) == 121 && objective.getPoints().equals("---")) {
+                current = true;
+            }
         }
+        return current;
     }
 }

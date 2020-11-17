@@ -24,7 +24,7 @@ public class LoginController {
     @FXML
     private PasswordField password;
     @FXML
-    public void logIn() {
+    private void logIn() {
         Login loginGenerator = new Login();
         if (loginGenerator.logIn(username.getText(), password.getText())) {
             try {
@@ -39,11 +39,11 @@ public class LoginController {
         infoLabel.setText("Wrong username or password!");
     }
     @FXML
-    public void signUp() throws IOException {
+    private void signUp() throws IOException {
         YatzyUi.setRoot("signup");
     }
     @FXML
-    public void quit() {
+    private void quit() {
         System.exit(0);
     }
 }

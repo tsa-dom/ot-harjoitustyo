@@ -5,6 +5,7 @@
  */
 package uicontroller;
 
+import service.Game;
 import game.*;
 import java.io.IOException;
 import java.net.URL;
@@ -29,18 +30,18 @@ public class GameController implements Initializable {
     @FXML private TableView topTable;
     @FXML private ComboBox objectivesLeft;
     @FXML private TableView<Objective> objectivesTable;
-    @FXML public TableColumn<Objective, String> name, points;
+    @FXML private TableColumn<Objective, String> name, points;
     private Game game;
     private Label[] dices, status;
     private Button[] select;
     
     @FXML
-    public void backToMenu() throws IOException {
+    private void backToMenu() throws IOException {
         game.endSession();
         YatzyUi.setRoot("menu");
     }
     @FXML
-    public void reRoll() throws IOException {
+    private void reRoll() throws IOException {
         reRollWarning.setText("");
         if (game.reRollCount <= 0) {
             reRollWarning.setText("0 rerolls left");
@@ -53,12 +54,12 @@ public class GameController implements Initializable {
         }
     }
     @FXML
-    public void makeChoice() throws IOException {
+    private void makeChoice() throws IOException {
         try {
             updateObjectives();
             game.updateScore();
             score.setText("Your score: " + GameManager.currentGameMode.getScore());
-            game.executeIfEnd();
+            executeIfEnd();
             clearDices();
             game.reRollCount = game.numberOfReRolls(game.reRollCount);
             reRollsLeft.setText("Rerolls left: " + game.reRollCount);
@@ -68,12 +69,12 @@ public class GameController implements Initializable {
         }
     }
     @FXML
-    public void giveUp() throws IOException {
+    private void giveUp() throws IOException {
         game.endSession();
         YatzyUi.setRoot("classic");
     }
     @FXML
-    public void select(ActionEvent event) {
+    private void select(ActionEvent event) {
         Button pressedButton = (Button) event.getSource();
         int id = Integer.valueOf(pressedButton.getId().split("select")[1]) - 1;
         String[] sessionStatus = game.getStatus(pressedButton.getText());
@@ -89,7 +90,7 @@ public class GameController implements Initializable {
         game.setRandom();
         setGameReady();
     }
-    public void executeReRoll() {
+    private void executeReRoll() {
         int sum = 0;
         for (int i = 0; i < dices.length; i++) {
             dices[i].setText(game.getDices(status[i].getText(), dices[i].getText()));
@@ -100,7 +101,7 @@ public class GameController implements Initializable {
         game.reRollCount--;
         reRollsLeft.setText("Rerolls left: " + game.reRollCount);
     }
-    public void setGameReady() {
+    private void setGameReady() {
         name.setCellFactory(TextFieldTableCell.forTableColumn());
         name.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getName()));
         points.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -112,7 +113,7 @@ public class GameController implements Initializable {
         gameInfo.setText("Gamemode: " + GameManager.currentGameMode.getName());
         reRollsLeft.setText("Rerolls left: " + game.reRollCount);
     }
-    public void clearDices() {
+    private void clearDices() {
         for (int i = 0; i < dices.length; i++) {
             dices[i].setText("-");
             if (status[i].getText().equals("Selected") || status[i].getText().equals("Locked")) {
@@ -125,11 +126,16 @@ public class GameController implements Initializable {
             }
         }
     }
-    public void updateObjectives() {
+    private void updateObjectives() {
         Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
         game.setReady(objective.getId(), game.getPoints(objective, dices));
         objectivesLeft.getItems().remove(objectivesLeft.getSelectionModel().getSelectedItem());
         objectivesTable.refresh();
         objectivesLeft.getSelectionModel().clearSelection();
+    }
+    private void executeIfEnd() throws IOException{
+        if (game.objectiveNames.isEmpty()) {
+            YatzyUi.setRoot("endgame");
+        }
     }
 }

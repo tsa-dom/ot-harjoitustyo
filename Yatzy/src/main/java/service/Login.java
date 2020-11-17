@@ -15,7 +15,7 @@ import ui.YatzyUi;
 public class Login {
     public boolean logIn(String givenUsername, String givenPassword) {
         String sql = "SELECT password FROM users WHERE username='" + givenUsername + "';";
-        List<String> columnList = YatzyUi.databaseManager.selectFrom(sql, "data", "password");
+        List<String> columnList = Core.sqlAsker().selectFrom(sql, "data", "password");
         try {
             String foundPassword = columnList.get(0);
             if (givenPassword.equals(foundPassword)) {

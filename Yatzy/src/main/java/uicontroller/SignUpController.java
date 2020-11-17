@@ -24,7 +24,7 @@ public class SignUpController {
     @FXML
     private PasswordField password;
     @FXML
-    public void backToLogin() {
+    private void backToLogin() {
         try {
             YatzyUi.setRoot("login");
         } catch (IOException ex) {
@@ -32,7 +32,7 @@ public class SignUpController {
         }
     }
     @FXML
-    public void signUp() {
+    private void signUp() {
         SignUp signUpGenerator = new SignUp();
         if (username.getText().length() > 20) {
             infoLabel.setText("Username is too long");

@@ -12,7 +12,7 @@ import java.util.*;
  * @author Tapio Salonen
  */
 public class Calculator {
-    public int upperComplete;
+    private int upperComplete;
     public Calculator() {
         this.upperComplete = 0;
     }

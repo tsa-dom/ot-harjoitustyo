@@ -10,7 +10,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
-import ui.YatzyUi;
+import service.Core;
 
 /**
  *
@@ -18,7 +18,7 @@ import ui.YatzyUi;
  */
 public class InstallManager {
     
-    public void executeSetUp() {
+    public void executeInstall() {
         programFilesFolder();
         clusterFolder();
         gameProperties();
@@ -27,30 +27,26 @@ public class InstallManager {
         createScoreTable("data");
         createObjectives("data");
     }
-    public static String getJarPath() {
-        String currentPath = System.getProperty("user.dir");
-        return currentPath + "/";
-    }
     private boolean programFilesFolder() {
-        if (Files.exists(Paths.get(getJarPath() + "Programfiles/"))){
+        if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/"))){
             return false;
         }
-        File file = new File(getJarPath() + "Programfiles");
+        File file = new File(Core.getPath()+ "Programfiles");
         return file.mkdir();
     }
     private boolean clusterFolder() {
-        if (Files.exists(Paths.get(getJarPath() + "Programfiles/Cluster/"))){
+        if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/Cluster/"))){
             return false;
         }
-        File file = new File(getJarPath() + "Programfiles/" + "Cluster");
+        File file = new File(Core.getPath()+ "Programfiles/" + "Cluster");
         return file.mkdir();
     }
     private boolean gameProperties() {
         try {
-            if (Files.exists(Paths.get(getJarPath() + "Programfiles/game.properties"))){
+            if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/game.properties"))){
                 return false;
             }
-            File file = new File(getJarPath() + "Programfiles/" + "game.properties");
+            File file = new File(Core.getPath()+ "Programfiles/" + "game.properties");
             writeProperties(file, "default_game");
             return file.createNewFile();
         } catch (IOException ex) {
@@ -66,10 +62,10 @@ public class InstallManager {
     }
     private boolean clusterProperties(String clusterName) {
         try {
-            if (Files.exists(Paths.get(getJarPath() + "Programfiles/Cluster/" + clusterName + ".properties"))){
+            if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/Cluster/" + clusterName + ".properties"))){
                 return false;
             }
-            File file = new File(getJarPath() + "Programfiles/Cluster/" + clusterName + ".properties");
+            File file = new File(Core.getPath()+ "Programfiles/Cluster/" + clusterName + ".properties");
             writeProperties(file, "default_cluster");
             return file.createNewFile();
         } catch (IOException ex) {
@@ -94,15 +90,15 @@ public class InstallManager {
     }
     private boolean createUsers(String givenDatabase) {
         String sql = "CREATE TABLE users (username TEXT UNIQUE,password TEXT);";
-        return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
+        return Core.sqlAsker().executeStatement(sql, givenDatabase);
     }
     private boolean createScoreTable(String givenDatabase) {
         String sql = "CREATE TABLE score (username TEXT,score INTEGER,gamemode TEXT,maxScore INTEGER);";
-        return YatzyUi.databaseManager.executeStatement(sql, givenDatabase);
+        return Core.sqlAsker().executeStatement(sql, givenDatabase);
     }
     private boolean createObjectives(String givenDatabase) {
         List<String> objectiveStatements = searchStatements("objectives");
-        return YatzyUi.databaseManager.executeStatements(objectiveStatements, givenDatabase);
+        return Core.sqlAsker().executeStatements(objectiveStatements, givenDatabase);
     }
     private List<String> searchStatements(String givenPath) {
         InputStream inputStream = InstallManager.class.getResourceAsStream(givenPath + ".sql");

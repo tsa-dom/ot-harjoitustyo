@@ -11,9 +11,9 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.NewGameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uicontroller.LoadGameController">
    <children>
-      <Label alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="507.0" layoutY="330.0" lineSpacing="2.0" prefHeight="202.0" prefWidth="422.0" text="Tietoa tästä pelimuodosta:&#10;Tätä pelimuotoa voidaan pelata seuraavasti&#10;Tätä pelimuotoa ei ole olemassa vielä&#10;Näyttää siltä että tämä toimii">
+      <Label alignment="TOP_LEFT" graphicTextGap="0.0" layoutX="507.0" layoutY="330.0" lineSpacing="2.0" prefHeight="202.0" prefWidth="422.0">
          <font>
             <Font size="14.0" />
          </font>

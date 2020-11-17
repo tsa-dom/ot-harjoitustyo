@@ -21,21 +21,19 @@ import ui.YatzyUi;
 public class EndGameController implements Initializable {
     @FXML private Label score, gameMode;
     @FXML
-    public void newGame() throws IOException {
+    private void newGame() throws IOException {
         YatzyUi.setRoot("newgame");
     }
     @FXML
-    public void statistics() throws IOException {
+    private void statistics() throws IOException {
         YatzyUi.setRoot("scoreboard");
     }
     @FXML
-    public void backToMenu() throws IOException {
+    private void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        System.out.println(GameManager.currentGameMode.getScore());
-        System.out.println(GameManager.currentGameMode.getName());
         score.setText("Your score: " + GameManager.currentGameMode.getScore());
         gameMode.setText(GameManager.currentGameMode.getName());
         GameManager.currentGameMode = null;
