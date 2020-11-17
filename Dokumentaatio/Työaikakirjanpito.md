@@ -19,4 +19,5 @@
 |13.11.2020|4h|Lisätty ominaisuuksia custom pelimuodoille|
 |14.11.2020|8h|Selvitelty mahdollisuuksia testata controller luokkia|
 |15.11.2020|6h|Lisätty ominaisuuksia custom pelimuodoille|
-|Yht|66h||
+|17.11.2020|3h|Tehty pieniä muokkausia ohjelmarakenteeseen|
+|Yht|69h||
