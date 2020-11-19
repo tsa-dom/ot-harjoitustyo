@@ -9,7 +9,7 @@ package game;
  * @author Tapio Salonen
  */
 public class Objective {
-    public static int nextId = 0;
+    protected static int nextId = 0;
     private final String name;
     private final int id;
     private final String requirement;

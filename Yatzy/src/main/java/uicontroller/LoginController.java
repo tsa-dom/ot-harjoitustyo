@@ -5,34 +5,29 @@
  */
 package uicontroller;
 
-import service.Login;
+import core.Core;
+import service.LoginLogic;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import manager.GameManager;
 import ui.YatzyUi;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class LoginController {
+public class LoginController implements Initializable{
+    @FXML private Label infoLabel;
+    @FXML private TextField username;
+    @FXML private PasswordField password;
+    private LoginLogic loginLogic;
     @FXML
-    private Label infoLabel;
-    @FXML
-    private TextField username;
-    @FXML
-    private PasswordField password;
-    @FXML
-    private void logIn() {
-        Login loginGenerator = new Login();
-        if (loginGenerator.logIn(username.getText(), password.getText())) {
-            try {
-                GameManager.currentUser = username.getText();
-                YatzyUi.setRoot("menu");
-            } catch (IOException ex) {
-                
-            }
+    private void logIn() throws IOException {
+        if (loginLogic.logIn(username, password)) {
+            YatzyUi.setRoot("menu");    
         }
         username.clear();
         password.clear();
@@ -45,5 +40,10 @@ public class LoginController {
     @FXML
     private void quit() {
         System.exit(0);
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        loginLogic = new LoginLogic();
     }
 }

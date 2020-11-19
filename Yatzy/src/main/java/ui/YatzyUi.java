@@ -7,7 +7,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import java.io.IOException;
 import manager.*;
-import service.Core;
+import core.Core;
 
 /**
  * JavaFX App
@@ -15,12 +15,12 @@ import service.Core;
 public class YatzyUi extends Application {
 
     private static Scene scene;
-    private Core mainNode;
+    private Core core;
 
     @Override
     public void init() {
-        mainNode = new Core();
-        mainNode.install();
+        core = new Core();
+        core.install();
     }
     @Override
     public void start(Stage stage) throws IOException {

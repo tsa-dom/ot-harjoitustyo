@@ -5,13 +5,12 @@
  */
 package uicontroller;
 
+import core.Core;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.fxml.*;
 import javafx.scene.control.Label;
-import manager.GameManager;
 import ui.YatzyUi;
 
 /**
@@ -19,8 +18,7 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class MenuController implements Initializable{
-    @FXML
-    private Label userLabel;
+    @FXML private Label userLabel;
     @FXML
     private void newGame() throws IOException {
         YatzyUi.setRoot("newgame");
@@ -35,7 +33,7 @@ public class MenuController implements Initializable{
     }
     @FXML
     private void logOut() throws IOException {
-        GameManager.currentUser = null;
+        Core.setUser(null);
         YatzyUi.setRoot("login");
     }
     @FXML
@@ -44,6 +42,6 @@ public class MenuController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        userLabel.setText("Current user:\n-> " + GameManager.currentUser);
+        userLabel.setText("Current user:\n-> " + Core.getUser());
     }
 }

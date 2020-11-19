@@ -5,14 +5,13 @@
  */
 package uicontroller;
 
-import game.GameMode;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import manager.GameManager;
-import service.Core;
+import core.Core;
+import service.NewGameLogic;
 import ui.YatzyUi;
 
 /**
@@ -22,6 +21,7 @@ import ui.YatzyUi;
 public class NewGameController implements Initializable{
     @FXML private ComboBox gameModes;
     @FXML private Label warning;
+    private NewGameLogic newGameLogic;
     @FXML
     private void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
@@ -29,11 +29,8 @@ public class NewGameController implements Initializable{
     @FXML
     private void startGame() throws IOException {
         try {
-            if (gameModes.getSelectionModel().isEmpty()) {
-                warning.setText("Choose gamemode");
-            } else {
-                GameManager.currentGameMode = (GameMode) gameModes.getSelectionModel().getSelectedItem();
-                YatzyUi.setRoot(GameManager.currentGameMode.getController());
+            if (newGameLogic.setGameMode(warning, gameModes)) {
+                YatzyUi.setRoot(Core.getGameMode().getController());
             }
         } catch (Exception ex) {
             warning.setText("Failed to load this gamemode.\nCheck your cluster files.");
@@ -41,8 +38,9 @@ public class NewGameController implements Initializable{
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        Core.gameManager.gameModes.clear();
-        Core.gameManager.loadGameModes(Core.gameManager.loadProperties("gamemode"));
-        gameModes.setItems(Core.gameManager.gameModes);
+        newGameLogic = new NewGameLogic();
+        Core.clearGameModes();
+        Core.loadGameModes();
+        gameModes.setItems(Core.getGameModes());
     }
 }

@@ -5,24 +5,25 @@
  */
 package uicontroller;
 
-import service.SignUp;
+import core.Core;
+import service.SignUpLogic;
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import manager.GameManager;
 import ui.YatzyUi;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class SignUpController {
-    @FXML
-    private Label infoLabel;
-    @FXML
-    private TextField username;
-    @FXML
-    private PasswordField password;
+public class SignUpController implements Initializable{
+    @FXML private Label infoLabel;
+    @FXML private TextField username;
+    @FXML private PasswordField password;
+    private SignUpLogic signUpLogic;
     @FXML
     private void backToLogin() {
         try {
@@ -33,27 +34,20 @@ public class SignUpController {
     }
     @FXML
     private void signUp() {
-        SignUp signUpGenerator = new SignUp();
-        if (username.getText().length() > 20) {
-            infoLabel.setText("Username is too long");
-        } else if (username.getText().length() < 5) {
-            infoLabel.setText("Username is too short");
-        } else if (password.getText().length() > 20) {
-            infoLabel.setText("Password is too long");
-        } else if (password.getText().length() < 5) {
-            infoLabel.setText("Password is too short");
-        } else {
-            if (signUpGenerator.signUp(username.getText(), password.getText())) {
-                try {
-                    GameManager.currentUser = username.getText();
+        if(signUpLogic.correctInput(username, password, infoLabel)) {
+            try {
+                if(signUpLogic.setUser(username, password, infoLabel)){
                     YatzyUi.setRoot("menu");
-                } catch (IOException ex) {
-                    infoLabel.setText("Failed to sign up");
                 }
+            } catch (IOException ex) {
+                infoLabel.setText("Failed to sign up");
             }
-            infoLabel.setText("This username already exists");
         }
         username.clear();
         password.clear();
+    }
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        signUpLogic = new SignUpLogic();
     }
 }

@@ -3,22 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package manager;
-
+package core;
 
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Paths;
+import java.nio.file.*;
 import java.util.*;
-import service.Core;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class InstallManager {
-    
-    public void executeInstall() {
+public class InstallCore {
+    protected void executeInstall() {
         programFilesFolder();
         clusterFolder();
         gameProperties();
@@ -75,7 +71,7 @@ public class InstallManager {
     private boolean writeProperties(File givenFile, String propertiesName) {
         try {
             FileWriter writer = new FileWriter(givenFile);
-            InputStream inputStream = InstallManager.class.getResourceAsStream(propertiesName + ".properties"); 
+            InputStream inputStream = Core.class.getResourceAsStream(propertiesName + ".properties"); 
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
             String rule = null;
             while ((rule = reader.readLine()) != null) {
@@ -97,21 +93,7 @@ public class InstallManager {
         return Core.sqlAsker().executeStatement(sql, givenDatabase);
     }
     private boolean createObjectives(String givenDatabase) {
-        List<String> objectiveStatements = searchStatements("objectives");
+        List<String> objectiveStatements = Core.sqlLoader().searchStatements("objectives");
         return Core.sqlAsker().executeStatements(objectiveStatements, givenDatabase);
-    }
-    private List<String> searchStatements(String givenPath) {
-        InputStream inputStream = InstallManager.class.getResourceAsStream(givenPath + ".sql");
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String statement = null;
-        List<String> statementList = new ArrayList<>();
-        try {
-            while ((statement = reader.readLine()) != null) {
-                statementList.add(statement);
-            }
-        } catch (IOException ex) {
-            return null;
-        }
-        return statementList;
     }
 }
