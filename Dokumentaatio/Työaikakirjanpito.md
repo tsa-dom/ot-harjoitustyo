@@ -21,4 +21,5 @@
 |15.11.2020|6h|Lisätty ominaisuuksia custom pelimuodoille|
 |17.11.2020|3h|Tehty pieniä muokkausia ohjelmarakenteeseen|
 |18.11.2020|4h|Koodin laadun parantelua|
-|Yht|73h||
+|19.11.2020|4h|Koodin laadun parantelua|
+|Yht|77h||
