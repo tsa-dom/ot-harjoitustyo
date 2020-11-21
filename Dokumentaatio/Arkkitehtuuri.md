@@ -1,6 +1,7 @@
 # Sovelluksen arkkitehtuuri
 ## Pakkausrakenne
 Sovelluksella on kuusitasoinen pakkausrakenne
+
 ![Pakkausrakenne](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/pakkauskaavio.png)
 
 
