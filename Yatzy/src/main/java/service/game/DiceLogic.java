@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package service.game;
 
 import core.Core;
 import java.util.*;
@@ -57,7 +57,8 @@ public class DiceLogic {
     public List<Integer> createDiceList(Label[] dices) {
         List<Integer> diceList = new ArrayList<>();
         for (Label dice : dices) {
-            diceList.add(Integer.valueOf(dice.getText().subSequence(0, 1).charAt(0)));
+            diceList.add(Integer.valueOf(dice.getText()));
+            //.subSequence(0, 1).charAt(0))
         }
         Collections.sort(diceList, Collections.reverseOrder());
         return diceList;

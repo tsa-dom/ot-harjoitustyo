@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dao;
+package core.dao;
 
 import core.Core;
-import game.GameMode;
 import java.io.FileInputStream;
 import java.util.Properties;
 import javafx.collections.ObservableList;

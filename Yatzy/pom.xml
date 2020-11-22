@@ -11,6 +11,18 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>org.assertj</groupId>
+            <artifactId>assertj-core</artifactId>
+            <version>3.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.10.19</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.32.3</version>
@@ -18,17 +30,24 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
-            <version>13</version>
+            <version>15</version>
         </dependency>
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-fxml</artifactId>
-            <version>13</version>
+            <version>15</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
+            <scope>test</scope>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>org.testfx</groupId>
+            <artifactId>testfx-junit</artifactId>
+            <version>4.0.15-alpha</version>
             <scope>test</scope>
             <type>jar</type>
         </dependency>
@@ -39,6 +58,13 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.3</version>
+                <configuration>
+                    <excludes>
+                        <exclude>main/*</exclude>
+                        <exclude>ui/*</exclude>
+                        <exclude>uicontroller/*</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <id>default-prepare-agent</id>

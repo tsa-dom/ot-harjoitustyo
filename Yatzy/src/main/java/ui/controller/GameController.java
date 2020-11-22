@@ -3,17 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uicontroller;
+package ui.controller;
 
-import core.Core;
-import game.*;
+import service.game.DiceLogic;
+import service.game.ObjectiveLogic;
+import service.game.SceneLogic;
+import service.game.Objective;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.*;
 import javafx.scene.control.*;
-import service.*;
 import ui.YatzyUi;
 
 /**
@@ -73,7 +74,7 @@ public class GameController implements Initializable {
         dices = new Label[]{dice1, dice2, dice3, dice4, dice5};
         status = new Label[]{status1, status2, status3, status4, status5};
         select = new Button[]{select1, select2, select3, select4, select5};
-        objectiveLogic.setObjectives();
+        objectiveLogic.setObjectives("Programfiles/");
         objectiveLogic.objectivesToTable(name, points, objectivesTable, objectivesLeft);
         sceneLogic.setStartSituation(player, gameInfo, reRollsLeft);
     }

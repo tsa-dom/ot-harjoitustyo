@@ -14,54 +14,54 @@ import java.util.*;
  * @author Tapio Salonen
  */
 public class InstallCore {
-    protected void executeInstall() {
-        programFilesFolder();
-        clusterFolder();
-        gameProperties();
-        createClusters();
-        createUsers("data");
-        createScoreTable("data");
-        createObjectives("data");
+    protected void executeInstall(String folder) {
+        programFilesFolder(folder);
+        clusterFolder(folder);
+        gameProperties(folder);
+        createClusters(folder);
+        createUsers(folder, "data");
+        createScoreTable(folder, "data");
+        createObjectives(folder, "data");
     }
-    private boolean programFilesFolder() {
-        if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/"))){
+    private boolean programFilesFolder(String folder) {
+        if (Files.exists(Paths.get(Core.getPath()+ folder))){
             return false;
         }
-        File file = new File(Core.getPath()+ "Programfiles");
+        File file = new File(Core.getPath()+ folder);
         return file.mkdir();
     }
-    private boolean clusterFolder() {
-        if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/Cluster/"))){
+    private boolean clusterFolder(String folder) {
+        if (Files.exists(Paths.get(Core.getPath()+ folder + "Cluster/"))){
             return false;
         }
-        File file = new File(Core.getPath()+ "Programfiles/" + "Cluster");
+        File file = new File(Core.getPath()+ folder + "Cluster");
         return file.mkdir();
     }
-    private boolean gameProperties() {
+    private boolean gameProperties(String folder) {
         try {
-            if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/game.properties"))){
+            if (Files.exists(Paths.get(Core.getPath()+ folder + "game.properties"))){
                 return false;
             }
-            File file = new File(Core.getPath()+ "Programfiles/" + "game.properties");
+            File file = new File(Core.getPath()+ folder + "game.properties");
             writeProperties(file, "default_game");
             return file.createNewFile();
         } catch (IOException ex) {
             return false;
         }
     }
-    private boolean createClusters() {
+    private boolean createClusters(String folder) {
         for (int i = 1; i <= 5; i++) {
             String clusterName = "cluster" + String.valueOf(i);
-            clusterProperties(clusterName);
+            clusterProperties(folder, clusterName);
         }
         return true;
     }
-    private boolean clusterProperties(String clusterName) {
+    private boolean clusterProperties(String folder, String clusterName) {
         try {
-            if (Files.exists(Paths.get(Core.getPath()+ "Programfiles/Cluster/" + clusterName + ".properties"))){
+            if (Files.exists(Paths.get(Core.getPath() + folder + "Cluster/" + clusterName + ".properties"))){
                 return false;
             }
-            File file = new File(Core.getPath()+ "Programfiles/Cluster/" + clusterName + ".properties");
+            File file = new File(Core.getPath() + folder + "Cluster/" + clusterName + ".properties");
             writeProperties(file, "default_cluster");
             return file.createNewFile();
         } catch (IOException ex) {
@@ -84,16 +84,16 @@ public class InstallCore {
             return false;
         }
     }
-    private boolean createUsers(String givenDatabase) {
+    private boolean createUsers(String folder, String database) {
         String sql = "CREATE TABLE users (username TEXT UNIQUE,password TEXT);";
-        return Core.sqlAsker().executeStatement(sql, givenDatabase);
+        return Core.sqlAsker().executeStatement(sql, database, folder);
     }
-    private boolean createScoreTable(String givenDatabase) {
+    private boolean createScoreTable(String folder, String database) {
         String sql = "CREATE TABLE score (username TEXT,score INTEGER,gamemode TEXT,maxScore INTEGER);";
-        return Core.sqlAsker().executeStatement(sql, givenDatabase);
+        return Core.sqlAsker().executeStatement(sql, database, folder);
     }
-    private boolean createObjectives(String givenDatabase) {
+    private boolean createObjectives(String folder, String database) {
         List<String> objectiveStatements = Core.sqlLoader().searchStatements("objectives");
-        return Core.sqlAsker().executeStatements(objectiveStatements, givenDatabase);
+        return Core.sqlAsker().executeStatements(objectiveStatements, database, folder);
     }
 }

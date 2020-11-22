@@ -14,9 +14,9 @@ import javafx.scene.control.*;
  * @author Tapio Salonen
  */
 public class LoginLogic {
-    public boolean logIn(TextField username, PasswordField password) {
+    public boolean logIn(TextField username, PasswordField password, String folder) {
         String sql = "SELECT password FROM users WHERE username='" + username.getText() + "';";
-        List<String> columnList = Core.sqlAsker().selectFrom(sql, "data", "password");
+        List<String> columnList = Core.sqlAsker().selectFrom(sql, "data", "password", folder);
         try {
             String foundPassword = columnList.get(0);
             if (password.getText().equals(foundPassword)) {

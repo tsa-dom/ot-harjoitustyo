@@ -4,7 +4,7 @@ module yatzy.yatzy {
     requires java.sql;
     requires java.desktop;
 
-    opens uicontroller to javafx.fxml;
-    opens manager to java.sql;
+    opens ui.controller to javafx.fxml;
+    opens core to java.sql;
     exports ui;
 }

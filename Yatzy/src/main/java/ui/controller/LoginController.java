@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uicontroller;
+package ui.controller;
 
 import core.Core;
 import service.LoginLogic;
@@ -26,7 +26,7 @@ public class LoginController implements Initializable{
     private LoginLogic loginLogic;
     @FXML
     private void logIn() throws IOException {
-        if (loginLogic.logIn(username, password)) {
+        if (loginLogic.logIn(username, password, "Programfiles/")) {
             YatzyUi.setRoot("menu");    
         }
         username.clear();

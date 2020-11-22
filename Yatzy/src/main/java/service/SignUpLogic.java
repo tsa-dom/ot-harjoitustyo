@@ -29,13 +29,13 @@ public class SignUpLogic {
         return false;
     }
     
-    public boolean createUser(String givenUsername, String givenPassword) {
-        String sql = "INSERT INTO users (username,password) VALUES ('" + givenUsername + "','" + givenPassword + "');";
-        return Core.sqlAsker().executeStatement(sql, "data");
+    public boolean createUser(String username, String password, String folder) {
+        String sql = "INSERT INTO users (username,password) VALUES ('" + username + "','" + password + "');";
+        return Core.sqlAsker().executeStatement(sql, "data", folder);
     }
     
-    public boolean setUser(TextField username, PasswordField password, Label infoLabel) {
-        if (createUser(username.getText(), password.getText())) {
+    public boolean setUser(TextField username, PasswordField password, Label infoLabel, String folder) {
+        if (createUser(username.getText(), password.getText(), folder)) {
             Core.setUser(username.getText());
             return true;
         }

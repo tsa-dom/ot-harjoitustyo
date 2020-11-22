@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uicontroller;
+package ui.controller;
 
 import core.Core;
 import service.SignUpLogic;
@@ -36,7 +36,7 @@ public class SignUpController implements Initializable{
     private void signUp() {
         if(signUpLogic.correctInput(username, password, infoLabel)) {
             try {
-                if(signUpLogic.setUser(username, password, infoLabel)){
+                if(signUpLogic.setUser(username, password, infoLabel, "Programfiles/")){
                     YatzyUi.setRoot("menu");
                 }
             } catch (IOException ex) {

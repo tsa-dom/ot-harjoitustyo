@@ -6,7 +6,7 @@
 package service;
 
 import core.Core;
-import game.GameMode;
+import service.game.GameMode;
 import javafx.scene.control.*;
 
 /**

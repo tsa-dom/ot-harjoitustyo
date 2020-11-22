@@ -5,7 +5,9 @@
  */
 package core;
 
-import dao.*;
+import core.dao.DatabaseAccess;
+import core.dao.PropertiesLoader;
+import core.dao.SQLLoader;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package service.game;
 
 import java.util.List;
 import javafx.beans.property.ReadOnlyStringWrapper;
@@ -20,11 +20,11 @@ public class ObjectiveLogic {
     private ObservableList<Objective> objectives;
     private ObservableList<Objective> objectiveNames;
     private final DiceLogic diceLogic;
-    private final Calculator calculator;
+    private final CalculatorCandidate calculator;
     
     public ObjectiveLogic() {
         diceLogic = new DiceLogic();
-        calculator = new Calculator();
+        calculator = new CalculatorCandidate();
     }
     
     public void updateObjectives(ComboBox objectivesLeft, TableView<Objective> objectivesTable, Label[] dices) {
@@ -35,12 +35,12 @@ public class ObjectiveLogic {
         objectivesLeft.getSelectionModel().clearSelection();
     }
     
-    public void setObjectives() {
+    public void setObjectives(String folder) {
         objectives = FXCollections.observableArrayList();
         objectiveNames = FXCollections.observableArrayList();
         String sql = "SELECT * FROM objectives WHERE gamemode='" + Core.getGameMode().getObjectiveType() + "';";
-        List<String> names = Core.sqlAsker().selectFrom(sql, "data", "name");
-        List<String> requirements = Core.sqlAsker().selectFrom(sql, "data", "requirements");
+        List<String> names = Core.sqlAsker().selectFrom(sql, "data", "name", folder);
+        List<String> requirements = Core.sqlAsker().selectFrom(sql, "data", "requirements", folder);
         Objective.nextId = 0;
         for (int i = 0; i < names.size(); i++) {
             Objective object = new Objective(names.get(i), requirements.get(i));

@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package game;
+package service.game;
 
+import service.game.Objective;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -44,7 +45,6 @@ public class ObjectiveTest {
     @After
     public void tearDown() {
     }
-    
     @Test
     public void getCorrectName(){
         assertEquals("Test Object", objective.getName());

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package uicontroller;
+package ui.controller;
 
 import java.io.IOException;
 import java.net.URL;
@@ -40,7 +40,7 @@ public class NewGameController implements Initializable{
     public void initialize(URL url, ResourceBundle rb) {
         newGameLogic = new NewGameLogic();
         Core.clearGameModes();
-        Core.loadGameModes();
+        Core.loadGameModes("Programfiles/");
         gameModes.setItems(Core.getGameModes());
     }
 }

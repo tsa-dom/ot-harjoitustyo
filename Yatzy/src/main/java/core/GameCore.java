@@ -5,7 +5,7 @@
  */
 package core;
 
-import game.GameMode;
+import service.game.GameMode;
 import java.util.Properties;
 import javafx.collections.*;
 
@@ -22,10 +22,10 @@ public class GameCore {
         this.gameModes = FXCollections.observableArrayList();
     }
     
-    protected void loadGameModes() {
-        gameModes = loadGameModes(Core.properties().loadProperties("gamemode"));
+    protected void loadGameModes(String folder) {
+        gameModes = loadGameModes(folder, Core.properties().loadProperties("gamemode"));
     }
-    protected ObservableList<GameMode> loadGameModes(Properties properties) {
+    protected ObservableList<GameMode> loadGameModes(String folder, Properties properties) {
         try {
             properties.stringPropertyNames().forEach((gameName) -> {
                 if (properties.getProperty(gameName).equals("main")) {

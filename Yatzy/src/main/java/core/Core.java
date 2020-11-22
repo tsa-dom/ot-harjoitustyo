@@ -5,8 +5,10 @@
  */
 package core;
 
-import dao.*;
-import game.GameMode;
+import core.dao.PropertiesLoader;
+import core.dao.SQLLoader;
+import core.dao.DatabaseAccess;
+import service.game.GameMode;
 import javafx.collections.ObservableList;
 
 /**
@@ -24,8 +26,8 @@ public class Core {
         installCore = new InstallCore();
     }
     
-    public void install() {
-        installCore.executeInstall();
+    public void install(String folder) {
+        installCore.executeInstall(folder);
     }
     public static DatabaseAccess sqlAsker() {
         return daoCore.dbAccess;
@@ -48,8 +50,8 @@ public class Core {
     public static void clearGameModes() {
         gameCore.gameModes.clear();
     }
-    public static void loadGameModes() {
-        gameCore.loadGameModes();
+    public static void loadGameModes(String folder) {
+        gameCore.loadGameModes(folder);
     }
     public static ObservableList<GameMode> getGameModes() {
         return gameCore.gameModes;
