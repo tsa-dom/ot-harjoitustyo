@@ -23,4 +23,4 @@
 |18.11.2020|4h|Koodin laadun parantelua|
 |19.11.2020|4h|Koodin laadun parantelua|
 |22.11.2020|6h|Koodin laadun parantelua|
-|Yht|77h||
+|Yht|83h||
