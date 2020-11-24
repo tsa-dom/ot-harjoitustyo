@@ -1,12 +1,13 @@
 # Vaatimusmäärittely
 ## Sovelluksen tarkoitus
 Sovellus on tarkoitettu peliksi, jossa pelaaja voi pelata noppapeliä Yatzy. Ohjelman ei ole tarkoitus rajoittua vain peruspeliin, vaan se tulisi haastamaan pelaajan myös toinen toistaan erikoisemmilla pelimuodoilla.
-## Peliin toteutetut toiminnallisuudet
+## Pelin valmiit toiminnallisuudet
 Peliin on lisätty seuraavat toiminnallisuudet
 * alustava toiminnallisuus custom pelimuodoille
+* custom pelimuotojen cluster.properties tiedostoja voi muokkailla omalla vastuulla, virheellisillä syötteillä voi tulla vielä virheitä
 * päivitetty noppalaskuria siten, että se kykenee nyt laskemaan noppien silmälukuja, jotka ovat suurempia kuin 9
-* peliin lisätty testipelimuoto *fast*, jolla voi saada nopeasti pelattuun pelin joitain toiminnallisuuksia
-* peliin lisätty alustava tuki scoreboardille, jota voi testailla pelaamalla millä tahansa pelimuodolla, mutta testimielessä pelimuodolla *fast*
+* peliin lisätty testipelimuoto *Fast*, jolla voi saada nopeasti pelattuun pelin joitain toiminnallisuuksia
+* peliin lisätty alustava tuki scoreboardille, jota voi testailla pelaamalla millä tahansa pelimuodolla, mutta testimielessä pelimuodolla *Fast*
 * peliin kirjaudutaan käyttäjätunnuksella ja salasanalla
 * peliä pystyy pelaamaan, mutta siitä puuttuu toiminnallisuus laskea bonus
 
