@@ -5,6 +5,7 @@ Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux 
 ## Dokumentaatio
 #### [Vaatimusmäärittely.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Vaatimusmaarittely.md)
 #### [Työaikakirjanpito.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Tyoaikakirjanpito.md)
+#### [Arkkitehtuuri.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Arkkitehtuuri.md)
 ## Release
 Ei valmiita julkaisuja
 ## Komentorivitoiminnot
