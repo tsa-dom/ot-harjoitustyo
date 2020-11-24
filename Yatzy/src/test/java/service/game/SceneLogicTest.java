@@ -65,7 +65,7 @@ public class SceneLogicTest extends ApplicationTest{
     }
     @Test
     public void updateSituationTest2() {
-        Core.setGameMode(Core.getGameModes().get(3));
+        Core.setGameMode(Core.getGameModes().get(4));
         Core.getGameMode().setScore(1337);
         sceneLogic = new SceneLogic();
         sceneLogic.updateSituation(score, reRollsLeft, diceSum);
@@ -98,7 +98,7 @@ public class SceneLogicTest extends ApplicationTest{
         Button[] select = new Button[] {new Button("Unselect"), new Button("Select"), new Button("Select"), new Button("---"), new Button("Unselect")};
         Button button = new Button("---");
         button.setId("select4");
-        Core.setGameMode(Core.getGameModes().get(2));
+        Core.setGameMode(Core.getGameModes().get(3));
         sceneLogic.setDiceStatus(button, status, select);
         assertEquals("Locked", status[3].getText());
         assertEquals("---", select[3].getText());
@@ -107,9 +107,5 @@ public class SceneLogicTest extends ApplicationTest{
         sceneLogic.setDiceStatus(button, status, select);
         assertEquals("Locked", status[1].getText());
         assertEquals("---", select[1].getText());
-    }
-    @Test
-    public void beginReRollEventTest() {
-        
     }
 }

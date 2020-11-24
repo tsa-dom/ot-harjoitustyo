@@ -38,7 +38,7 @@ public class CoreTest {
     @After
     public void tearDown() {
         Core.sqlAsker().executeStatement("DROP TABLE users;", "data", "Test/");
-        Core.sqlAsker().executeStatement("DROP TABLE score;", "data", "Test/");
+        Core.sqlAsker().executeStatement("DROP TABLE scoreboard;", "data", "Test/");
         Core.sqlAsker().executeStatement("DROP TABLE objectives;", "data", "Test/");
     }
 
@@ -46,7 +46,7 @@ public class CoreTest {
     public void sqlAskerTest() {
         assertTrue(Core.sqlAsker().executeStatement("INSERT INTO users (username,password) VALUES ('alaskjd', 'renlsnes')", "data", "Test/"));
         assertTrue(Core.sqlAsker().executeStatement("INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('skjd LKJ','2532','5x6xm','test')", "data", "Test/"));
-        assertTrue(Core.sqlAsker().executeStatement("INSERT INTO score (username,score,gamemode,maxScore) VALUES ('alaskjd', '293', 'lskjfd', 534)", "data", "Test/"));
+        assertTrue(Core.sqlAsker().executeStatement("INSERT INTO scoreboard (username,score,gamemode,maxScore) VALUES ('alaskjd', '293', 'lskjfd', 534)", "data", "Test/"));
     }
     @Test
     public void sqlLoaderTest() {
@@ -72,7 +72,7 @@ public class CoreTest {
     public void getGameModesTest() {
         Core.loadGameModes("Test/");
         ObservableList<GameMode> gameModes = Core.getGameModes();
-        GameMode gameMode = gameModes.get(3);
+        GameMode gameMode = gameModes.get(4);
         assertEquals("Two dices lockpick",gameMode.getName());
         assertEquals("lockpick2",gameMode.getController());
         assertEquals(2000,gameMode.getReRollTime());
