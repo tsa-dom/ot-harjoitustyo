@@ -3,8 +3,8 @@ Sovellus antaa pelaajalle mahdollisuuden sukeltaa noppapeli Yatzyn ihmeelliseen 
 
 Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux käyttöjärjestelmillä. Toistaiseksi Linuxilla suoritettuna asettelussa saattaa ilmetä ongelmia, mutta ne tullaan korjaamaan tulevaisuudessa myös Linux yhteensopiviksi.
 ## Dokumentaatio
-#### [Vaatimusmäärittely.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Vaatimusmaarittely.md)
-#### [Työaikakirjanpito.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Tyoaikakirjanpito.md)
+#### [Vaatimusmäärittely.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Vaatimusmäärittely.md)
+#### [Työaikakirjanpito.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Työaikakirjanpito.md)
 #### [Arkkitehtuuri.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Arkkitehtuuri.md)
 ## Release
 Ei valmiita julkaisuja
