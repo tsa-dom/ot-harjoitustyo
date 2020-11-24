@@ -1,7 +1,7 @@
 # Vaatimusmäärittely
 ## Sovelluksen tarkoitus
 Sovellus on tarkoitettu peliksi, jossa pelaaja voi pelata noppapeliä Yatzy. Ohjelman ei ole tarkoitus rajoittua vain peruspeliin, vaan se tulisi haastamaan pelaajan myös toinen toistaan erikoisemmilla pelimuodoilla.
-## Pelin toteutetut toiminnallisuudet
+## Peliin toteutetut toiminnallisuudet
 Peliin on lisätty seuraavat toiminnallisuudet
 * alustava toiminnallisuus custom pelimuodoille
 * päivitetty noppalaskuria siten, että se kykenee nyt laskemaan noppien silmälukuja, jotka ovat suurempia kuin 9
