@@ -22,4 +22,5 @@
 |17.11.2020|3h|Tehty pieniä muokkausia ohjelmarakenteeseen|
 |18.11.2020|4h|Koodin laadun parantelua|
 |19.11.2020|4h|Koodin laadun parantelua|
-|Yht|77h||
+|22.11.2020|6h|Koodin laadun parantelua|
+|Yht|83h||
