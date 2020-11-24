@@ -23,4 +23,6 @@
 |18.11.2020|4h|Koodin laadun parantelua|
 |19.11.2020|4h|Koodin laadun parantelua|
 |22.11.2020|6h|Koodin laadun parantelua|
-|Yht|83h||
+|23.11.2020|3h|Testien tekoa|
+|24.11.2020|6h|Testien tekoa ja lisätty hieman toiminnalisuuksia|
+|Yht|92h||

@@ -1,4 +1,6 @@
 # Sovelluksen arkkitehtuuri
+## Huomioita
+Sovelluken rakenne ei ole tällä hetkellä optimaalinen, sillä sovelluslogiikka tekee asioita, jotka kuuluvat käyttöliittymän tehtäviksi. Tähän ongelmaan on tarkoitus puuttua jatkossa ja ohjelman rakenne tulee mitä todennäköisimmin muuttumaan hieman.
 ## Pakkausrakenne
 Sovelluksella on neljäkerroksinen pakkausrakenne. Joidenkin pakkausten sisällä on olemaasa alipakkauksia, joiden tarkoitus on jaoitella toiminnallisuutta.
 
