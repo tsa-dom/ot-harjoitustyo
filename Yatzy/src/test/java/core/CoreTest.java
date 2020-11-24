@@ -5,8 +5,6 @@
  */
 package core;
 
-import java.io.File;
-import java.io.IOException;
 import service.game.GameMode;
 import java.util.List;
 import java.util.Properties;
@@ -16,7 +14,6 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.apache.commons.io.FileUtils;
 
 
 /**
