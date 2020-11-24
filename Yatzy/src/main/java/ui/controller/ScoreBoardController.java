@@ -21,7 +21,7 @@ import ui.YatzyUi;
  *
  * @author Tapio Salonen
  */
-public class ScoreBoardController implements Initializable{
+public class ScoreBoardController implements Initializable {
     @FXML private TableView<Statistic> table;
     @FXML private TableColumn<Statistic, String> player, score, gameMode, maxScore;
     @FXML
