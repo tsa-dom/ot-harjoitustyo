@@ -36,6 +36,7 @@ public class EndGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         score.setText("Your score: " + Core.getGameMode().getScore());
         gameMode.setText(Core.getGameMode().getName());
-        Core.setUser(null);
+        String sql = "INSERT INTO scoreboard (username, score, gamemode, maxScore) VALUES ('" + Core.getUser() + "', '" + Core.getGameMode().getScore() + "', '" + Core.getGameMode().getName() + "', '0')";
+        Core.sqlAsker().executeStatement(sql , "data", "Programfiles/");
     }
 }

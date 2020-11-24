@@ -5,6 +5,8 @@
  */
 package core;
 
+import java.io.File;
+import java.io.IOException;
 import service.game.GameMode;
 import java.util.List;
 import java.util.Properties;
@@ -14,6 +16,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.apache.commons.io.FileUtils;
+
 
 /**
  *
@@ -48,7 +52,7 @@ public class CoreTest {
     public void sqlLoaderTest() {
         List<String> statements = Core.sqlLoader().searchStatements("objectives");
         Core.sqlAsker().executeStatements(statements, "data", "Test/");
-        assertEquals("2x2xm",Core.sqlAsker().selectFrom("SELECT * FROM objectives", "data", "requirements", "Test/").get(8));
+        assertEquals("x2Zx2Zm",Core.sqlAsker().selectFrom("SELECT * FROM objectives", "data", "requirements", "Test/").get(8));
     }
     @Test
     public void getUserTest() {

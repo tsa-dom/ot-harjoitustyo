@@ -17,14 +17,16 @@ import core.Core;
  * @author Tapio Salonen
  */
 public class ObjectiveLogic {
-    private ObservableList<Objective> objectives;
-    private ObservableList<Objective> objectiveNames;
+    private final ObservableList<Objective> objectives;
+    private final ObservableList<Objective> objectiveNames;
     private final DiceLogic diceLogic;
-    private final CalculatorCandidate calculator;
+    private final Calculator calculator;
     
     public ObjectiveLogic() {
         diceLogic = new DiceLogic();
-        calculator = new CalculatorCandidate();
+        calculator = new Calculator();
+        objectives = FXCollections.observableArrayList();
+        objectiveNames = FXCollections.observableArrayList();
     }
     
     public void updateObjectives(ComboBox objectivesLeft, TableView<Objective> objectivesTable, Label[] dices) {
@@ -36,8 +38,8 @@ public class ObjectiveLogic {
     }
     
     public void setObjectives(String folder) {
-        objectives = FXCollections.observableArrayList();
-        objectiveNames = FXCollections.observableArrayList();
+        objectives.clear();
+        objectiveNames.clear();
         String sql = "SELECT * FROM objectives WHERE gamemode='" + Core.getGameMode().getObjectiveType() + "';";
         List<String> names = Core.sqlAsker().selectFrom(sql, "data", "name", folder);
         List<String> requirements = Core.sqlAsker().selectFrom(sql, "data", "requirements", folder);

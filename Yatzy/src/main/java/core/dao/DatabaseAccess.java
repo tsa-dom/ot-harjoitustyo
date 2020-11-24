@@ -5,21 +5,16 @@
  */
 package core.dao;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.*;
+import java.util.*;
 import domain.DataIF;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class DatabaseAccess implements DataIF{
+public class DatabaseAccess implements DataIF {
     private Connection connection;
-    // folder = Programfiles/
     @Override
     public boolean executeStatement(String content, String database, String folder) {
         try {

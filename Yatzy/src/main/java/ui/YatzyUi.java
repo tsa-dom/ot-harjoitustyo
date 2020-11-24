@@ -6,6 +6,7 @@ import javafx.scene.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import core.Core;
+import ui.controller.Storage;
 
 /**
  * JavaFX App
@@ -14,11 +15,13 @@ public class YatzyUi extends Application {
 
     private static Scene scene;
     private Core core;
+    private Storage storage;
 
     @Override
     public void init() {
         core = new Core();
         core.install("Programfiles/");
+        storage = new Storage();
     }
     @Override
     public void start(Stage stage) throws IOException {

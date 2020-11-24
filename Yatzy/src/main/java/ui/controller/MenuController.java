@@ -17,7 +17,7 @@ import ui.YatzyUi;
  *
  * @author Tapio Salonen
  */
-public class MenuController implements Initializable{
+public class MenuController implements Initializable {
     @FXML private Label userLabel;
     @FXML
     private void newGame() throws IOException {

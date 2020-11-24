@@ -24,25 +24,25 @@ public class InstallCore {
         createObjectives(folder, "data");
     }
     private boolean programFilesFolder(String folder) {
-        if (Files.exists(Paths.get(Core.getPath()+ folder))){
+        if (Files.exists(Paths.get(Core.getPath() + folder))) {
             return false;
         }
-        File file = new File(Core.getPath()+ folder);
+        File file = new File(Core.getPath() + folder);
         return file.mkdir();
     }
     private boolean clusterFolder(String folder) {
-        if (Files.exists(Paths.get(Core.getPath()+ folder + "Cluster/"))){
+        if (Files.exists(Paths.get(Core.getPath() + folder + "Cluster/"))) {
             return false;
         }
-        File file = new File(Core.getPath()+ folder + "Cluster");
+        File file = new File(Core.getPath() + folder + "Cluster");
         return file.mkdir();
     }
     private boolean gameProperties(String folder) {
         try {
-            if (Files.exists(Paths.get(Core.getPath()+ folder + "game.properties"))){
+            if (Files.exists(Paths.get(Core.getPath() + folder + "game.properties"))) {
                 return false;
             }
-            File file = new File(Core.getPath()+ folder + "game.properties");
+            File file = new File(Core.getPath() + folder + "game.properties");
             writeProperties(file, "default_game");
             return file.createNewFile();
         } catch (IOException ex) {
@@ -58,7 +58,7 @@ public class InstallCore {
     }
     private boolean clusterProperties(String folder, String clusterName) {
         try {
-            if (Files.exists(Paths.get(Core.getPath() + folder + "Cluster/" + clusterName + ".properties"))){
+            if (Files.exists(Paths.get(Core.getPath() + folder + "Cluster/" + clusterName + ".properties"))) {
                 return false;
             }
             File file = new File(Core.getPath() + folder + "Cluster/" + clusterName + ".properties");
@@ -89,7 +89,7 @@ public class InstallCore {
         return Core.sqlAsker().executeStatement(sql, database, folder);
     }
     private boolean createScoreTable(String folder, String database) {
-        String sql = "CREATE TABLE score (username TEXT,score INTEGER,gamemode TEXT,maxScore INTEGER);";
+        String sql = "CREATE TABLE scoreboard (username TEXT,score INTEGER,gamemode TEXT,maxScore INTEGER);";
         return Core.sqlAsker().executeStatement(sql, database, folder);
     }
     private boolean createObjectives(String folder, String database) {

@@ -14,9 +14,9 @@ public class Objective {
     private final int id;
     private final String requirement;
     private String points;
-    public Objective(String givenName, String givenRequirement) {
-        this.requirement = givenRequirement;
-        this.name = givenName;
+    public Objective(String name, String requirement) {
+        this.requirement = requirement;
+        this.name = name;
         this.points  = "---";
         this.id = nextId;
         Objective.nextId += 1;

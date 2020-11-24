@@ -31,7 +31,7 @@ public class GameCore {
                 if (properties.getProperty(gameName).equals("main")) {
                     loadGameMode(Core.properties().loadProperties(gameName));
                 } else if (properties.getProperty(gameName).equals("cluster")) {
-                    loadGameMode(Core.properties().loadFromPath(Core.getPath()+ "Programfiles/Cluster/" + gameName));
+                    loadGameMode(Core.properties().loadFromPath(Core.getPath() + folder + "Cluster/" + gameName));
                 }
             });
         } catch (Exception ex) {

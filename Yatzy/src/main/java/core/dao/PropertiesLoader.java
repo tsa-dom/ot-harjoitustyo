@@ -8,7 +8,6 @@ package core.dao;
 import core.Core;
 import java.io.FileInputStream;
 import java.util.Properties;
-import javafx.collections.ObservableList;
 
 /**
  *

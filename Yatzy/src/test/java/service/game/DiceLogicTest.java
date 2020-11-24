@@ -5,7 +5,6 @@
  */
 package service.game;
 
-import service.game.DiceLogic;
 import core.Core;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,10 +72,10 @@ public class DiceLogicTest extends ApplicationTest{
     }
     @Test
     public void createDiceListTest() {
-        dices = new Label[]{new Label("4"), new Label("7"), new Label("3"), new Label("5"), new Label("3"), new Label("1")};
+        dices = new Label[]{new Label("4"), new Label("7"), new Label("313"), new Label("5"), new Label("3"), new Label("1")};
         List<Integer> diceList = diceLogic.createDiceList(dices);
         List<Integer> list = new ArrayList<>();
-        list.add(55); list.add(53); list.add(52); list.add(51); list.add(51); list.add(49);
+        list.add(313); list.add(7); list.add(5); list.add(4); list.add(3); list.add(1);
         assertEquals(list, diceList);
     }
 

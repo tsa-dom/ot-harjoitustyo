@@ -12,92 +12,103 @@ import java.util.*;
  * @author Tapio Salonen
  */
 public class Calculator {
-    private int upperComplete;
+    private static HashSet<Integer> calculated;
+    private static boolean ready;
+            
     public Calculator() {
-        this.upperComplete = 0;
+        calculated = new HashSet<>();
     }
-    public int getPoints(Objective objective, List<Integer> diceList) {
+    public int getPoints(Objective objective, List<Integer> dices) {
         int points = 0;
-        String requirement = objective.getRequirement();
-        if (requirement.charAt(0) == 121) {
-            points = upperSection(requirement, diceList);
-        } else if (requirement.charAt(0) == 100) {
-            points = straight(requirement, diceList);
-        } else if (requirement.charAt(0) > 48 && requirement.charAt(0) < 58) {
-            points = counter(requirement, diceList);
+        calculated.clear();
+        ready = true;
+        String[] requirement = objective.getRequirement().split("Z");
+        for (int i = 0; i < requirement.length; i++) {
+            points = calculate(requirement[i], points, dices);
+            
+            if (customOrNot(requirement[i], points, ready) != -1) {
+                return customOrNot(requirement[i], points, ready);
+            }
+        }
+        return 0;
+    }
+    public int customOrNot(String requirement, int points, boolean ready) {
+        if (requirement.equals("m") && ready) {
+            return points;
+        } else if (requirement.split("/")[0].equals("c") && ready) {
+            return Integer.valueOf(requirement.split("/")[1]);
+        }
+        return -1;
+    }
+    
+    public int calculate(String requirement, int points, List<Integer> dices) {
+        if (requirement.substring(0, 1).equals("x")) {
+            points += times(requirement.substring(1), dices);
+        } else if (requirement.substring(0, 1).equals("y")) {
+            points += upperSection(requirement.substring(1), dices);
+        } else if (requirement.substring(0, 1).equals("r")) {
+            points += random(requirement.substring(1), dices);
+        } else if (requirement.substring(0, 1).equals("d")) {
+            points += straight(requirement.substring(1), dices);
         }
         return points;
     }
-    public int upperSection(String requirement, List<Integer> diceList) {
+    
+    public int times(String requirement, List<Integer> dices) {
+        int times = Integer.valueOf(requirement);
+        int diceFace = -1;
         int count = 0;
-        int diceFace = Integer.valueOf(requirement.charAt(1));
-        for (int i = 0; i < diceList.size(); i++) {
-            if (diceFace == diceList.get(i)) {
-                count += diceFace - 48;
+        for (int i = 0; i < dices.size(); i++) {
+            if (diceFace == dices.get(i)) {
+                count++;
+            } else {
+                diceFace = dices.get(i);
+                count = 1;
+            }
+            if (count >= times && calculated.contains(diceFace) == false) {
+                calculated.add(diceFace);
+                return times * diceFace;
             }
         }
-        upperComplete++;
-        return ifCustomPoints(count, requirement.charAt(2), requirement);
-    }
-    public int straight(String requirement, List<Integer> diceList) {
-        int count = 0;
-        int startFace = Integer.valueOf(requirement.charAt(1));
-        boolean coming = true;
-        for (int i = 0; i < diceList.size(); i++) {
-            if (diceList.get(i) == startFace) {
-                count += startFace - 48;
-                startFace--;
-                continue;
-            } 
-            coming = false;
-        }
-        if (coming) {
-            return ifCustomPoints(count, requirement.charAt(3), requirement);
-        }
+        ready = false;
         return 0;
     }
-    public int counter(String requirement, List<Integer> diceList) {
-        int count = 0;
-        int amount = requirement.charAt(0) - 48;
-        boolean sessionEnd = true;
-        HashSet<Integer> calculated = new HashSet<>();
-        for (int i = 1; i < requirement.length(); i++) {
-            if (requirement.charAt(i) == 120) {
-                int numberCount = 1;
-                for (int j = 0; j < diceList.size() - 1; j++) {
-                    if (diceList.get(j) == diceList.get(j + 1)) {
-                        numberCount++;
-                    } else {
-                        numberCount = 1;
-                    }
-                    if (numberCount == amount && calculated.contains(diceList.get(j)) == false) {
-                        count += amount * (diceList.get(j) - 48);
-                        calculated.add(diceList.get(j));
-                        break;
-                    }
-                    if (j == diceList.size() - 2) {
-                        sessionEnd = false;
-                    }
-                }
-            } else if (requirement.charAt(i) == 114) {
-                for (int j = 0; j < amount; j++) {
-                    count += diceList.get(j) - 48;
-                }
-            } else if (requirement.charAt(i) > 48 && requirement.charAt(i) < 58) {
-                amount = requirement.charAt(i) - 48;
-            } else if (ifCustomPoints(count, requirement.charAt(i), requirement) != -1 && sessionEnd == true) {
-                return ifCustomPoints(count, requirement.charAt(i), requirement);
+    
+    public int upperSection(String requirement, List<Integer> dices) {
+        int value = Integer.valueOf(requirement);
+        int sum = 0;
+        for (int dice : dices) {
+            if (dice == value) {
+                sum += value;
+            }
+        }
+        return sum;
+    }
+    
+    public int random(String requirement, List<Integer> dices) {
+        int times = Integer.valueOf(requirement);
+        int sum = 0;
+        for (int i = 0; i < times; i++) {
+            sum += dices.get(i);
+        }
+        return sum;
+    }
+    
+    public int straight(String requirement, List<Integer> dices) {
+        String[] interval = requirement.split("A");
+        int highest = Integer.valueOf(interval[0]);
+        int lowest = Integer.valueOf(interval[1]);
+        int sum = 0;
+        for (int dice : dices) {
+            if (highest == dice) {
+                sum += highest;
+                highest--;
+            }
+            if (highest == lowest - 1) {
+                return sum;
             }
         }
         return 0;
-    }
-    public int ifCustomPoints(int points, char identifier, String requirement){
-        if (identifier == 99) {
-            return Integer.valueOf(requirement.split("/")[1]);
-        } else if (identifier == 109) {
-            return points;
-        }
-        return -1;
     }
 }
 

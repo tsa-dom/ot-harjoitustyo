@@ -58,7 +58,6 @@ public class DiceLogic {
         List<Integer> diceList = new ArrayList<>();
         for (Label dice : dices) {
             diceList.add(Integer.valueOf(dice.getText()));
-            //.subSequence(0, 1).charAt(0))
         }
         Collections.sort(diceList, Collections.reverseOrder());
         return diceList;

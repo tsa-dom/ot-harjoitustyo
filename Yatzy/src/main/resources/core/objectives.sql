@@ -36,3 +36,6 @@ INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Tower','34
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Full House','36','x3Zx3Zm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Chance','36','r6Zm','maxi');
 INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Maxi Yatzy','100','x6Zc/100','maxi');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Two Pairs','22','x2Zx2Zm','fast');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Sixes','30','y6Zm','fast');
+INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('Chance','30','r5Zm','fast');

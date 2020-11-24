@@ -18,7 +18,7 @@ import ui.YatzyUi;
  *
  * @author Tapio Salonen
  */
-public class NewGameController implements Initializable{
+public class NewGameController implements Initializable {
     @FXML private ComboBox gameModes;
     @FXML private Label warning;
     private NewGameLogic newGameLogic;
