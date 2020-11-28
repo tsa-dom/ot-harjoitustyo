@@ -6,8 +6,7 @@
 package service.game;
 
 import core.Core;
-import java.util.*;
-import javafx.scene.control.*;
+import java.util.Random;
 
 /**
  *
@@ -19,47 +18,28 @@ public class DiceLogic {
     public DiceLogic() {
         random = new Random();
     }
-    
-    public int getDicesSum(Label[] dices) {
-        int sum = 0;
-        for (Label dice : dices) {
-            sum += Integer.valueOf(dice.getText());
-        }
-        return sum;
-    }
-    
-    public void newDiceValues(Label[] dices, Label[] status) {
-        for (int i = 0; i < dices.length; i++) {
-            if (status[i].getText().equals("") || dices[i].getText().equals("-")) {
-                try {
-                    int min = Core.getGameMode().getMinDiceNum();
-                    int max = Core.getGameMode().getMaxDiceNum();
-                    dices[i].setText(String.valueOf(random.nextInt(max - min + 1) + min));
-                } catch (Exception ex) {
-
-                }
-            }
+    public String newDiceValue() {
+        try {
+            int min = Core.getGameMode().getMinDiceNum();
+            int max = Core.getGameMode().getMaxDiceNum();
+            return String.valueOf(random.nextInt(max - min + 1) + min);
+        } catch (Exception ex) {
+            return null;
         }
     }
     
-    public void clearDices(Label[] dices, Label[] status, Button[] select) {
-        for (int i = 0; i < dices.length; i++) {
-            dices[i].setText("-");
-            try {
-                select[i].setText("Select");
-                status[i].setText("");
-            } catch (Exception ex) {
-                
-            }
+    public String[] getSelectStatus(String buttonText) {
+        String[] status = new String[2];
+        if (Core.getGameMode().getLockStatus()) {
+            status[0] = "---";
+            status[1] = "Locked";
+        } else if (buttonText.equals("Select")) {
+            status[0] = "Unselect";
+            status[1] = "Selected";
+        } else {
+            status[0] = "Select";
+            status[1] = "";
         }
-    }
-    
-    public List<Integer> createDiceList(Label[] dices) {
-        List<Integer> diceList = new ArrayList<>();
-        for (Label dice : dices) {
-            diceList.add(Integer.valueOf(dice.getText()));
-        }
-        Collections.sort(diceList, Collections.reverseOrder());
-        return diceList;
+        return status;
     }
 }

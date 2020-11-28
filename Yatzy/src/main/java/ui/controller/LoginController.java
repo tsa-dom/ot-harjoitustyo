@@ -6,12 +6,15 @@
 package ui.controller;
 
 import service.LoginLogic;
+import service.node.SQLNode;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import ui.YatzyUi;
 
 /**
@@ -23,10 +26,16 @@ public class LoginController implements Initializable {
     @FXML private TextField username;
     @FXML private PasswordField password;
     private LoginLogic loginLogic;
+    private SQLNode sql;
     @FXML
     private void logIn() throws IOException {
-        if (loginLogic.logIn(username, password, "Programfiles/")) {
-            YatzyUi.setRoot("menu");    
+        try {
+            String foundPassword = sql.getLogin(username.getText(), "Programfiles/").get(0);
+            if (password.getText().equals(foundPassword)) {
+                loginLogic.setUser(sql.getLogin(username.getText(), "Programfiles/").get(0));
+                YatzyUi.setRoot("menu");
+            }
+        } catch (Exception e) {
         }
         username.clear();
         password.clear();
@@ -44,5 +53,6 @@ public class LoginController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         loginLogic = new LoginLogic();
+        sql = new SQLNode();
     }
 }

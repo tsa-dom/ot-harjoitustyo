@@ -11,20 +11,26 @@ package service.game;
  */
 public class Statistic {
     private final String player;
-    private final String score;
+    private final int score;
     private final String gameMode;
     private final String maxScore;
     
-    public Statistic(String player, String score, String gameMode, String maxScore) {
+    public Statistic(String player, int score, String gameMode, String maxScore) {
         this.player = player;
         this.score = score;
         this.gameMode = gameMode;
         this.maxScore = maxScore;
     }
+    public Statistic(String player, int score) {
+        this.player = player;
+        this.score = score;
+        this.gameMode = null;
+        this.maxScore = null;
+    }
     public String getPlayer() {
         return this.player;
     }
-    public String getScore() {
+    public int getScore() {
         return this.score;
     }
     public String getGameMode() {

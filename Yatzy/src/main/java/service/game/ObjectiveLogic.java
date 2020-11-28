@@ -6,10 +6,6 @@
 package service.game;
 
 import java.util.List;
-import javafx.beans.property.ReadOnlyStringWrapper;
-import javafx.collections.*;
-import javafx.scene.control.*;
-import javafx.scene.control.cell.TextFieldTableCell;
 import core.Core;
 
 /**
@@ -17,67 +13,20 @@ import core.Core;
  * @author Tapio Salonen
  */
 public class ObjectiveLogic {
-    private final ObservableList<Objective> objectives;
-    private final ObservableList<Objective> objectiveNames;
-    private final DiceLogic diceLogic;
     private final Calculator calculator;
     
     public ObjectiveLogic() {
-        diceLogic = new DiceLogic();
         calculator = new Calculator();
-        objectives = FXCollections.observableArrayList();
-        objectiveNames = FXCollections.observableArrayList();
     }
-    
-    public void updateObjectives(ComboBox objectivesLeft, TableView<Objective> objectivesTable, Label[] dices) {
-        Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
-        objectives.get(objective.getId()).setPoints(String.valueOf(calculator.getPoints(objective, diceLogic.createDiceList(dices))));
-        objectivesLeft.getItems().remove(objectivesLeft.getSelectionModel().getSelectedItem());
-        objectivesTable.refresh();
-        objectivesLeft.getSelectionModel().clearSelection();
+ 
+    public void addPoints(int points) {
+        Core.getGameMode().setScore(Core.getGameMode().getScore() + points);
     }
-    
-    public void setObjectives(String folder) {
-        objectives.clear();
-        objectiveNames.clear();
-        String sql = "SELECT * FROM objectives WHERE gamemode='" + Core.getGameMode().getObjectiveType() + "';";
-        List<String> names = Core.sqlAsker().selectFrom(sql, "data", "name", folder);
-        List<String> requirements = Core.sqlAsker().selectFrom(sql, "data", "requirements", folder);
-        Objective.nextId = 0;
-        for (int i = 0; i < names.size(); i++) {
-            Objective object = new Objective(names.get(i), requirements.get(i));
-            objectives.add(object);
-            if (requirements.get(i).charAt(0) != 'b') {
-                objectiveNames.add(object);
-            }
-        }
+    public int getScore() {
+        return Core.getGameMode().getScore();
     }
-    
-    public void objectivesToTable(TableColumn<Objective, String> name, TableColumn<Objective, String> points, TableView<Objective> objectivesTable, ComboBox objectivesLeft) {
-        name.setCellFactory(TextFieldTableCell.forTableColumn());
-        name.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getName()));
-        points.setCellFactory(TextFieldTableCell.forTableColumn());
-        points.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getPoints()));
-        objectivesTable.setItems(objectives);
-        objectivesLeft.setItems(objectiveNames);
-    }
-    
-    public void updateScore() {
-        int score = 0;
-        for (Objective objective:objectives) {
-            if (objective.getPoints().equals("---") == false) {
-                score += Integer.valueOf(objective.getPoints());
-            }
-        }
-        Core.getGameMode().setScore(score);
-    }
-    
-    public void clearObjectives() {
-        objectiveNames.clear();
-        objectives.clear();
-    }
-    
-    public boolean namesIsEmpty() {
-        return objectiveNames.isEmpty();
+
+    public int getPoints(Objective objective, List<Integer> dices) {
+        return calculator.getPoints(objective, dices);
     }
 }

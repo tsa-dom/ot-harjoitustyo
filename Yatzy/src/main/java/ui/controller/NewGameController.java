@@ -8,10 +8,12 @@ package ui.controller;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.fxml.*;
-import javafx.scene.control.*;
-import core.Core;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import service.NewGameLogic;
+import service.game.GameMode;
 import ui.YatzyUi;
 
 /**
@@ -29,8 +31,11 @@ public class NewGameController implements Initializable {
     @FXML
     private void startGame() throws IOException {
         try {
-            if (newGameLogic.setGameMode(warning, gameModes)) {
-                YatzyUi.setRoot(Core.getGameMode().getController());
+            if (gameModes.getSelectionModel().isEmpty()) {
+                warning.setText("Choose gamemode");
+            } else {
+                newGameLogic.setGameMode((GameMode) gameModes.getSelectionModel().getSelectedItem());
+                YatzyUi.setRoot(newGameLogic.getController());
             }
         } catch (Exception ex) {
             warning.setText("Failed to load this gamemode.\nCheck your cluster files.");
@@ -39,8 +44,8 @@ public class NewGameController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         newGameLogic = new NewGameLogic();
-        Core.clearGameModes();
-        Core.loadGameModes("Programfiles/");
-        gameModes.setItems(Core.getGameModes());
+        ItemNode.clearGameModes();
+        ItemNode.setGameModes("Programfiles/");
+        gameModes.setItems(ItemNode.gameModes);
     }
 }

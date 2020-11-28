@@ -7,20 +7,16 @@ package service;
 
 import core.Core;
 import service.game.GameMode;
-import javafx.scene.control.*;
 
 /**
  *
  * @author Tapio Salonen
  */
 public class NewGameLogic {
-    public boolean setGameMode(Label warning, ComboBox gameModes) {
-        if (gameModes.getSelectionModel().isEmpty()) {
-            warning.setText("Choose gamemode");
-        } else {
-            Core.setGameMode((GameMode) gameModes.getSelectionModel().getSelectedItem());
-            return true;
-        }
-        return false;
+    public void setGameMode(GameMode gameMode) {
+        Core.setGameMode(gameMode);
+    }
+    public String getController() {
+        return Core.getGameMode().getController();
     }
 }

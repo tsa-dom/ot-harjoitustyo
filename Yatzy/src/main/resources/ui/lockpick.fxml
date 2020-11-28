@@ -133,8 +133,8 @@
       </Label>
       <TableView fx:id="topTable" layoutX="32.0" layoutY="135.0" prefHeight="120.0" prefWidth="260.0">
         <columns>
-          <TableColumn prefWidth="145.5999755859375" text="Player" />
-          <TableColumn prefWidth="118.39999389648438" text="Score" />
+          <TableColumn fx:id="topPlayer" prefWidth="135.0" text="Player" />
+          <TableColumn fx:id="topScore" prefWidth="110.0" text="Score" />
         </columns>
       </TableView>
       <Label fx:id="rerollCount" layoutX="818.0" layoutY="398.0" prefHeight="42.0" prefWidth="194.0">

@@ -5,7 +5,9 @@
  */
 package service.game;
 
-import java.util.*;
+import java.util.HashSet;
+import java.util.List;
+
 
 /**
  *
@@ -77,11 +79,7 @@ public class Calculator {
     public int upperSection(String requirement, List<Integer> dices) {
         int value = Integer.valueOf(requirement);
         int sum = 0;
-        for (int dice : dices) {
-            if (dice == value) {
-                sum += value;
-            }
-        }
+        sum = dices.stream().filter((dice) -> (dice == value)).map((_item) -> value).reduce(sum, Integer::sum);
         return sum;
     }
     

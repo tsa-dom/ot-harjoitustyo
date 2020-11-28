@@ -2,11 +2,12 @@ package ui;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.*;
 import javafx.stage.Stage;
 import java.io.IOException;
 import core.Core;
-import ui.controller.Storage;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import ui.controller.ItemNode;
 
 /**
  * JavaFX App
@@ -15,13 +16,13 @@ public class YatzyUi extends Application {
 
     private static Scene scene;
     private Core core;
-    private Storage storage;
+    private ItemNode itemNode;
 
     @Override
     public void init() {
         core = new Core();
         core.install("Programfiles/");
-        storage = new Storage();
+        itemNode = new ItemNode();
     }
     @Override
     public void start(Stage stage) throws IOException {

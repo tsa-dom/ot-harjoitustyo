@@ -9,17 +9,15 @@ package service.game;
  * @author Tapio Salonen
  */
 public class Objective {
-    protected static int nextId = 0;
     private final String name;
     private final int id;
     private final String requirement;
     private String points;
-    public Objective(String name, String requirement) {
+    public Objective(String name, String requirement, int id) {
         this.requirement = requirement;
         this.name = name;
         this.points  = "---";
-        this.id = nextId;
-        Objective.nextId += 1;
+        this.id = id;
     }
     public String getName() {
         return this.name;

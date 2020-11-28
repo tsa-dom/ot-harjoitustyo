@@ -9,7 +9,6 @@ import core.dao.PropertiesLoader;
 import core.dao.SQLLoader;
 import core.dao.DatabaseAccess;
 import service.game.GameMode;
-import javafx.collections.ObservableList;
 
 /**
  *
@@ -46,15 +45,6 @@ public class Core {
     }
     public static void setGameMode(GameMode gameMode) {
         gameCore.gameMode = gameMode;
-    }
-    public static void clearGameModes() {
-        gameCore.gameModes.clear();
-    }
-    public static void loadGameModes(String folder) {
-        gameCore.loadGameModes(folder);
-    }
-    public static ObservableList<GameMode> getGameModes() {
-        return gameCore.gameModes;
     }
     public static PropertiesLoader properties() {
         return daoCore.propertiesLoader;

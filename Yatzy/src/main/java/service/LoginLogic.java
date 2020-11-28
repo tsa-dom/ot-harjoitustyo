@@ -6,26 +6,25 @@
 package service;
 
 import core.Core;
-import java.util.List;
-import javafx.scene.control.*;
 
 /**
  *
  * @author Tapio Salonen
  */
 public class LoginLogic {
-    public boolean logIn(TextField username, PasswordField password, String folder) {
-        String sql = "SELECT password FROM users WHERE username='" + username.getText() + "';";
-        List<String> columnList = Core.sqlAsker().selectFrom(sql, "data", "password", folder);
-        try {
-            String foundPassword = columnList.get(0);
-            if (password.getText().equals(foundPassword)) {
-                Core.setUser(username.getText());
-                return true;
-            }
-            return false;
-        } catch (Exception e) {
-            return false;
+    public void setUser(String user) {
+        Core.setUser(user);
+    }
+    public String correctInput(String username, String password) {
+        if (username.length() > 20) {
+            return "Username is too long";
+        } else if (username.length() < 5) {
+            return "Username is too short";
+        } else if (password.length() > 20) {
+            return "Password is too long";
+        } else if (password.length() < 5) {
+            return "Password is too short";
         }
+        return "";
     }
 }
