@@ -25,4 +25,6 @@
 |22.11.2020|6h|Koodin laadun parantelua|
 |23.11.2020|3h|Testien tekoa|
 |24.11.2020|6h|Testien tekoa ja lisätty hieman toiminnalisuuksia|
-|Yht|92h||
+|27.11.2020|6h|Koodin refactorointia|
+|28.11.2020|2h|Koodin refactorointia|
+|Yht|100h||
