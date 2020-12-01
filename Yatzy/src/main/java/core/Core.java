@@ -52,4 +52,19 @@ public class Core {
     public static String getPath() {
         return System.getProperty("user.dir") + "/";
     }
+    public static void addUpperCount() {
+        gameCore.upperCount++;
+    }
+    public static void clearUpperCount() {
+        gameCore.upperCount = 0;
+    }
+    public static int getUpperCount() {
+        return gameCore.upperCount;
+    }
+    public static void setBonusPoints(int points) {
+        gameCore.bonusPoints = points;
+    }
+    public static int getBonusPoints() {
+        return gameCore.bonusPoints;
+    }
 }

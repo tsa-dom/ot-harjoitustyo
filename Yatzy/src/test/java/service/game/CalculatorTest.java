@@ -5,6 +5,7 @@
  */
 package service.game;
 
+import core.Core;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import service.node.PropertiesNode;
 
 /**
  *
@@ -20,11 +22,17 @@ import static org.junit.Assert.*;
 public class CalculatorTest {
     Calculator calculator;
     List<Integer> dices;
+    PropertiesNode properties;
     public CalculatorTest() {
     }
     
     @Before
     public void setUp() {
+        Core core = new Core();
+        core.install("Test/");
+        properties = new PropertiesNode();
+        properties.loadGameModes("classic", "cluster1", "Test/Cluster/");
+        Core.setGameMode(new GameMode(properties.getInGameModes()));
         calculator = new Calculator();
         dices = new ArrayList<>();
     }
@@ -96,11 +104,5 @@ public class CalculatorTest {
         assertEquals(313, calculator.customOrNot("c/313", 100, true));
         assertEquals(-1, calculator.customOrNot("c/313", 100, false));
         assertEquals(-1, calculator.customOrNot("j", 13, true));
-    }
-    @Test
-    public void getPointsTest() {
-        dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 49, 34, 34, 34, 34, 17, 16, 16));
-        assertEquals(292, calculator.getPoints(new Objective("Name", "x4Zx3Zm"), dices));
-        assertEquals(0, calculator.getPoints(new Objective("Name", "x5Zm"), dices));
     }
 }

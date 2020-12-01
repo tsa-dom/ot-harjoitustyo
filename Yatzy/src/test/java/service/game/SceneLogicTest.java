@@ -6,106 +6,54 @@
 package service.game;
 
 import core.Core;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import java.util.concurrent.TimeUnit;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.testfx.framework.junit.ApplicationTest;
+import service.node.PropertiesNode;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class SceneLogicTest extends ApplicationTest{
-    Core core;
-    SceneLogic sceneLogic;
-    Label player;
-    Label gameInfo;
-    Label reRollsLeft;
-    Label score;
-    Label diceSum;
+public class SceneLogicTest {
+    
     public SceneLogicTest() {
     }
+    private PropertiesNode properties;
+    private SceneLogic sceneLogic;
     
     @Before
     public void setUp() {
-        core = new Core();
-        core.install("Test/");
-        Core.setUser("Tester313");
-        Core.loadGameModes("Test/");
-        Core.setGameMode(Core.getGameModes().get(0));
-        Core.getGameMode().setScore(313);
         sceneLogic = new SceneLogic();
-        player = new Label("Tester");
-        gameInfo = new Label("GameInfo");
-        reRollsLeft = new Label("Reroolllls");
-        score = new Label("score");
-        diceSum = new Label("dice");
+        Core core = new Core();
+        core.install("Test/");
+        properties = new PropertiesNode();
+        properties.loadGameModes("classic", "cluster1", "Test/Cluster/");
+        Core.setGameMode(new GameMode(properties.getInGameModes()));
     }
     
     @After
     public void tearDown() {
-    }
-
-    @Test
-    public void setStartSitutationTest() {
-        sceneLogic.setStartSituation(player, gameInfo, reRollsLeft);
-        assertEquals("Player: Tester313", player.getText());
-        assertEquals("Gamemode: Classic", gameInfo.getText());
-        assertEquals("Rerolls left: 3", reRollsLeft.getText());
+        
     }
     @Test
-    public void updateSituationTest() {
-        sceneLogic.updateSituation(score, reRollsLeft, diceSum);
-        assertEquals("Your score: 313", score.getText());
-        assertEquals("Rerolls left: 3", reRollsLeft.getText());
-        assertEquals("Dice sum: 0", diceSum.getText());
+    public void newReRollCountTest() {
+        assertEquals(3, sceneLogic.newReRollCount());
+        properties.loadGameModes("lockpick2", "cluster1", "Test/Cluster/");
+        Core.setGameMode(new GameMode(properties.getInGameModes()));
+        assertEquals(6, sceneLogic.newReRollCount());
+        assertEquals(9, sceneLogic.newReRollCount());
     }
     @Test
-    public void updateSituationTest2() {
-        Core.setGameMode(Core.getGameModes().get(4));
-        Core.getGameMode().setScore(1337);
-        sceneLogic = new SceneLogic();
-        sceneLogic.updateSituation(score, reRollsLeft, diceSum);
-        assertEquals("Your score: 1337", score.getText());
-        assertEquals("Rerolls left: 6", reRollsLeft.getText());
-        assertEquals("Dice sum: 0", diceSum.getText());
+    public void getReRollStatusTest() throws InterruptedException {
+        assertEquals(2, sceneLogic.getReRollStatus());
+        TimeUnit.SECONDS.sleep(3);
+        assertEquals(1, sceneLogic.getReRollStatus());
     }
     @Test
-    public void setDiceStatusTest() {
-        Label[] status = new Label[] {new Label("Selected"), new Label(""), new Label(""), new Label("Locked"), new Label("Selected"), new Label("Locked")};
-        Button[] select = new Button[] {new Button("Unselect"), new Button("Select"), new Button("Select"), new Button("---"), new Button("Unselect")};
-        Button button = new Button("Unselect");
-        button.setId("select1");
-        sceneLogic.setDiceStatus(button, status, select);
-        assertEquals("Select", select[0].getText());
-        button = new Button("Select");
-        button.setId("select3");
-        sceneLogic.setDiceStatus(button, status, select);
-        assertEquals("Unselect", select[2].getText());
-        assertEquals("Selected", status[2].getText());
-        button = new Button("Select");
-        button.setId("select2");
-        sceneLogic.setDiceStatus(button, status, select);
-        assertEquals("Unselect", select[1].getText());
-        assertEquals("Selected", status[1].getText());
-    }
-    @Test
-    public void setDiceStatusTest2() {
-        Label[] status = new Label[] {new Label("Selected"), new Label(""), new Label(""), new Label("Locked"), new Label("Selected"), new Label("Locked")};
-        Button[] select = new Button[] {new Button("Unselect"), new Button("Select"), new Button("Select"), new Button("---"), new Button("Unselect")};
-        Button button = new Button("---");
-        button.setId("select4");
-        Core.setGameMode(Core.getGameModes().get(3));
-        sceneLogic.setDiceStatus(button, status, select);
-        assertEquals("Locked", status[3].getText());
-        assertEquals("---", select[3].getText());
-        button = new Button("Select");
-        button.setId("select2");
-        sceneLogic.setDiceStatus(button, status, select);
-        assertEquals("Locked", status[1].getText());
-        assertEquals("---", select[1].getText());
+    public void getReRollCountTest() {
+        assertEquals(3, sceneLogic.getReRollCount());
     }
 }

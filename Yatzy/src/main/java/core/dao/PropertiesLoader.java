@@ -6,6 +6,7 @@
 package core.dao;
 
 import core.Core;
+import domain.PropertiesIF;
 import java.io.FileInputStream;
 import java.util.Properties;
 
@@ -13,7 +14,7 @@ import java.util.Properties;
  *
  * @author Tapio Salonen
  */
-public class PropertiesLoader {
+public class PropertiesLoader implements PropertiesIF {
     
     public Properties loadProperties(String givenPath) {
         try {

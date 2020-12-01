@@ -7,7 +7,7 @@ Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux 
 #### [Työaikakirjanpito.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Työaikakirjanpito.md)
 #### [Arkkitehtuuri.md](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Dokumentaatio/Arkkitehtuuri.md)
 ## Release
-Ei valmiita julkaisuja
+#### Viikko 5(https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko5)
 ## Komentorivitoiminnot
 ### Testaaminen
 Ohjelman testaus tapahtuu komennolla

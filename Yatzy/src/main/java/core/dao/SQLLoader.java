@@ -6,6 +6,7 @@
 package core.dao;
 
 import core.Core;
+import domain.SQLIF;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -19,7 +20,7 @@ import java.util.List;
  *
  * @author Tapio Salonen
  */
-public class SQLLoader {
+public class SQLLoader implements SQLIF {
     
     public List<String> searchStatements(String givenPath) {
         InputStream inputStream = Core.class.getResourceAsStream(givenPath + ".sql");

@@ -24,7 +24,7 @@ public class DiceLogic {
             int max = Core.getGameMode().getMaxDiceNum();
             return String.valueOf(random.nextInt(max - min + 1) + min);
         } catch (Exception ex) {
-            return null;
+            return "0";
         }
     }
     

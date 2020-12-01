@@ -5,6 +5,7 @@
  */
 package service.game;
 
+import core.Core;
 import java.util.HashSet;
 import java.util.List;
 
@@ -16,9 +17,13 @@ import java.util.List;
 public class Calculator {
     private static HashSet<Integer> calculated;
     private static boolean ready;
+    private boolean upperCalculated;
+    private int upperPoints;
             
     public Calculator() {
         calculated = new HashSet<>();
+        upperPoints = 0;
+        upperCalculated = false;
     }
     public int getPoints(Objective objective, List<Integer> dices) {
         int points = 0;
@@ -27,7 +32,6 @@ public class Calculator {
         String[] requirement = objective.getRequirement().split("Z");
         for (int i = 0; i < requirement.length; i++) {
             points = calculate(requirement[i], points, dices);
-            
             if (customOrNot(requirement[i], points, ready) != -1) {
                 return customOrNot(requirement[i], points, ready);
             }
@@ -48,6 +52,7 @@ public class Calculator {
             points += times(requirement.substring(1), dices);
         } else if (requirement.substring(0, 1).equals("y")) {
             points += upperSection(requirement.substring(1), dices);
+            upperCountCheck(upperSection(requirement.substring(1), dices));
         } else if (requirement.substring(0, 1).equals("r")) {
             points += random(requirement.substring(1), dices);
         } else if (requirement.substring(0, 1).equals("d")) {
@@ -79,7 +84,7 @@ public class Calculator {
     public int upperSection(String requirement, List<Integer> dices) {
         int value = Integer.valueOf(requirement);
         int sum = 0;
-        sum = dices.stream().filter((dice) -> (dice == value)).map((_item) -> value).reduce(sum, Integer::sum);
+        sum = dices.stream().filter((dice) -> (dice == value)).map((item) -> value).reduce(sum, Integer::sum);
         return sum;
     }
     
@@ -107,6 +112,15 @@ public class Calculator {
             }
         }
         return 0;
+    }
+    public void upperCountCheck(int points) {
+        upperPoints += points;
+        if (upperPoints >= Core.getGameMode().getBonusRequirement()) {
+            upperCalculated = true;
+        }
+    }
+    public boolean getUpperStatus() {
+        return upperCalculated;
     }
 }
 

@@ -13,6 +13,7 @@ import service.game.GameMode;
 import service.game.Objective;
 import service.game.Statistic;
 import service.node.PropertiesNode;
+import service.node.UpperNode;
 
 /**
  *
@@ -20,34 +21,37 @@ import service.node.PropertiesNode;
  */
 public class ItemNode {
     private static int nextId;
+    protected static int upperId;
     protected static ObservableList<Statistic> statistics;
     protected static ObservableList<Objective> objectives;
     protected static ObservableList<Objective> objectiveNames;
     protected static ObservableList<GameMode> gameModes;
-    protected static SQLNode sql;
-    protected static PropertiesNode prop;
+    protected static SQLNode sqlNode;
+    protected static PropertiesNode propertiesNode;
+    protected static UpperNode upperNode;
     
     public ItemNode() {
         statistics = FXCollections.observableArrayList();
         objectives = FXCollections.observableArrayList();
         objectiveNames = FXCollections.observableArrayList();
         gameModes = FXCollections.observableArrayList();
-        sql = new SQLNode();
-        prop = new PropertiesNode();
+        sqlNode = new SQLNode();
+        propertiesNode = new PropertiesNode();
+        upperNode = new UpperNode();
     }
     
     protected static void setStatistics() {
         statistics.clear();
-        sql.loadStat("Programfiles/");
-        for (int i = 0; i < sql.getStatPlayers().size(); i++) {
-            statistics.add(new Statistic(sql.getStatPlayers().get(i), Integer.valueOf(sql.getStatScores().get(i)), sql.getStatGameModes().get(i), sql.getStatMaxScores().get(i)));
+        sqlNode.loadStat("Programfiles/");
+        for (int i = 0; i < sqlNode.getStatPlayers().size(); i++) {
+            statistics.add(new Statistic(sqlNode.getStatPlayers().get(i), Integer.valueOf(sqlNode.getStatScores().get(i)), sqlNode.getStatGameModes().get(i), sqlNode.getStatMaxScores().get(i)));
         }
     }
     protected static void setTopStatistics() {
         statistics.clear();
-        sql.loadTopStat("Programfiles/");
-        for (int i = 0; i < sql.getStatPlayers().size(); i++) {
-            statistics.add(new Statistic(sql.getStatPlayers().get(i), Integer.valueOf(sql.getStatScores().get(i))));
+        sqlNode.loadTopStat("Programfiles/");
+        for (int i = 0; i < sqlNode.getStatPlayers().size(); i++) {
+            statistics.add(new Statistic(sqlNode.getStatPlayers().get(i), Integer.valueOf(sqlNode.getStatScores().get(i))));
         }
     }
     
@@ -55,24 +59,36 @@ public class ItemNode {
         objectives.clear();
         objectiveNames.clear();
         nextId = 0;
-        sql.loadObj("Programfiles/");
-        for (int i = 0; i < sql.getObjNames().size(); i++) {
-            Objective object = new Objective(sql.getObjNames().get(i), sql.getObjRequirements().get(i), nextId);
-            objectives.add(object);
-            if (sql.getObjRequirements().get(i).charAt(0) != 'b') {
-                objectiveNames.add(object);
-            }
+        sqlNode.loadObj("Programfiles/");
+        upperNode.clearUpperCount();
+        for (int i = 0; i < sqlNode.getObjNames().size(); i++) {
+            checkRequirements(i);
             nextId += 1;
+        }
+    }
+    protected static void checkRequirements(int i) {
+        Objective objective = new Objective(sqlNode.getObjNames().get(i), sqlNode.getObjRequirements().get(i), nextId);
+        if (objective.getRequirement().charAt(0) == 'y') {
+            upperNode.addUpperCount();
+        }
+        if (sqlNode.getObjRequirements().get(i).charAt(0) == 'b') {
+            upperId = i;
+            upperNode.setBonusPoints(Integer.valueOf(sqlNode.getObjRequirements().get(i).split("/")[1]));
+            objective.setPoints("0");
+        }
+        objectives.add(objective);
+        if (sqlNode.getObjRequirements().get(i).charAt(0) != 'b') {
+            objectiveNames.add(objective);
         }
     }
     protected static ObservableList<GameMode> loadGameModes(String folder, Properties properties) {
         try {
             properties.stringPropertyNames().forEach((gameName) -> {
-                prop.loadGameModes(gameName, gameName, folder + "Cluster/");
+                propertiesNode.loadGameModes(gameName, gameName, folder + "Cluster/");
                 if (properties.getProperty(gameName).equals("main")) {
-                    loadGameMode(prop.getInGameModes());
+                    loadGameMode(propertiesNode.getInGameModes());
                 } else if (properties.getProperty(gameName).equals("cluster")) {
-                    loadGameMode(prop.getOutGameModes());
+                    loadGameMode(propertiesNode.getOutGameModes());
                 }
             });
         } catch (Exception ex) {
@@ -94,7 +110,7 @@ public class ItemNode {
         }
     }
     protected static void setGameModes(String folder) {
-        gameModes = loadGameModes(folder, prop.getGameModes("gamemode"));
+        gameModes = loadGameModes(folder, propertiesNode.getGameModes("gamemode"));
     }
     
     protected static void clearGameModes() {
@@ -106,5 +122,8 @@ public class ItemNode {
     protected static void clearObjectives() {
         objectives.clear();
         objectiveNames.clear();
+    }
+    protected static int getBonusPoinst() {
+        return upperNode.getBonusPoints();
     }
 }

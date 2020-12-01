@@ -66,27 +66,11 @@ public class CoreTest {
         assertEquals(2000,gameMode.getReRollTime());
     }
     @Test
-    public void getGameModesTest() {
-        Core.loadGameModes("Test/");
-        ObservableList<GameMode> gameModes = Core.getGameModes();
-        GameMode gameMode = gameModes.get(4);
-        assertEquals("Two dices lockpick",gameMode.getName());
-        assertEquals("lockpick2",gameMode.getController());
-        assertEquals(2000,gameMode.getReRollTime());
-    }
-    @Test
     public void propertiesTest() {
         Properties properties = Core.properties().loadProperties("default_cluster");
         assertEquals("3", properties.get("reroll_count"));
         assertEquals("classic", properties.get("controller"));
         assertEquals("false", properties.get("enabled"));
-    }
-    @Test
-    public void clearGameModesTest() {
-        Core.loadGameModes("Test/");
-        Core.clearGameModes();
-        ObservableList<GameMode> gameModes = FXCollections.observableArrayList();
-        assertEquals(gameModes, Core.getGameModes());
     }
     @Test
     public void getPahtTest() {

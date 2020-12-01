@@ -77,13 +77,7 @@ public class GameController implements Initializable {
     @FXML
     private void makeChoice(ActionEvent event) throws IOException {
         try {
-            Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
-            int points = objectiveLogic.getPoints(objective, createDiceList());
-            ItemNode.objectives.get(objective.getId()).setPoints(String.valueOf(points));
-            objectivesLeft.getItems().remove(objectivesLeft.getSelectionModel().getSelectedItem());
-            objectivesTable.refresh();
-            objectiveLogic.addPoints(points);
-            objectivesLeft.getSelectionModel().clearSelection();
+            addPoints();
             if (ItemNode.namesIsEmpty()) {
                 YatzyUi.setRoot("endgame");
             }
@@ -109,13 +103,8 @@ public class GameController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        diceLogic = new DiceLogic();
-        objectiveLogic = new ObjectiveLogic();
-        sceneLogic = new SceneLogic();
-        name.setCellValueFactory(new PropertyValueFactory<>("name"));
-        points.setCellValueFactory(new PropertyValueFactory<>("points"));
-        topPlayer.setCellValueFactory(new PropertyValueFactory<>("player"));
-        topScore.setCellValueFactory(new PropertyValueFactory<>("score"));
+        initializeLogic();
+        loadFactories();
         ItemNode.setTopStatistics();
         topTable.setItems(ItemNode.statistics);
         dices = new Label[]{dice1, dice2, dice3, dice4, dice5};
@@ -129,7 +118,7 @@ public class GameController implements Initializable {
         reRollsLeft.setText("Rerolls left: " + sceneLogic.getReRollCount());
     }
     
-    public void setClear(int id) {
+    private void setClear(int id) {
         dices[id].setText("-");
         try {
             select[id].setText("Select");
@@ -137,12 +126,35 @@ public class GameController implements Initializable {
         } catch (Exception ex) {
         }
     }
-    public List<Integer> createDiceList() {
+    private List<Integer> createDiceList() {
         List<Integer> diceList = new ArrayList<>();
         for (Label dice : dices) {
             diceList.add(Integer.valueOf(dice.getText()));
         }
         Collections.sort(diceList, Collections.reverseOrder());
         return diceList;
+    }
+    private void loadFactories() {
+        name.setCellValueFactory(new PropertyValueFactory<>("name"));
+        points.setCellValueFactory(new PropertyValueFactory<>("points"));
+        topPlayer.setCellValueFactory(new PropertyValueFactory<>("player"));
+        topScore.setCellValueFactory(new PropertyValueFactory<>("score"));
+    }
+    private void initializeLogic() {
+        diceLogic = new DiceLogic();
+        objectiveLogic = new ObjectiveLogic();
+        sceneLogic = new SceneLogic();
+    }
+    private void addPoints() throws Exception {
+        Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
+        int points = objectiveLogic.getPoints(objective, createDiceList());
+        if (objectiveLogic.getUpperStatus()) {
+            ItemNode.objectives.get(ItemNode.upperId).setPoints(String.valueOf(ItemNode.getBonusPoinst()));
+        }
+        ItemNode.objectives.get(objective.getId()).setPoints(String.valueOf(points));
+        objectivesLeft.getItems().remove(objectivesLeft.getSelectionModel().getSelectedItem());
+        objectivesTable.refresh();
+        objectiveLogic.addPoints(points);
+        objectivesLeft.getSelectionModel().clearSelection();
     }
 }

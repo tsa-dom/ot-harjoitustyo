@@ -6,78 +6,50 @@
 package service.game;
 
 import core.Core;
-import java.util.ArrayList;
-import java.util.List;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import org.testfx.framework.junit.ApplicationTest;
+import service.node.PropertiesNode;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class DiceLogicTest extends ApplicationTest{
-    DiceLogic diceLogic;
-    Label[] dices;
-    Label[] status;
-    Button[] select;
+public class DiceLogicTest {
     
     public DiceLogicTest() {
     }
+    private PropertiesNode properties;
+    private DiceLogic diceLogic;
     
     @Before
     public void setUp() {
         diceLogic = new DiceLogic();
-        dices = new Label[] {new Label("4"), new Label("7"), new Label("-"), new Label("5"), new Label("-"), new Label("1")};
-        status = new Label[] {new Label("Selected"), new Label(""), new Label(""), new Label("Locked"), new Label("Selected"), new Label("Locked")};
-        select = new Button[] {new Button("Unselect"), new Button("Select"), new Button("Select"), new Button("---"), new Button("Unselect")};
+        Core core = new Core();
+        core.install("Test/");
+        properties = new PropertiesNode();
+        properties.loadGameModes("classic", "cluster1", "Test/Cluster/");
+        Core.setGameMode(new GameMode(properties.getInGameModes()));
     }
     
     @After
     public void tearDown() {
     }
+    
     @Test
-    public void getDicesSum() {
-        dices = new Label[]{new Label("4"), new Label("7"), new Label("313"), new Label("5"), new Label("313"), new Label("1")};
-        assertEquals(643, diceLogic.getDicesSum(dices));
+    public void getSelectStatusTest() {
+        String[] status = diceLogic.getSelectStatus("Select");
+        assertEquals("Unselect", status[0]);
+        assertEquals("Selected", status[1]);
+        status = diceLogic.getSelectStatus("asdjlfakjd");
+        assertEquals("Select", status[0]);
+        assertEquals("", status[1]);
+        properties.loadGameModes("dicelock", "cluster1", "Test/Cluster/");
+        Core.setGameMode(new GameMode(properties.getInGameModes()));
+        status = diceLogic.getSelectStatus("Select");
+        assertEquals("---", status[0]);
+        assertEquals("Locked", status[1]);
     }
-    @Test
-    public void newDiceValuesTest() {
-        Core.loadGameModes("Test/");
-        Core.setGameMode(Core.getGameModes().get(2));
-        diceLogic.newDiceValues(dices, status);
-        assertEquals("4",dices[0].getText());
-        assertEquals("5",dices[3].getText());
-        boolean test = true;
-        if (dices[2].getText().equals("-") || dices[1].getText().equals("7") || dices[4].getText().equals("-")) {
-            test = false;
-        }
-        assertTrue(test);
-    }
-    @Test
-    public void clearDicesTest() {
-        diceLogic.clearDices(dices, status, select);
-        for(int i = 0; i<dices.length; i++) {
-            assertEquals("-", dices[i].getText());
-            if (i<5) {
-                assertEquals("", status[i].getText());
-                assertEquals("Select", select[i].getText());
-            }
-        }
-        assertEquals("Locked", status[5].getText());
-    }
-    @Test
-    public void createDiceListTest() {
-        dices = new Label[]{new Label("4"), new Label("7"), new Label("313"), new Label("5"), new Label("3"), new Label("1")};
-        List<Integer> diceList = diceLogic.createDiceList(dices);
-        List<Integer> list = new ArrayList<>();
-        list.add(313); list.add(7); list.add(5); list.add(4); list.add(3); list.add(1);
-        assertEquals(list, diceList);
-    }
-
     
 }

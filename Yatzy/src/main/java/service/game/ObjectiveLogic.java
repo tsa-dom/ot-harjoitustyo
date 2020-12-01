@@ -29,4 +29,7 @@ public class ObjectiveLogic {
     public int getPoints(Objective objective, List<Integer> dices) {
         return calculator.getPoints(objective, dices);
     }
+    public boolean getUpperStatus() {
+        return calculator.getUpperStatus();
+    }
 }

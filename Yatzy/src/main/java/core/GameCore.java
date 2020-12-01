@@ -14,4 +14,10 @@ import service.game.GameMode;
 public class GameCore {
     protected GameMode gameMode;
     protected String user;
+    protected int upperCount;
+    protected int bonusPoints;
+    
+    protected GameCore() {
+        upperCount = 0;
+    }
 }

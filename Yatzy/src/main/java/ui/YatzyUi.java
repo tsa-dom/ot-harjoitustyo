@@ -19,7 +19,7 @@ public class YatzyUi extends Application {
     private ItemNode itemNode;
 
     @Override
-    public void init() {
+    public void init() throws Exception {
         core = new Core();
         core.install("Programfiles/");
         itemNode = new ItemNode();
