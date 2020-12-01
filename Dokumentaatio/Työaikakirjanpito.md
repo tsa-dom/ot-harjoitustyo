@@ -27,4 +27,5 @@
 |24.11.2020|6h|Testien tekoa ja lisätty hieman toiminnalisuuksia|
 |27.11.2020|6h|Koodin refactorointia|
 |28.11.2020|2h|Koodin refactorointia|
-|Yht|100h||
+|2.12.2020|8h|Testien luontia ja ominaisuuksien täydennystä|
+|Yht|108h||
