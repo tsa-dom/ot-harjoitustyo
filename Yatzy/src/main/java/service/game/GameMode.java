@@ -19,7 +19,6 @@ public class GameMode {
     private final boolean storeReRolls;
     private final int minDiceNum;
     private final int maxDiceNum;
-    private final String diceRandomType;
     private final String objectiveType;
     private final String extraType;
     private final String controller;
@@ -34,7 +33,6 @@ public class GameMode {
         this.storeReRolls = Boolean.valueOf(properties.getProperty("store_rerolls"));
         this.minDiceNum = Integer.valueOf(properties.getProperty("minimum_dice_number"));
         this.maxDiceNum = Integer.valueOf(properties.getProperty("maximum_dice_number"));
-        this.diceRandomType = properties.getProperty("dice_random_type");
         this.objectiveType = properties.getProperty("objective_type");
         this.extraType = properties.getProperty("extra_objective_type");
         this.controller = properties.getProperty("controller");
@@ -64,9 +62,6 @@ public class GameMode {
     }
     public int getMaxDiceNum() {
         return this.maxDiceNum;
-    }
-    public String getRandomType() {
-        return this.diceRandomType;
     }
     public String getObjectiveType() {
         return this.objectiveType;

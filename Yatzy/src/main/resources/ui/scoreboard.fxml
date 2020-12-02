@@ -37,7 +37,7 @@
           <TableColumn fx:id="player" prefWidth="176.80001831054688" sortable="false" text="Player" />
           <TableColumn fx:id="score" minWidth="3.20001220703125" prefWidth="112.00001525878906" text="Score" />
             <TableColumn fx:id="maxScore" prefWidth="110.39996337890625" sortable="false" text="Max score" />
-            <TableColumn fx:id="gameMode" prefWidth="144.00006103515625" sortable="false" text="Gamemode" />
+            <TableColumn fx:id="gameMode" prefWidth="139.19998168945312" sortable="false" text="Gamemode" />
         </columns>
       </TableView>
       <Button layoutX="690.0" layoutY="620.0" mnemonicParsing="false" onAction="#backToMenu" prefHeight="38.0" prefWidth="286.0" text="Back to menu">

@@ -38,6 +38,7 @@ public class NewGameController implements Initializable {
                 YatzyUi.setRoot(newGameLogic.getController());
             }
         } catch (Exception ex) {
+            System.out.println(ex);
             warning.setText("Failed to load this gamemode.\nCheck your cluster files.");
         }
     }

@@ -33,9 +33,9 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class GameController implements Initializable {
-    @FXML private Label dice1, dice2, dice3, dice4, dice5;
-    @FXML private Label status1, status2, status3, status4, status5;
-    @FXML private Button select1, select2, select3, select4, select5;
+    @FXML private Label dice1, dice2, dice3, dice4, dice5, dice6;
+    @FXML private Label status1, status2, status3, status4, status5, status6;
+    @FXML private Button select1, select2, select3, select4, select5, select6;
     @FXML private Label reRollWarning, diceSum, score, player, reRollsLeft, gameInfo;
     @FXML private TableView<Statistic> topTable;
     @FXML private TableColumn<Statistic, String> topPlayer, topScore;
@@ -59,13 +59,7 @@ public class GameController implements Initializable {
         if (sceneLogic.getReRollStatus() == 0) {
             reRollWarning.setText("0 rerolls left");
         } else if (sceneLogic.getReRollStatus() == 1) {
-            int sum = 0;
-            for (int i = 0; i < dices.length; i++) {
-                if (status[i].getText().equals("") || dices[i].getText().equals("-")) {
-                    dices[i].setText(diceLogic.newDiceValue());
-                }
-                sum += Integer.valueOf(dices[i].getText());
-            }
+            int sum = getSum();
             sceneLogic.upDateReRollCount();
             reRollWarning.setText("");
             diceSum.setText("Dice sum: " + sum);
@@ -107,9 +101,9 @@ public class GameController implements Initializable {
         loadFactories();
         ItemNode.setTopStatistics();
         topTable.setItems(ItemNode.statistics);
-        dices = new Label[]{dice1, dice2, dice3, dice4, dice5};
-        status = new Label[]{status1, status2, status3, status4, status5};
-        select = new Button[]{select1, select2, select3, select4, select5};
+        dices = new Label[]{dice1, dice2, dice3, dice4, dice5, dice6};
+        status = new Label[]{status1, status2, status3, status4, status5, status6};
+        select = new Button[]{select1, select2, select3, select4, select5, select6};
         ItemNode.setObjectives();
         objectivesTable.setItems(ItemNode.objectives);
         objectivesLeft.setItems(ItemNode.objectiveNames);
@@ -119,17 +113,23 @@ public class GameController implements Initializable {
     }
     
     private void setClear(int id) {
-        dices[id].setText("-");
         try {
-            select[id].setText("Select");
-            status[id].setText("");
+            dices[id].setText("-");
+            try {
+                select[id].setText("Select");
+                status[id].setText("");
+            } catch (Exception ex) {
+            }
         } catch (Exception ex) {
         }
     }
     private List<Integer> createDiceList() {
         List<Integer> diceList = new ArrayList<>();
-        for (Label dice : dices) {
-            diceList.add(Integer.valueOf(dice.getText()));
+        try {
+            for (Label dice : dices) {
+                diceList.add(Integer.valueOf(dice.getText()));
+            }
+        } catch (Exception ex) {
         }
         Collections.sort(diceList, Collections.reverseOrder());
         return diceList;
@@ -148,13 +148,27 @@ public class GameController implements Initializable {
     private void addPoints() throws Exception {
         Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
         int points = objectiveLogic.getPoints(objective, createDiceList());
-        if (objectiveLogic.getUpperStatus()) {
+        if (objectiveLogic.getUpperStatus() && ItemNode.upperId > -1) {
             ItemNode.objectives.get(ItemNode.upperId).setPoints(String.valueOf(ItemNode.getBonusPoinst()));
+            ItemNode.upperId = -1;
         }
         ItemNode.objectives.get(objective.getId()).setPoints(String.valueOf(points));
         objectivesLeft.getItems().remove(objectivesLeft.getSelectionModel().getSelectedItem());
         objectivesTable.refresh();
         objectiveLogic.addPoints(points);
         objectivesLeft.getSelectionModel().clearSelection();
+    }
+    private int getSum() {
+        int sum = 0;
+        try {
+            for (int i = 0; i < dices.length; i++) {
+                if (status[i].getText().equals("") || dices[i].getText().equals("-")) {
+                    dices[i].setText(diceLogic.newDiceValue());
+                }
+                sum += Integer.valueOf(dices[i].getText());
+            }
+        } catch (Exception ex) {
+        }
+        return sum;
     }
 }
