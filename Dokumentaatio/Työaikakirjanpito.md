@@ -28,4 +28,5 @@
 |27.11.2020|6h|Koodin refactorointia|
 |28.11.2020|2h|Koodin refactorointia|
 |1.12.2020|8h|Testien luontia ja ominaisuuksien täydennystä|
+|2.12.2020|4h|Korjattu kriittinen bugi ja lisätty pelimuoto maxi|
 |Yht|108h||
