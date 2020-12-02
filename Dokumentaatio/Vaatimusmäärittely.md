@@ -29,7 +29,7 @@ Peliin on tarkoitettu vain yhden tyyppisiä eli tavallisia käyttäjiä. Kuitenk
 * pelin keskeiset elementit tulevat olemaan Yatzy henkisiä, kuten noppien heittoa ja pisteiden keräämistä Yatzylle ominaisella tavalla
 * pelaajan tulisi pelin aikana huolehtia vain omista valinnoistaan ja ohjelma suorittaa pelaajan pisteiden laskemisen automaattisesti, sekä sen hetkisen session reaalitallennuksen
 * peli tallentaa pelaajien pelihistoriaa, joka mahdollistaa aikaisemman pistehistorian tarkastelun
-### Admin-mode
+### Admin-mode (tämä ominaisuus on vain idea ja se toteuteaan, mikäli aikaa on)
 * käyttäjämuoto jolla ei ole mahdollisuutta pelata
 * oletuksena poissa käytöstä ja aktivoitava erikseen
 * mahdollisuus jäädyttää pelaajia
@@ -38,6 +38,6 @@ Peliin on tarkoitettu vain yhden tyyppisiä eli tavallisia käyttäjiä. Kuitenk
 ### Kehitysideoita
 Peliä voitasiin kehittää siten, että pelissä olisi useita pelimuotoja ja mahdollisuus custom pelimuodoille. Voitaisiin lisätä tuki custom pelimuotojen luontiin peliin ladattavan teksitiedoston avulla joka sisältäisi halutunlaisen pelin säännöt. Vaihtoehtoisesti tämä voitaisiin luoda sellaisena toteutuksena, jossa pelin esinmäisen käynnistyksen yhteydessä luotaisiin erityinen tiedosto joka sisältäisi tiedot omalle custom pelimuodolle. Tämän tyyppisen pelimuodon luonti muuttuu sitä haasteellisemmaksi mitä enemmän vapauksia pelaajalle halutaan antaa ja ohjelman tulisi voida reagoida lukuisiin virhetilanteisiin mikäli oletetaan, että teksitiedosto olisi täytetty väärin.
 
-Toinen mahdollinen kehitysidea voisi olla tuki useammille kielille kuin englannin kielelle. Peli voisi antaa mahdollisuuden asettaa pelin kieli ainakin englanniksi ja suomeksi, sekä ehkä myös norjaksi. Peliin voitaisiin myös luoda toiminnalisuus, jossa pelaaja voisi ladata niin sanotun kielipaketin, joka syötetään ohjelmalle oikein täytettynä teksittiedostona. Uusi ladattu kieli tallennettaisiin tämän jälkeen pelin tietokantaan.
+**Tämä ominaisuus on vain idea, eikä sitä ole tarkoitus enään toteuttaa ajanpuutteen vuoksi!** Toinen mahdollinen kehitysidea voisi olla tuki useammille kielille kuin englannin kielelle. Peli voisi antaa mahdollisuuden asettaa pelin kieli ainakin englanniksi ja suomeksi. Peliin voitaisiin myös luoda toiminnalisuus, jossa pelaaja voisi ladata niin sanotun kielipaketin, joka syötetään ohjelmalle oikein täytettynä teksittiedostona. Uusi ladattu kieli tallennettaisiin tämän jälkeen pelin tietokantaan.
 ### Pelinäkymä classic pelimuodossa
 ![Classic screen](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/classicscreen.png "Classic screen")
