@@ -12,6 +12,7 @@ Peliin on lisätty seuraavat toiminnallisuudet
 * peliä pystyy pelaamaan, mutta siitä puuttuu toiminnallisuus laskea bonus
 * peli kykenee nyt laskemaan bonuksen ja pisteet kokonaisuudessaan
 * pelissä tableview on muokattu siten, että se jaoittelee nyt järjestyksen pelaajien pisteille, jota se ei aiemmin tehnyt
+* lisätty pelimuoto maxi, kuudella nopalla
 
 ## Käyttäjät
 Peliin on tarkoitettu vain yhden tyyppisiä eli tavallisia käyttäjiä. Kuitenkin suunnitteilla olisi toteutus, että peliä voisi hallinnoida paremmin erillisellä admin käyttäjätilillä, joka tulisi erikseen aktivoida käynnistämällä peli admin-modessa. Adminin oikeudet tulisivat rajoittumaan siten, että se voisi hallinnoida asetuksia ja muiden pelaajien käyttäjiä, mutta ei voisi itse pelata.
