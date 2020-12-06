@@ -22,6 +22,7 @@ import java.util.List;
  */
 public class SQLLoader implements SQLIF {
     
+    @Override
     public List<String> searchStatements(String givenPath) {
         InputStream inputStream = Core.class.getResourceAsStream(givenPath + ".sql");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

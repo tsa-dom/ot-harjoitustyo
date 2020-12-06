@@ -16,6 +16,7 @@ import java.util.Properties;
  */
 public class PropertiesLoader implements PropertiesIF {
     
+    @Override
     public Properties loadProperties(String givenPath) {
         try {
             Properties properties = new Properties();
@@ -25,6 +26,7 @@ public class PropertiesLoader implements PropertiesIF {
             return null;
         }
     }
+    @Override
     public Properties loadFromPath(String givenPath) {
         try {
             Properties properties = new Properties();
