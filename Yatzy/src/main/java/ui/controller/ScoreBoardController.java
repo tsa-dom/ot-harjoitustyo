@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import service.game.Statistic;
+import service.domain.StatisticIF;
 import ui.YatzyUi;
 
 /**
@@ -21,8 +21,8 @@ import ui.YatzyUi;
  * @author Tapio Salonen
  */
 public class ScoreBoardController implements Initializable {
-    @FXML private TableView<Statistic> table;
-    @FXML private TableColumn<Statistic, String> player, score, gameMode, maxScore;
+    @FXML private TableView<StatisticIF> table;
+    @FXML private TableColumn<StatisticIF, String> player, score, gameMode, maxScore;
     @FXML
     private void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");

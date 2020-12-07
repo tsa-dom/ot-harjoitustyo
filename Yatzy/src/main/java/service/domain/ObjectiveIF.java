@@ -3,16 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
-
-import java.util.List;
+package service.domain;
 
 /**
  *
  * @author Tapio Salonen
  */
-public interface SQLIF {
+public interface ObjectiveIF {
     
-    List<String> searchStatements(String givenPath);
+    String getName();
+    
+    String getPoints();
+    
+    int getId();
+    
+    String getRequirement();
+    
+    void setPoints(String points);
     
 }

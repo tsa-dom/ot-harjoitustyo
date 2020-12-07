@@ -5,7 +5,7 @@
  */
 package core.dao;
 
-import domain.DataIF;
+import core.domain.DataIF;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;

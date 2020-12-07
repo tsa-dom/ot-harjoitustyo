@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import service.domain.GameModeIF;
 import service.node.PropertiesNode;
 
 /**
@@ -30,7 +31,7 @@ public class DiceLogicTest {
         core.install("Test/");
         properties = new PropertiesNode();
         properties.loadGameModes("classic", "cluster1", "Test/Cluster/");
-        Core.setGameMode(new GameMode(properties.getInGameModes()));
+        Core.setGameMode((GameModeIF) new GameMode(properties.getInGameModes()));
     }
     
     @After

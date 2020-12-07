@@ -8,8 +8,14 @@ package ui.controller;
 import java.util.Properties;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import service.node.SQLNode;
+import service.domain.GameModeIF;
+import service.domain.ObjectiveIF;
+import service.domain.PropertiesNodeIF;
+import service.domain.SQLNodeIF;
+import service.domain.StatisticIF;
 import service.game.GameMode;
+import service.node.SQLNode;
+//import service.game.GameMode;
 import service.game.Objective;
 import service.game.Statistic;
 import service.node.PropertiesNode;
@@ -22,12 +28,12 @@ import service.node.UpperNode;
 public class ItemNode {
     private static int nextId;
     protected static int upperId;
-    protected static ObservableList<Statistic> statistics;
-    protected static ObservableList<Objective> objectives;
-    protected static ObservableList<Objective> objectiveNames;
-    protected static ObservableList<GameMode> gameModes;
-    protected static SQLNode sqlNode;
-    protected static PropertiesNode propertiesNode;
+    protected static ObservableList<StatisticIF> statistics;
+    protected static ObservableList<ObjectiveIF> objectives;
+    protected static ObservableList<ObjectiveIF> objectiveNames;
+    protected static ObservableList<GameModeIF> gameModes;
+    protected static SQLNodeIF sqlNode;
+    protected static PropertiesNodeIF propertiesNode;
     protected static UpperNode upperNode;
     
     public ItemNode() {
@@ -81,7 +87,7 @@ public class ItemNode {
             objectiveNames.add(objective);
         }
     }
-    protected static ObservableList<GameMode> loadGameModes(String folder, Properties properties) {
+    protected static ObservableList<GameModeIF> loadGameModes(String folder, Properties properties) {
         try {
             properties.stringPropertyNames().forEach((gameName) -> {
                 propertiesNode.loadGameModes(gameName, gameName, folder + "Cluster/");
@@ -100,7 +106,7 @@ public class ItemNode {
         try {
             if (gameProperties != null) {
                 if (gameProperties.getProperty("enabled").equals("true")) {
-                    GameMode gameMode = new GameMode(gameProperties);
+                    GameModeIF gameMode = new GameMode(gameProperties);
                     gameModes.add(gameMode);
                 }
             } 

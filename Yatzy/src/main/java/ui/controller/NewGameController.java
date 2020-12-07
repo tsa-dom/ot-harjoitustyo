@@ -13,7 +13,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import service.NewGameLogic;
-import service.game.GameMode;
+import service.domain.GameModeIF;
+import service.domain.NewGameLogicIF;
 import ui.YatzyUi;
 
 /**
@@ -23,7 +24,7 @@ import ui.YatzyUi;
 public class NewGameController implements Initializable {
     @FXML private ComboBox gameModes;
     @FXML private Label warning;
-    private NewGameLogic newGameLogic;
+    private NewGameLogicIF newGameLogic;
     @FXML
     private void backToMenu() throws IOException {
         YatzyUi.setRoot("menu");
@@ -34,7 +35,7 @@ public class NewGameController implements Initializable {
             if (gameModes.getSelectionModel().isEmpty()) {
                 warning.setText("Choose gamemode");
             } else {
-                newGameLogic.setGameMode((GameMode) gameModes.getSelectionModel().getSelectedItem());
+                newGameLogic.setGameMode((GameModeIF) gameModes.getSelectionModel().getSelectedItem());
                 YatzyUi.setRoot(newGameLogic.getController());
             }
         } catch (Exception ex) {

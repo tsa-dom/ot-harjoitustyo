@@ -5,14 +5,16 @@
  */
 package core;
 
-import service.game.GameMode;
+import service.domain.GameModeIF;
 
 /**
  *
  * @author Tapio Salonen
+ * 
+ * Software current gamemode and user info are stored here
  */
 public class GameCore {
-    protected GameMode gameMode;
+    protected GameModeIF gameMode;
     protected String user;
     protected int upperCount;
     protected int bonusPoints;

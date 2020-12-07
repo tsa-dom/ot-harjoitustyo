@@ -7,28 +7,35 @@ package service.game;
 
 import java.util.List;
 import core.Core;
+import service.domain.CalculatorIF;
+import service.domain.ObjectiveIF;
+import service.domain.ObjectiveLogicIF;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class ObjectiveLogic {
-    private final Calculator calculator;
+public class ObjectiveLogic implements ObjectiveLogicIF {
+    private final CalculatorIF calculator;
     
     public ObjectiveLogic() {
         calculator = new Calculator();
     }
  
+    @Override
     public void addPoints(int points) {
         Core.getGameMode().setScore(Core.getGameMode().getScore() + points);
     }
+    @Override
     public int getScore() {
         return Core.getGameMode().getScore();
     }
 
-    public int getPoints(Objective objective, List<Integer> dices) {
+    @Override
+    public int getPoints(ObjectiveIF objective, List<Integer> dices) {
         return calculator.getPoints(objective, dices);
     }
+    @Override
     public boolean getUpperStatus() {
         return calculator.getUpperStatus();
     }

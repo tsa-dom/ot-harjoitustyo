@@ -15,6 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import service.domain.LoginLogicIF;
+import service.domain.SQLNodeIF;
 import ui.YatzyUi;
 
 /**
@@ -25,8 +27,8 @@ public class LoginController implements Initializable {
     @FXML private Label infoLabel;
     @FXML private TextField username;
     @FXML private PasswordField password;
-    private LoginLogic loginLogic;
-    private SQLNode sql;
+    private LoginLogicIF loginLogic;
+    private SQLNodeIF sql;
     @FXML
     private void logIn() throws IOException {
         try {

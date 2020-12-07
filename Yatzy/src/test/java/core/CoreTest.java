@@ -5,13 +5,14 @@
  */
 package core;
 
-import service.game.GameMode;
 import java.util.List;
 import java.util.Properties;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import service.domain.GameModeIF;
+import service.game.GameMode;
 
 
 /**
@@ -57,8 +58,8 @@ public class CoreTest {
     @Test
     public void getGameModeTest() {
         Properties properties = Core.properties().loadProperties("dicelock");
-        Core.setGameMode(new GameMode(properties));
-        GameMode gameMode = Core.getGameMode();
+        Core.setGameMode((GameModeIF) new GameMode(properties));
+        GameModeIF gameMode = Core.getGameMode();
         assertEquals("Dice Lock",gameMode.getName());
         assertEquals("classic",gameMode.getController());
         assertEquals(2000,gameMode.getReRollTime());

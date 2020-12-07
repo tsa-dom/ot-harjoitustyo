@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import service.domain.GameModeIF;
 import service.game.GameMode;
 import service.node.PropertiesNode;
 
@@ -29,7 +30,7 @@ public class NewGameLogicTest {
         newGameLogic = new NewGameLogic();
         properties = new PropertiesNode();
         properties.loadGameModes("lockpick", "cluster1", "Test/Cluster/");
-        newGameLogic.setGameMode(new GameMode(properties.getInGameModes()));
+        newGameLogic.setGameMode((GameModeIF) new GameMode(properties.getInGameModes()));
     }
     
     @After

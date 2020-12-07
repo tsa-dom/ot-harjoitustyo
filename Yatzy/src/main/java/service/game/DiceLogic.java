@@ -7,17 +7,19 @@ package service.game;
 
 import core.Core;
 import java.util.Random;
+import service.domain.DiceLogicIF;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class DiceLogic {
+public class DiceLogic implements DiceLogicIF {
     private final Random random;
     
     public DiceLogic() {
         random = new Random();
     }
+    @Override
     public String newDiceValue() {
         try {
             int min = Core.getGameMode().getMinDiceNum();
@@ -28,6 +30,7 @@ public class DiceLogic {
         }
     }
     
+    @Override
     public String[] getSelectStatus(String buttonText) {
         String[] status = new String[2];
         if (Core.getGameMode().getLockStatus()) {

@@ -6,16 +6,19 @@
 package service;
 
 import core.Core;
-import service.game.GameMode;
+import service.domain.GameModeIF;
+import service.domain.NewGameLogicIF;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class NewGameLogic {
-    public void setGameMode(GameMode gameMode) {
+public class NewGameLogic implements NewGameLogicIF {
+    @Override
+    public void setGameMode(GameModeIF gameMode) {
         Core.setGameMode(gameMode);
     }
+    @Override
     public String getController() {
         return Core.getGameMode().getController();
     }

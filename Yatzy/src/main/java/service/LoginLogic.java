@@ -6,15 +6,18 @@
 package service;
 
 import core.Core;
+import service.domain.LoginLogicIF;
 
 /**
  *
  * @author Tapio Salonen
  */
-public class LoginLogic {
+public class LoginLogic implements LoginLogicIF {
+    @Override
     public void setUser(String user) {
         Core.setUser(user);
     }
+    @Override
     public String correctInput(String username, String password) {
         if (username.length() > 20) {
             return "Username is too long";

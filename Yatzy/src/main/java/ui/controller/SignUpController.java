@@ -14,6 +14,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import service.LoginLogic;
+import service.domain.LoginLogicIF;
+import service.domain.SQLNodeIF;
 import service.node.SQLNode;
 import ui.YatzyUi;
 
@@ -25,8 +27,8 @@ public class SignUpController implements Initializable {
     @FXML private Label infoLabel;
     @FXML private TextField username;
     @FXML private PasswordField password;
-    private LoginLogic loginLogic;
-    private SQLNode sql;
+    private LoginLogicIF loginLogic;
+    private SQLNodeIF sql;
     @FXML
     private void backToLogin() {
         try {

@@ -5,11 +5,13 @@
  */
 package service.game;
 
+import service.domain.StatisticIF;
+
 /**
  *
  * @author Tapio Salonen
  */
-public class Statistic {
+public class Statistic implements StatisticIF {
     private final String player;
     private final int score;
     private final String gameMode;
@@ -27,15 +29,19 @@ public class Statistic {
         this.gameMode = null;
         this.maxScore = null;
     }
+    @Override
     public String getPlayer() {
         return this.player;
     }
+    @Override
     public int getScore() {
         return this.score;
     }
+    @Override
     public String getGameMode() {
         return this.gameMode;
     }
+    @Override
     public String getMaxScore() {
         return this.maxScore;
     }

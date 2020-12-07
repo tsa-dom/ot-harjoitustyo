@@ -6,7 +6,7 @@
 package core.dao;
 
 import core.Core;
-import domain.SQLIF;
+import core.domain.SQLIF;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;

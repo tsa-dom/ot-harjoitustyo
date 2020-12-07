@@ -8,13 +8,15 @@ package service.game;
 import core.Core;
 import java.util.HashSet;
 import java.util.List;
+import service.domain.CalculatorIF;
+import service.domain.ObjectiveIF;
 
 
 /**
  *
  * @author Tapio Salonen
  */
-public class Calculator {
+public class Calculator implements CalculatorIF {
     private static HashSet<Integer> calculated;
     private static boolean ready;
     private boolean upperCalculated;
@@ -25,7 +27,8 @@ public class Calculator {
         upperPoints = 0;
         upperCalculated = false;
     }
-    public int getPoints(Objective objective, List<Integer> dices) {
+    @Override
+    public int getPoints(ObjectiveIF objective, List<Integer> dices) {
         int points = 0;
         calculated.clear();
         ready = true;
@@ -38,6 +41,7 @@ public class Calculator {
         }
         return 0;
     }
+    @Override
     public int customOrNot(String requirement, int points, boolean ready) {
         if (requirement.equals("m") && ready) {
             return points;
@@ -47,6 +51,7 @@ public class Calculator {
         return -1;
     }
     
+    @Override
     public int calculate(String requirement, int points, List<Integer> dices) {
         if (requirement.substring(0, 1).equals("x")) {
             points += times(requirement.substring(1), dices);
@@ -61,6 +66,7 @@ public class Calculator {
         return points;
     }
     
+    @Override
     public int times(String requirement, List<Integer> dices) {
         int times = Integer.valueOf(requirement);
         int diceFace = -1;
@@ -81,6 +87,7 @@ public class Calculator {
         return 0;
     }
     
+    @Override
     public int upperSection(String requirement, List<Integer> dices) {
         int value = Integer.valueOf(requirement);
         int sum = 0;
@@ -88,6 +95,7 @@ public class Calculator {
         return sum;
     }
     
+    @Override
     public int random(String requirement, List<Integer> dices) {
         int times = Integer.valueOf(requirement);
         int sum = 0;
@@ -97,6 +105,7 @@ public class Calculator {
         return sum;
     }
     
+    @Override
     public int straight(String requirement, List<Integer> dices) {
         String[] interval = requirement.split("A");
         int highest = Integer.valueOf(interval[0]);
@@ -113,12 +122,14 @@ public class Calculator {
         }
         return 0;
     }
+    @Override
     public void upperCountCheck(int points) {
         upperPoints += points;
         if (upperPoints >= Core.getGameMode().getBonusRequirement()) {
             upperCalculated = true;
         }
     }
+    @Override
     public boolean getUpperStatus() {
         return upperCalculated;
     }

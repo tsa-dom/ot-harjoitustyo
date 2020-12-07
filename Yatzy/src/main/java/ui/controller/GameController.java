@@ -9,8 +9,11 @@ import core.Core;
 import service.game.DiceLogic;
 import service.game.ObjectiveLogic;
 import service.game.SceneLogic;
-import service.game.Objective;
-import service.game.Statistic;
+import service.domain.DiceLogicIF;
+import service.domain.ObjectiveLogicIF;
+import service.domain.SceneLogicIF;
+import service.domain.ObjectiveIF;
+import service.domain.StatisticIF;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -37,17 +40,17 @@ public class GameController implements Initializable {
     @FXML private Label status1, status2, status3, status4, status5, status6;
     @FXML private Button select1, select2, select3, select4, select5, select6;
     @FXML private Label reRollWarning, diceSum, score, player, reRollsLeft, gameInfo;
-    @FXML private TableView<Statistic> topTable;
-    @FXML private TableColumn<Statistic, String> topPlayer, topScore;
+    @FXML private TableView<StatisticIF> topTable;
+    @FXML private TableColumn<StatisticIF, String> topPlayer, topScore;
     @FXML private ComboBox objectivesLeft;
-    @FXML private TableView<Objective> objectivesTable;
-    @FXML private TableColumn<Objective, String> name, points;
+    @FXML private TableView<ObjectiveIF> objectivesTable;
+    @FXML private TableColumn<ObjectiveIF, String> name, points;
     private Label[] dices;
     private Label[] status;
     private Button[] select;
-    private DiceLogic diceLogic;
-    private ObjectiveLogic objectiveLogic;
-    private SceneLogic sceneLogic;
+    private DiceLogicIF diceLogic;
+    private ObjectiveLogicIF objectiveLogic;
+    private SceneLogicIF sceneLogic;
     
     @FXML
     private void backToMenu(ActionEvent event) throws IOException {
@@ -146,7 +149,7 @@ public class GameController implements Initializable {
         sceneLogic = new SceneLogic();
     }
     private void addPoints() throws Exception {
-        Objective objective = (Objective) objectivesLeft.getSelectionModel().getSelectedItem();
+        ObjectiveIF objective = (ObjectiveIF) objectivesLeft.getSelectionModel().getSelectedItem();
         int points = objectiveLogic.getPoints(objective, createDiceList());
         if (objectiveLogic.getUpperStatus() && ItemNode.upperId > -1) {
             ItemNode.objectives.get(ItemNode.upperId).setPoints(String.valueOf(ItemNode.getBonusPoinst()));

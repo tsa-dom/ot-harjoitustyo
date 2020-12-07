@@ -6,7 +6,7 @@
 package core.dao;
 
 import core.Core;
-import domain.PropertiesIF;
+import core.domain.PropertiesIF;
 import java.io.FileInputStream;
 import java.util.Properties;
 

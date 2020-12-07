@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package domain;
+package service.domain;
 
 import java.util.Properties;
 
@@ -11,10 +11,14 @@ import java.util.Properties;
  *
  * @author Tapio Salonen
  */
-public interface PropertiesIF {
+public interface PropertiesNodeIF {
     
-    Properties loadProperties(String givenPath);
+    void loadGameModes(String inGameName, String outGameName, String path);
     
-    Properties loadFromPath(String givenPath);
+    Properties getInGameModes();
+    
+    Properties getOutGameModes();
+    
+    Properties getGameModes(String id);
     
 }

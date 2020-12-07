@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 package service.game;
+
+import service.domain.ObjectiveIF;
+
 /**
  *
  * @author Tapio Salonen
  */
-public class Objective {
+public class Objective implements ObjectiveIF {
     private final String name;
     private final int id;
     private final String requirement;
@@ -19,20 +22,25 @@ public class Objective {
         this.points  = "---";
         this.id = id;
     }
+    @Override
     public String getName() {
         return this.name;
     }
+    @Override
     public String getPoints() {
         return this.points;
     }
+    @Override
     public int getId() {
         return this.id;
     }
+    @Override
     public String getRequirement() {
         return this.requirement;
     }
-    public void setPoints(String givenPoints) {
-        this.points = givenPoints;
+    @Override
+    public void setPoints(String points) {
+        this.points = points;
     }
     @Override
     public String toString() {

@@ -8,15 +8,20 @@ package core;
 import core.dao.DatabaseAccess;
 import core.dao.PropertiesLoader;
 import core.dao.SQLLoader;
+import core.domain.DataIF;
+import core.domain.PropertiesIF;
+import core.domain.SQLIF;
 
 /**
  *
  * @author Tapio Salonen
+ * 
+ * Software dao class references are here
  */
 public class DaoCore {
-    protected final DatabaseAccess dbAccess;
-    protected final PropertiesLoader propertiesLoader;
-    protected final SQLLoader sqlLoader;
+    protected final DataIF dbAccess;
+    protected final PropertiesIF propertiesLoader;
+    protected final SQLIF sqlLoader;
     
     protected DaoCore() {
         dbAccess = new DatabaseAccess();
