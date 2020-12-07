@@ -31,4 +31,5 @@
 |2.12.2020|4h|Korjattu kriittinen bugi ja lisätty pelimuoto maxi|
 |6.12.2020|4h|Poistettu module-info.java javadoc ongelman vuoksi|
 |6.12.2020||Luotu uusi Yatzy- sovellus vanhan tilalle|
-|Yht|116h||
+|7.12.2020|6h|Lisätty useita rajapintoja ja aloitettu javadoc|
+|Yht|122h||
