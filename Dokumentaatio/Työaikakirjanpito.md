@@ -29,4 +29,6 @@
 |28.11.2020|2h|Koodin refactorointia|
 |1.12.2020|8h|Testien luontia ja ominaisuuksien täydennystä|
 |2.12.2020|4h|Korjattu kriittinen bugi ja lisätty pelimuoto maxi|
-|Yht|112h||
+|6.12.2020|4h|Poistettu module-info.java javadoc ongelman vuoksi|
+|6.12.2020||Luotu uusi Yatzy- sovellus vanhan tilalle|
+|Yht|116h||
