@@ -6,12 +6,12 @@
 package service.node;
 
 import core.Core;
-import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import service.domain.GameModeIF;
+import service.domain.PropertiesNodeIF;
 import service.game.GameMode;
 
 /**
@@ -23,7 +23,7 @@ public class SQLNodeTest {
     public SQLNodeTest() {
     }
     SQLNode sql;
-    PropertiesNode properties;
+    PropertiesNodeIF properties;
     
     @Before
     public void setUp() {
@@ -69,150 +69,5 @@ public class SQLNodeTest {
         assertEquals("r5Zm", sql.getObjRequirements().get(14));
         assertEquals("d6A2Zm", sql.getObjRequirements().get(12));
         assertEquals("y5Zm", sql.getObjRequirements().get(4));
-    }
-
-    /**
-     * Test of loadObj method, of class SQLNode.
-     */
-    @Test
-    public void testLoadObj() {
-        System.out.println("loadObj");
-        String folder = "";
-        SQLNode instance = new SQLNode();
-        instance.loadObj(folder);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of loadStat method, of class SQLNode.
-     */
-    @Test
-    public void testLoadStat() {
-        System.out.println("loadStat");
-        String folder = "";
-        SQLNode instance = new SQLNode();
-        instance.loadStat(folder);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of loadTopStat method, of class SQLNode.
-     */
-    @Test
-    public void testLoadTopStat() {
-        System.out.println("loadTopStat");
-        String folder = "";
-        SQLNode instance = new SQLNode();
-        instance.loadTopStat(folder);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getLogin method, of class SQLNode.
-     */
-    @Test
-    public void testGetLogin() {
-        System.out.println("getLogin");
-        String username = "";
-        String folder = "";
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getLogin(username, folder);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of createUser method, of class SQLNode.
-     */
-    @Test
-    public void testCreateUser() {
-        System.out.println("createUser");
-        String username = "";
-        String password = "";
-        String folder = "";
-        SQLNode instance = new SQLNode();
-        boolean expResult = false;
-        boolean result = instance.createUser(username, password, folder);
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getObjNames method, of class SQLNode.
-     */
-    @Test
-    public void testGetObjNames() {
-        System.out.println("getObjNames");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getObjNames();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getObjRequirements method, of class SQLNode.
-     */
-    @Test
-    public void testGetObjRequirements() {
-        System.out.println("getObjRequirements");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getObjRequirements();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getStatPlayers method, of class SQLNode.
-     */
-    @Test
-    public void testGetStatPlayers() {
-        System.out.println("getStatPlayers");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getStatPlayers();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getStatScores method, of class SQLNode.
-     */
-    @Test
-    public void testGetStatScores() {
-        System.out.println("getStatScores");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getStatScores();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getStatGameModes method, of class SQLNode.
-     */
-    @Test
-    public void testGetStatGameModes() {
-        System.out.println("getStatGameModes");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getStatGameModes();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
-    }
-
-    /**
-     * Test of getStatMaxScores method, of class SQLNode.
-     */
-    @Test
-    public void testGetStatMaxScores() {
-        System.out.println("getStatMaxScores");
-        SQLNode instance = new SQLNode();
-        List<String> expResult = null;
-        List<String> result = instance.getStatMaxScores();
-        assertEquals(expResult, result);
-        fail("The test case is a prototype.");
     }
 }
