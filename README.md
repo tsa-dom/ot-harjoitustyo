@@ -9,6 +9,7 @@ Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux 
 ## Release
 #### [Viikko 5 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko5)
 #### [Viikko 5 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/Viikko5)
+#### [Viikko 6 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-linux)
 #### [Viikko 6 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-win)
 ## Komentorivitoiminnot
 ### Testaaminen
