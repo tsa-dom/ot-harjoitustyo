@@ -13,7 +13,7 @@ Mikäli pelaajalla ei ole olemassa olevaa käyttäjää tai hän haluaa luoda uu
 ![Sign up](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/image2.png)
 
 ## Päävalikko
-Päävalikossa näkyy vasemmassa alakulmassa nykyisen pelaajan käyttäjätunnus. Pelaajalle aukeaa useita eri vaihtoehtoja päävalikossa. Päävalikkossa pelaaja voi valita, haluaako hän aloittaa uuden pelin, *jatkaa edellista peliä*, tarkastella aiempien peliensä sijoituksia, kirjautua ulos tai lopettaa peli. 
+Päävalikossa näkyy vasemmassa alakulmassa nykyisen pelaajan käyttäjätunnus. Pelaajalle aukeaa useita eri vaihtoehtoja päävalikossa. Päävalikossa pelaaja voi valita, haluaako hän aloittaa uuden pelin, *jatkaa edellista peliä*, tarkastella aiempien peliensä sijoituksia, kirjautua ulos tai lopettaa peli. 
 
 ![Päävalikko](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/image3.png)
 
@@ -23,6 +23,6 @@ Uusi peli ruudussa pelaaja voi valita pelimuodon, jota hän haluaa pelata painam
 ![New game](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/image4.png)
 
 ## Pelinäkymä
-Pelinäkymässä pelaaja pääsee pelaamaan itse peliä. Alla olevassa pelinäkymässä pelaaja on päättänyt että haluaa pelata pelimuotoa maxi, joka on siis Yatzy kuudella nopalla. Sovelluksen yläosassa näkyvät kuusi noppaa ja niiden alapuolella nappulat, joiden avulla pelaaja voi päättää haluaako se pitää valitsemansa nopat seuraavalle nopan heitto kierrokselle. Pelimekaniikkojen kannalta pelaajalla on käytössä kaksi nappulaa *reroll* ja *make your choise*, sekä valintaruutu, jossa pelaaja valitsee pistetaulukosta sen kohdan mihin haluaa että pisteet lasketaan. Pelaaja voi halutessaan myös poistua pelistä.
+Pelinäkymässä pelaaja pääsee pelaamaan itse peliä. Alla olevassa pelinäkymässä pelaaja on päättänyt että haluaa pelata pelimuotoa maxi, joka on siis Yatzy kuudella nopalla. Sovelluksen yläosassa näkyvät kuusi noppaa ja niiden alapuolella nappulat, joiden avulla pelaaja voi päättää haluaako se pitää valitsemansa nopat seuraavalle nopan heitto kierrokselle. Pelimekaniikkojen kannalta pelaajalla on käytössä kaksi nappulaa *reroll* ja *make your choice*, sekä valintaruutu, jossa pelaaja valitsee pistetaulukosta sen kohdan mihin haluaa että pisteet lasketaan. Pelaaja voi halutessaan myös poistua pelistä.
 
 ![Game](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/image5.png)
