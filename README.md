@@ -1,5 +1,5 @@
 # Yatzy
-Sovellus antaa pelaajalle mahdollisuuden sukeltaa noppapeli Yatzyn ihmeelliseen maailmaan. Sen lisäksi, että pelaaja pääsee pelaamaan peruspeli Yatzya, pääsee hän pelaamaan peliin asetettuja erityisiä pelimuotoja, sekä tekemään oman pelimuotonsa muokkaamalla custom pelimuotoja sisältäviä cluster properties tiedostoja. Nykyisessä versiossa pelaajalla on jo mahdollisuus päästä pelaamaan peliä, mutta joitain ominaisuuksia pelistä puuttuu ja pisteiden laskussa voi ilmetä odottomattomia ongelmia.
+Sovellus antaa pelaajalle mahdollisuuden sukeltaa noppapeli Yatzyn ihmeelliseen maailmaan. Sen lisäksi, että pelaaja pääsee pelaamaan peruspeli Yatzya, pääsee hän pelaamaan peliin asetettuja erityisiä pelimuotoja, sekä tekemään oman pelimuotonsa muokkaamalla custom pelimuotoja sisältäviä cluster properties tiedostoja.
 
 Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux käyttöjärjestelmillä. Toistaiseksi Linuxilla suoritettuna asettelussa saattaa ilmetä ongelmia, mutta ne tullaan korjaamaan tulevaisuudessa myös Linux yhteensopiviksi.
 ## Dokumentaatio
