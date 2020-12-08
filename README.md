@@ -9,6 +9,8 @@ Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux 
 ## Release
 #### [Viikko 5 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko5)
 #### [Viikko 5 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/Viikko5)
+#### [Viikko 6 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-linux)
+#### [Viikko 6 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-win)
 ## Komentorivitoiminnot
 ### Testaaminen
 Ohjelman testaus tapahtuu komennolla
@@ -28,3 +30,8 @@ Suoritettavissa oleva jar tiedosto voidaan generoida komennolla
 > mvn package
 
 Jar tiedosto löytyy polusta *target/Yatzy-1.0-SNAPSHOT*
+### Javadoc
+Javadocin voi generoida komennolla
+> mvn javadoc:javadoc
+
+Javadoc löytyy polusta *target/site/apidocs/*
