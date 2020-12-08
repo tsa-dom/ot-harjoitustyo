@@ -28,3 +28,8 @@ Suoritettavissa oleva jar tiedosto voidaan generoida komennolla
 > mvn package
 
 Jar tiedosto löytyy polusta *target/Yatzy-1.0-SNAPSHOT*
+### Javadoc
+Javadocin voi generoida komennolla
+> mvn javadoc:javadoc
+
+Javadoc löytyy polusta *target/site/apidocs/*
