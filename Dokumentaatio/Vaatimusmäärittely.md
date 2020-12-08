@@ -13,6 +13,9 @@ Peliin on lisätty seuraavat toiminnallisuudet
 * peli kykenee nyt laskemaan bonuksen ja pisteet kokonaisuudessaan
 * pelissä tableview on muokattu siten, että se jaoittelee nyt järjestyksen pelaajien pisteille, jota se ei aiemmin tehnyt
 * lisätty pelimuoto maxi, kuudella nopalla
+* nyt peli tallentaa scoreboardiin tiedon pelatun pelimuodon maksimi pistemäärästä
+* poistettu sceneistä turhaksi jäänyt yläpalkki
+* tämä ei  käyttäjälle näkyvää toiminnallisuutta, mutta tehty kaikille sovelluslogiikan metodeille rajapinnat ja käyttöliittymä käyttää sovelluslogiikkaa ensisijaiseti rajapintojen kautta
 
 ## Käyttäjät
 Peliin on tarkoitettu vain yhden tyyppisiä eli tavallisia käyttäjiä. Kuitenkin suunnitteilla olisi toteutus, että peliä voisi hallinnoida paremmin erillisellä admin käyttäjätilillä, joka tulisi erikseen aktivoida käynnistämällä peli admin-modessa. Adminin oikeudet tulisivat rajoittumaan siten, että se voisi hallinnoida asetuksia ja muiden pelaajien käyttäjiä, mutta ei voisi itse pelata.
