@@ -32,4 +32,7 @@
 |6.12.2020|4h|Poistettu module-info.java javadoc ongelman vuoksi|
 |6.12.2020||Luotu uusi Yatzy- sovellus vanhan tilalle|
 |7.12.2020|6h|Lisätty useita rajapintoja ja aloitettu javadoc|
-|Yht|122h||
+|8.12.2020|9h|Javadocin luontia|
+|8.12.2020||Javadoc checkstyle virheiden korjailua|
+|8.12.2020||Tehty peliin pieniä muutoksia|
+|Yht|131h||
