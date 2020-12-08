@@ -10,27 +10,23 @@ import core.domain.PropertiesIF;
 import java.io.FileInputStream;
 import java.util.Properties;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class PropertiesLoader implements PropertiesIF {
     
     @Override
-    public Properties loadProperties(String givenPath) {
+    public Properties loadProperties(String path) {
         try {
             Properties properties = new Properties();
-            properties.load(Core.class.getResourceAsStream(givenPath + ".properties"));
+            properties.load(Core.class.getResourceAsStream(path + ".properties"));
             return properties;
         } catch (Exception ex) {
             return null;
         }
     }
     @Override
-    public Properties loadFromPath(String givenPath) {
+    public Properties loadFromPath(String path) {
         try {
             Properties properties = new Properties();
-            properties.load(new FileInputStream(givenPath + ".properties"));
+            properties.load(new FileInputStream(path + ".properties"));
             return properties;
         } catch (Exception ex) {
             return null;

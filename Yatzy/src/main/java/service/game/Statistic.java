@@ -7,22 +7,28 @@ package service.game;
 
 import service.domain.StatisticIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class Statistic implements StatisticIF {
     private final String player;
     private final int score;
     private final String gameMode;
     private final String maxScore;
     
+    /** Creates new statistic object.
+     * @param player Given player
+     * @param score Given score as a String
+     * @param gameMode Given gamemode name
+     * @param maxScore Given max score amount as a String
+     */
     public Statistic(String player, int score, String gameMode, String maxScore) {
         this.player = player;
         this.score = score;
         this.gameMode = gameMode;
         this.maxScore = maxScore;
     }
+    /** Creates new statistic object.
+     * @param player Given player
+     * @param score Given score as a String
+     */
     public Statistic(String player, int score) {
         this.player = player;
         this.score = score;

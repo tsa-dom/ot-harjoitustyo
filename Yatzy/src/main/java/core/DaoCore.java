@@ -12,11 +12,7 @@ import core.domain.DataIF;
 import core.domain.PropertiesIF;
 import core.domain.SQLIF;
 
-/**
- *
- * @author Tapio Salonen
- * 
- * Software dao class references are here
+/** Software dao class references are here.
  */
 public class DaoCore {
     protected final DataIF dbAccess;

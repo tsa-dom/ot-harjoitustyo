@@ -14,10 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class MenuController implements Initializable {
     @FXML private Label userLabel;
     @FXML

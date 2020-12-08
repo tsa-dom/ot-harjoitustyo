@@ -9,10 +9,6 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class LoadGameController {
     @FXML
     private void backToMenu() throws IOException {

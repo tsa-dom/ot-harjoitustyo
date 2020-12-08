@@ -5,14 +5,14 @@
  */
 package service.domain;
 
-/**
- *
- * @author Tapio Salonen
- */
 public interface NewGameLogicIF {
-    
+    /** Sets new gamemode to play.
+     * @param gameMode Given gamemode
+     */
     void setGameMode(GameModeIF gameMode);
-    
+    /** Gets current gamemode controller name.
+     * @return Returns controller name
+     */
     String getController();
     
 }

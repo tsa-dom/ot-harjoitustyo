@@ -9,13 +9,11 @@ import core.Core;
 import java.util.Random;
 import service.domain.DiceLogicIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class DiceLogic implements DiceLogicIF {
     private final Random random;
     
+    /** Creates access to dice logic.
+     */
     public DiceLogic() {
         random = new Random();
     }

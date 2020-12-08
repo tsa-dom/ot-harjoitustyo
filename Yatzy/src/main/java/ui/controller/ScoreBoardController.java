@@ -16,10 +16,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import service.domain.StatisticIF;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class ScoreBoardController implements Initializable {
     @FXML private TableView<StatisticIF> table;
     @FXML private TableColumn<StatisticIF, String> player, score, gameMode, maxScore;

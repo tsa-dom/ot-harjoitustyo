@@ -11,17 +11,14 @@ import java.util.List;
 import service.domain.CalculatorIF;
 import service.domain.ObjectiveIF;
 
-
-/**
- *
- * @author Tapio Salonen
- */
 public class Calculator implements CalculatorIF {
     private static HashSet<Integer> calculated;
     private static boolean ready;
     private boolean upperCalculated;
     private int upperPoints;
-            
+    
+    /** Creates new calculator.
+     */
     public Calculator() {
         calculated = new HashSet<>();
         upperPoints = 0;

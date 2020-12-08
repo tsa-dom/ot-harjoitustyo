@@ -8,16 +8,14 @@ package service.game;
 import core.Core;
 import service.domain.SceneLogicIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class SceneLogic implements SceneLogicIF {
     private final DiceLogic diceLogic;
     private final long reRollTime;
     private long lastReroll;
     private int reRollCount;
     
+    /** Creates access to scene logic.
+     */
     public SceneLogic() {
         diceLogic = new DiceLogic();
         reRollCount = Core.getGameMode().getReRollCount();

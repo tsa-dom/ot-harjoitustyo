@@ -11,13 +11,11 @@ import service.domain.CalculatorIF;
 import service.domain.ObjectiveIF;
 import service.domain.ObjectiveLogicIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class ObjectiveLogic implements ObjectiveLogicIF {
     private final CalculatorIF calculator;
     
+    /** Creates access to objective logic.
+     */
     public ObjectiveLogic() {
         calculator = new Calculator();
     }

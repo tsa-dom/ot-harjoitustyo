@@ -5,18 +5,22 @@
  */
 package service.domain;
 
-/**
- *
- * @author Tapio Salonen
- */
 public interface StatisticIF {
-    
+    /** Gets player name.
+     * @return Name of the player
+     */
     String getPlayer();
-    
+    /** Gets player score.
+     * @return Score of the player
+     */
     int getScore();
-    
+    /** Gets gamemode what player was played.
+     * @return Name of the gamemode
+     */
     String getGameMode();
-    
+    /** Gets maximum score of the gamemode.
+     * @return Maximum score
+     */
     String getMaxScore();
 
 }

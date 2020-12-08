@@ -19,10 +19,6 @@ import service.domain.LoginLogicIF;
 import service.domain.SQLNodeIF;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class LoginController implements Initializable {
     @FXML private Label infoLabel;
     @FXML private TextField username;

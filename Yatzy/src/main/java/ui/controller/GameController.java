@@ -31,10 +31,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class GameController implements Initializable {
     @FXML private Label dice1, dice2, dice3, dice4, dice5, dice6;
     @FXML private Label status1, status2, status3, status4, status5, status6;

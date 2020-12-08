@@ -5,14 +5,17 @@
  */
 package service.domain;
 
-/**
- *
- * @author Tapio Salonen
+/** Contains game dice methods.
  */
 public interface DiceLogicIF {
-    
+    /** Gives new value to the dice as string.
+     * @return New dice value
+     */
     String newDiceValue();
-    
+    /** Gives button statuses as a String array.
+     * @param buttonText Current button text
+     * @return Return button statuses as a String array
+     */
     String[] getSelectStatus(String buttonText);
 
 }

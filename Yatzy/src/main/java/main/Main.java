@@ -7,13 +7,9 @@ package main;
 
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class Main {
 
-    /**
+    /** Launches JavaFX application.
      * @param args the command line arguments
      */
     public static void main(String[] args) {

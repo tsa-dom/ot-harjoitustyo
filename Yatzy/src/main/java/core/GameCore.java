@@ -7,11 +7,7 @@ package core;
 
 import service.domain.GameModeIF;
 
-/**
- *
- * @author Tapio Salonen
- * 
- * Software current gamemode and user info are stored here
+/** Software current gamemode and user info are stored here.
  */
 public class GameCore {
     protected GameModeIF gameMode;

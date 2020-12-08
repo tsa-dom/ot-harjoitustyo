@@ -14,17 +14,11 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
-/**
- *
- * @author Tapio Salonen
- */
 public class SQLLoader implements SQLIF {
     
     @Override
-    public List<String> searchStatements(String givenPath) {
-        InputStream inputStream = Core.class.getResourceAsStream(givenPath + ".sql");
+    public List<String> searchStatements(String path) {
+        InputStream inputStream = Core.class.getResourceAsStream(path + ".sql");
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
         String statement = null;
         List<String> statementList = new ArrayList<>();

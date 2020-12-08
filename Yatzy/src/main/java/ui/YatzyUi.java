@@ -9,8 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import ui.controller.ItemNode;
 
-/**
- * JavaFX App
+/** JavaFX App.
  */
 public class YatzyUi extends Application {
 
@@ -36,7 +35,10 @@ public class YatzyUi extends Application {
     public void stop() {
         System.exit(0);
     }
-
+    /** Sets new scene to the stage.
+     * @param fxml fxml file name
+     * @throws IOException 
+     */
     public static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
@@ -45,7 +47,9 @@ public class YatzyUi extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(YatzyUi.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
-
+    /** Launches JavaFX application.
+     * @param args 
+     */
     public static void launch(String[] args) {
         launch();
     }

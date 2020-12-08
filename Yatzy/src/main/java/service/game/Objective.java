@@ -7,15 +7,17 @@ package service.game;
 
 import service.domain.ObjectiveIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class Objective implements ObjectiveIF {
     private final String name;
     private final int id;
     private final String requirement;
     private String points;
+    
+    /** Creates new objective.
+     * @param name Given objective name.
+     * @param requirement Given objective requirement.
+     * @param id Given objetive identifier.
+     */
     public Objective(String name, String requirement, int id) {
         this.requirement = requirement;
         this.name = name;

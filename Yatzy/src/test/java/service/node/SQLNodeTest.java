@@ -70,4 +70,11 @@ public class SQLNodeTest {
         assertEquals("d6A2Zm", sql.getObjRequirements().get(12));
         assertEquals("y5Zm", sql.getObjRequirements().get(4));
     }
+    @Test
+    public void getMaxScoreTest() {
+        assertEquals("374", sql.getMaxScore("classic", "Test/"));
+        assertEquals("581", sql.getMaxScore("maxi", "Test/"));
+        assertEquals("82", sql.getMaxScore("fast", "Test/"));
+        assertEquals(null, sql.getMaxScore("test", "Test/"));
+    }
 }

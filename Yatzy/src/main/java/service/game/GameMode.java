@@ -8,10 +8,6 @@ package service.game;
 import java.util.Properties;
 import service.domain.GameModeIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class GameMode implements GameModeIF {
     private int score;
     private final String gameName;
@@ -21,11 +17,13 @@ public class GameMode implements GameModeIF {
     private final int minDiceNum;
     private final int maxDiceNum;
     private final String objectiveType;
-    private final String extraType;
     private final String controller;
     private final boolean diceLockMode;
     private final int bonusRequirement;
     
+    /** Creates new gamemode.
+     * @param properties Given properties
+     */
     public GameMode(Properties properties) {
         this.score = 0;
         this.gameName = properties.getProperty("game_name");
@@ -35,7 +33,6 @@ public class GameMode implements GameModeIF {
         this.minDiceNum = Integer.valueOf(properties.getProperty("minimum_dice_number"));
         this.maxDiceNum = Integer.valueOf(properties.getProperty("maximum_dice_number"));
         this.objectiveType = properties.getProperty("objective_type");
-        this.extraType = properties.getProperty("extra_objective_type");
         this.controller = properties.getProperty("controller");
         this.diceLockMode = Boolean.valueOf(properties.getProperty("dice_lock_mode"));
         this.bonusRequirement = Integer.valueOf(properties.getProperty("bonus_required_points"));
@@ -75,10 +72,6 @@ public class GameMode implements GameModeIF {
     @Override
     public String getObjectiveType() {
         return this.objectiveType;
-    }
-    @Override
-    public String getExtraType() {
-        return this.extraType;
     }
     @Override
     public String getController() {

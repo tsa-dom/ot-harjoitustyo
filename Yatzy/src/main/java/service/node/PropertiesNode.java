@@ -9,10 +9,6 @@ import core.Core;
 import java.util.Properties;
 import service.domain.PropertiesNodeIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class PropertiesNode implements PropertiesNodeIF {
     private static Properties inGameModes;
     private static Properties outGameModes;

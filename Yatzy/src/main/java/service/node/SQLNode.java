@@ -9,10 +9,6 @@ import core.Core;
 import java.util.List;
 import service.domain.SQLNodeIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class SQLNode implements SQLNodeIF {
     private static List<String> objNames;
     private static List<String> objRequirements;
@@ -51,6 +47,11 @@ public class SQLNode implements SQLNodeIF {
         String sql = "INSERT INTO users (username,password) VALUES ('" + username + "','" + password + "');";
         return Core.sqlAsker().executeStatement(sql, "data", folder);
     }
+    @Override
+    public String getMaxScore(String objectiveType, String folder) {
+        String sql = "SELECT SUM(maxScore) sum FROM objectives WHERE gamemode='" + objectiveType + "';";
+        return Core.sqlAsker().selectFrom(sql, "data", "sum", folder).get(0);
+    } 
     @Override
     public List<String> getObjNames() {
         return objNames;

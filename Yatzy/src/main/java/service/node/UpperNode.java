@@ -6,21 +6,22 @@
 package service.node;
 
 import core.Core;
+import service.domain.UpperNodeIF;
 
-/**
- *
- * @author Tapio Salonen
- */
-public class UpperNode {
+public class UpperNode implements UpperNodeIF {
+    @Override
     public void clearUpperCount() {
         Core.clearUpperCount();
     }
+    @Override
     public void addUpperCount() {
         Core.addUpperCount();
     }
+    @Override
     public void setBonusPoints(int points) {
         Core.setBonusPoints(points);
     }
+    @Override
     public int getBonusPoints() {
         Core.getGameMode().setScore(Core.getGameMode().getScore() + Core.getBonusPoints());
         return Core.getBonusPoints();

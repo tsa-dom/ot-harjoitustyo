@@ -8,10 +8,6 @@ package service;
 import core.Core;
 import service.domain.LoginLogicIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class LoginLogic implements LoginLogicIF {
     @Override
     public void setUser(String user) {

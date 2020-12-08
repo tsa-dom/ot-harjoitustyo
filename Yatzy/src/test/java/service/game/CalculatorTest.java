@@ -13,6 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import service.domain.ObjectiveIF;
 import service.node.PropertiesNode;
 
 /**
@@ -104,5 +105,13 @@ public class CalculatorTest {
         assertEquals(313, calculator.customOrNot("c/313", 100, true));
         assertEquals(-1, calculator.customOrNot("c/313", 100, false));
         assertEquals(-1, calculator.customOrNot("j", 13, true));
+    }
+    @Test
+    public void getPointsTest() {
+        dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 43, 34, 34, 34, 34, 25, 16, 16));
+        ObjectiveIF objective = new Objective("test", "x4Zx3Zm", 5);
+        assertEquals(292, calculator.getPoints(objective, dices));
+        ObjectiveIF objective2 = new Objective("test", "x5Zx3Zm", 2);
+        assertEquals(0, calculator.getPoints(objective2, dices));
     }
 }

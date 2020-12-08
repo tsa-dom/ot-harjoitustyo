@@ -17,11 +17,7 @@ import java.util.List;
 
 
 
-/**
- *
- * @author Tapio Salonen
- * 
- * Includes all private methods needed to installing
+/** Includes all private methods needed to installing.
  */
 public class InstallCore {
     protected void executeInstall(String folder) {

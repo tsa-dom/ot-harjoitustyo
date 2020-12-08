@@ -9,10 +9,6 @@ import core.Core;
 import service.domain.GameModeIF;
 import service.domain.NewGameLogicIF;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class NewGameLogic implements NewGameLogicIF {
     @Override
     public void setGameMode(GameModeIF gameMode) {

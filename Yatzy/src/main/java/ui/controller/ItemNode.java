@@ -15,16 +15,11 @@ import service.domain.SQLNodeIF;
 import service.domain.StatisticIF;
 import service.game.GameMode;
 import service.node.SQLNode;
-//import service.game.GameMode;
 import service.game.Objective;
 import service.game.Statistic;
 import service.node.PropertiesNode;
 import service.node.UpperNode;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class ItemNode {
     private static int nextId;
     protected static int upperId;
@@ -36,6 +31,8 @@ public class ItemNode {
     protected static PropertiesNodeIF propertiesNode;
     protected static UpperNode upperNode;
     
+    /** Creates or resets ItemNode.
+     */
     public ItemNode() {
         statistics = FXCollections.observableArrayList();
         objectives = FXCollections.observableArrayList();
@@ -59,6 +56,9 @@ public class ItemNode {
         for (int i = 0; i < sqlNode.getStatPlayers().size(); i++) {
             statistics.add(new Statistic(sqlNode.getStatPlayers().get(i), Integer.valueOf(sqlNode.getStatScores().get(i))));
         }
+    }
+    protected static String getMaxScore(String objectiveType) {
+        return sqlNode.getMaxScore(objectiveType, "Programfiles/");
     }
     
     protected static void setObjectives() {

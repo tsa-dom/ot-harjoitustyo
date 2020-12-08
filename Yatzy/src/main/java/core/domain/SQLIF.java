@@ -7,12 +7,11 @@ package core.domain;
 
 import java.util.List;
 
-/**
- *
- * @author Tapio Salonen
- */
 public interface SQLIF {
-    
-    List<String> searchStatements(String givenPath);
+    /** Search statements inside jar sql files.
+     * @param path Given path
+     * @return Return statements as a list.
+     */
+    List<String> searchStatements(String path);
     
 }

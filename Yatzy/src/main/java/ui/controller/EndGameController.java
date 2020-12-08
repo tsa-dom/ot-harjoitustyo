@@ -14,10 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class EndGameController implements Initializable {
     @FXML private Label score, gameMode;
     @FXML
@@ -36,7 +32,7 @@ public class EndGameController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         score.setText("Your score: " + Core.getGameMode().getScore());
         gameMode.setText(Core.getGameMode().getName());
-        String sql = "INSERT INTO scoreboard (username, score, gamemode, maxScore) VALUES ('" + Core.getUser() + "', '" + Core.getGameMode().getScore() + "', '" + Core.getGameMode().getName() + "', '0')";
+        String sql = "INSERT INTO scoreboard (username, score, gamemode, maxScore) VALUES ('" + Core.getUser() + "', '" + Core.getGameMode().getScore() + "', '" + Core.getGameMode().getName() + "', '" + ItemNode.getMaxScore(Core.getGameMode().getObjectiveType()) + "')";
         Core.sqlAsker().executeStatement(sql , "data", "Programfiles/");
     }
 }

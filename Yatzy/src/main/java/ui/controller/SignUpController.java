@@ -19,10 +19,6 @@ import service.domain.SQLNodeIF;
 import service.node.SQLNode;
 import ui.YatzyUi;
 
-/**
- *
- * @author Tapio Salonen
- */
 public class SignUpController implements Initializable {
     @FXML private Label infoLabel;
     @FXML private TextField username;
