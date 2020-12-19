@@ -18,30 +18,26 @@ Peliin on lisätty seuraavat toiminnallisuudet
 * tämä ei  käyttäjälle näkyvää toiminnallisuutta, mutta tehty kaikille sovelluslogiikan metodeille rajapinnat ja käyttöliittymä käyttää sovelluslogiikkaa ensisijaiseti rajapintojen kautta
 
 ## Käyttäjät
-Peliin on tarkoitettu vain yhden tyyppisiä eli tavallisia käyttäjiä. Kuitenkin suunnitteilla olisi toteutus, että peliä voisi hallinnoida paremmin erillisellä admin käyttäjätilillä, joka tulisi erikseen aktivoida käynnistämällä peli admin-modessa. Adminin oikeudet tulisivat rajoittumaan siten, että se voisi hallinnoida asetuksia ja muiden pelaajien käyttäjiä, mutta ei voisi itse pelata.
+Pelissä on vain yhdenlaisia käyttäjiä, eli peruskäyttäjiä.
 ## Pelin toiminnallisuudet
 ### Kirjautuminen
 * mikäli pelaajalla ei ole vielä käyttäjää, voi hän luoda käyttäjän, jonka käyttäjänimen ja salasanan tulee olla toivotunlainen
 * jos pelaajalla on jo olemassa oleva käyttäjä, voi hän kirjautua suoraan peliin
 ### Päävalikko
 * pelaaja voi aloittaa uuden pelin
-* pelaaja voi ladata viimeksi kesken jääneen pelin suorituksen
 * pelaaja voi siirtyä tarkastelemaan sijoituksia ja verrata omaa sijoitusta muiden rekisteröityneiden käyttäjien sijoituksiin
-* pelaajalla on myös mahdollisuus kirjautua ulos tai lopettaa ohjelman suoritus
+* pelaajalla on mahdollisuus kirjautua ulos tai lopettaa ohjelman suoritus
 ### Peli ja sen eri pelimuodot
+* peli 
 * pääosin pelimuodot tullaan suunnittelemaan eri sceneihin niiden mahdollisten uniikkien vaatimusten perusteella
 * pelin keskeiset elementit tulevat olemaan Yatzy henkisiä, kuten noppien heittoa ja pisteiden keräämistä Yatzylle ominaisella tavalla
 * pelaajan tulisi pelin aikana huolehtia vain omista valinnoistaan ja ohjelma suorittaa pelaajan pisteiden laskemisen automaattisesti, sekä sen hetkisen session reaalitallennuksen
 * peli tallentaa pelaajien pelihistoriaa, joka mahdollistaa aikaisemman pistehistorian tarkastelun
-### Admin-mode (tämä ominaisuus on vain idea ja se toteuteaan, mikäli aikaa on)
-* käyttäjämuoto jolla ei ole mahdollisuutta pelata
-* oletuksena poissa käytöstä ja aktivoitava erikseen
-* mahdollisuus jäädyttää pelaajia
-* mahdollisuus poistaa pelaajia
-* peliin liittyvien muiden mahdollisten asetusten muuttaminen
-### Kehitysideoita
-Peliä voitasiin kehittää siten, että pelissä olisi useita pelimuotoja ja mahdollisuus custom pelimuodoille. Voitaisiin lisätä tuki custom pelimuotojen luontiin peliin ladattavan teksitiedoston avulla joka sisältäisi halutunlaisen pelin säännöt. Vaihtoehtoisesti tämä voitaisiin luoda sellaisena toteutuksena, jossa pelin esinmäisen käynnistyksen yhteydessä luotaisiin erityinen tiedosto joka sisältäisi tiedot omalle custom pelimuodolle. Tämän tyyppisen pelimuodon luonti muuttuu sitä haasteellisemmaksi mitä enemmän vapauksia pelaajalle halutaan antaa ja ohjelman tulisi voida reagoida lukuisiin virhetilanteisiin mikäli oletetaan, että teksitiedosto olisi täytetty väärin.
 
-**Tämä ominaisuus on vain idea, eikä sitä ole tarkoitus enään toteuttaa ajanpuutteen vuoksi!** Toinen mahdollinen kehitysidea voisi olla tuki useammille kielille kuin englannin kielelle. Peli voisi antaa mahdollisuuden asettaa pelin kieli ainakin englanniksi ja suomeksi. Peliin voitaisiin myös luoda toiminnalisuus, jossa pelaaja voisi ladata niin sanotun kielipaketin, joka syötetään ohjelmalle oikein täytettynä teksittiedostona. Uusi ladattu kieli tallennettaisiin tämän jälkeen pelin tietokantaan.
+## Kehitysideoita
+* peliin voitaisiin luoda parempi tuki custom pelimuodoille, nykyisessä versiossa tämä ominaisuus on hieman kömpelö ja rajoitettu
+* pelitilannetta voitaisiin tallentaa reaaliaikaisesti, jolloin mahdollinen pelistä lähteminen ei muuta pelitilannetta
+* tuki useammille kielille kuin englanti
+
 ### Pelinäkymä classic pelimuodossa
 ![Classic screen](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/classicscreen.png "Classic screen")
