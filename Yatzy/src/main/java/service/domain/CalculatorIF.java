@@ -10,47 +10,47 @@ import java.util.List;
 /** Game calculator methods are stored here.
  */
 public interface CalculatorIF {
-    /** Requesting points depending choosed objective given and all dices.
+    /** Requesting points depending on choosed objective and all dices.
      * @param objective Given objective interface
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int getPoints(ObjectiveIF objective, List<Integer> dices);
     /** Tests if player could reseive custom points.
      * @param requirement Requirement to receive points
      * @param points Current points
-     * @param ready Param that include information about "Times" cases status. True, if player can reseive custom points.
+     * @param ready Param that include information about succesfully used "times" method. True, if player could receive points.
      * @return Points that the player could receive
      */
     int customOrNot(String requirement, int points, boolean ready);
     /** Checks the type of given requirement.
      * @param requirement Requirement to receive points
      * @param points Current points
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int calculate(String requirement, int points, List<Integer> dices);
     /** Increases points given if requirement is fulfilled.
      * @param requirement Requirement to receive points
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int times(String requirement, List<Integer> dices);
     /** Increases points given if requirement is fulfilled.
      * @param requirement Requirement to receive points
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int upperSection(String requirement, List<Integer> dices);
     /** Increases points given if requirement is fulfilled.
      * @param requirement Requirement to receive points
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int random(String requirement, List<Integer> dices);
     /** Increases points given if requirement is fulfilled.
      * @param requirement Requirement to receive points
-     * @param dices List of dices
+     * @param dices List of the dice values
      * @return Points that the player could receive
      */
     int straight(String requirement, List<Integer> dices);

@@ -32,6 +32,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import ui.YatzyUi;
 
 public class GameController implements Initializable {
+    // All @FXML annotated variables below are read from .fxml files when initializing game.
     @FXML private Label dice1, dice2, dice3, dice4, dice5, dice6;
     @FXML private Label status1, status2, status3, status4, status5, status6;
     @FXML private Button select1, select2, select3, select4, select5, select6;
@@ -41,6 +42,7 @@ public class GameController implements Initializable {
     @FXML private ComboBox objectivesLeft;
     @FXML private TableView<ObjectiveIF> objectivesTable;
     @FXML private TableColumn<ObjectiveIF, String> name, points;
+    
     private Label[] dices;
     private Label[] status;
     private Button[] select;
@@ -81,10 +83,8 @@ public class GameController implements Initializable {
             reRollsLeft.setText("Rerolls left: " + sceneLogic.newReRollCount());
             diceSum.setText("Dice sum: 0");
         } catch (Exception ex) {
+            // Nothing to happen here! If making a choice fails for any reason, then nothing should happen.
         }
-    }
-    @FXML
-    private void giveUp(ActionEvent event) throws IOException {
     }
     @FXML
     private void select(ActionEvent event) {
@@ -120,6 +120,7 @@ public class GameController implements Initializable {
             } catch (Exception ex) {
             }
         } catch (Exception ex) {
+            // Nothing to happen here.
         }
     }
     private List<Integer> createDiceList() {

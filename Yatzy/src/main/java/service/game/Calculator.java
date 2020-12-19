@@ -8,14 +8,22 @@ package service.game;
 import core.Core;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Stream;
 import service.domain.CalculatorIF;
 import service.domain.ObjectiveIF;
 
 public class Calculator implements CalculatorIF {
-    private static HashSet<Integer> calculated;
+    // Keeps count for calculated dices marked as "x"
+    private static Set<Integer> calculated;
+    // Have to be true so player could receive points. Variable is only affected by using "times" method.
     private static boolean ready;
+    // True if upper section is copletely calculated, otherwise false.
     private boolean upperCalculated;
+    // Points player should receive if she/he reaches upper section requirement.
     private int upperPoints;
+    // Keeps in track all dices used by any method.
+    private Set<Integer> used;
     
     /** Creates new calculator.
      */
@@ -23,11 +31,13 @@ public class Calculator implements CalculatorIF {
         calculated = new HashSet<>();
         upperPoints = 0;
         upperCalculated = false;
+        used = new HashSet<>();
     }
     @Override
     public int getPoints(ObjectiveIF objective, List<Integer> dices) {
         int points = 0;
         calculated.clear();
+        used.clear();
         ready = true;
         String[] requirement = objective.getRequirement().split("Z");
         for (int i = 0; i < requirement.length; i++) {
@@ -65,19 +75,19 @@ public class Calculator implements CalculatorIF {
     
     @Override
     public int times(String requirement, List<Integer> dices) {
-        int times = Integer.valueOf(requirement);
+        Set<Integer> memory = new HashSet<>();
         int diceFace = -1;
-        int count = 0;
         for (int i = 0; i < dices.size(); i++) {
-            if (diceFace == dices.get(i)) {
-                count++;
+            if (diceFace == dices.get(i) && !memory.contains(i)) {
             } else {
                 diceFace = dices.get(i);
-                count = 1;
+                memory.clear();
             }
-            if (count >= times && calculated.contains(diceFace) == false) {
+            memory.add(i);
+            if (memory.size() >= Integer.valueOf(requirement) && !calculated.contains(diceFace)) {
                 calculated.add(diceFace);
-                return times * diceFace;
+                Stream.of(used, memory).forEach(used::addAll);
+                return Integer.valueOf(requirement) * diceFace;
             }
         }
         ready = false;
@@ -88,7 +98,12 @@ public class Calculator implements CalculatorIF {
     public int upperSection(String requirement, List<Integer> dices) {
         int value = Integer.valueOf(requirement);
         int sum = 0;
-        sum = dices.stream().filter((dice) -> (dice == value)).map((item) -> value).reduce(sum, Integer::sum);
+        for (int i = 0; i < dices.size(); i++) {
+            if (dices.get(i) == value && !used.contains(i)) {
+                used.add(i);
+                sum += dices.get(i);
+            } 
+        }
         return sum;
     }
     
@@ -96,8 +111,15 @@ public class Calculator implements CalculatorIF {
     public int random(String requirement, List<Integer> dices) {
         int times = Integer.valueOf(requirement);
         int sum = 0;
-        for (int i = 0; i < times; i++) {
-            sum += dices.get(i);
+        int count = 0;
+        int i = 0;
+        while (count < times && i < dices.size()) {
+            if (!used.contains(i)) {
+                sum += dices.get(i);
+                count++;
+                used.add(i);
+            }
+            i++;
         }
         return sum;
     }
@@ -108,17 +130,21 @@ public class Calculator implements CalculatorIF {
         int highest = Integer.valueOf(interval[0]);
         int lowest = Integer.valueOf(interval[1]);
         int sum = 0;
-        for (int dice : dices) {
-            if (highest == dice) {
+        for (int i = 0; i < dices.size(); i++) {
+            if (highest < dices.get(i)) {
+                continue;
+            } else if (highest == dices.get(i)) {
+                used.add(i);
                 sum += highest;
                 highest--;
-            }
+            } 
             if (highest == lowest - 1) {
                 return sum;
             }
         }
         return 0;
     }
+    
     @Override
     public void upperCountCheck(int points) {
         upperPoints += points;

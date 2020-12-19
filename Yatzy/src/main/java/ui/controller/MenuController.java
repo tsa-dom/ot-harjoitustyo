@@ -21,8 +21,8 @@ public class MenuController implements Initializable {
         YatzyUi.setRoot("newgame");
     }
     @FXML
-    private void loadGame() throws IOException {
-        YatzyUi.setRoot("loadgame");
+    private void objective() throws IOException {
+        YatzyUi.setRoot("objective");
     }
     @FXML
     private void statistics() throws IOException {

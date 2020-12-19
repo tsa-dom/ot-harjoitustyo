@@ -39,24 +39,24 @@ public class CoreTest {
     }
 
     @Test
-    public void sqlAskerTest() {
+    public void sqlAskerWorksTest() {
         assertTrue(Core.sqlAsker().executeStatement("INSERT INTO users (username,password) VALUES ('alaskjd', 'renlsnes')", "data", "Test/"));
         assertTrue(Core.sqlAsker().executeStatement("INSERT INTO objectives (name,maxScore,requirements,gamemode) VALUES ('skjd LKJ','2532','5x6xm','test')", "data", "Test/"));
         assertTrue(Core.sqlAsker().executeStatement("INSERT INTO scoreboard (username,score,gamemode,maxScore) VALUES ('alaskjd', '293', 'lskjfd', 534)", "data", "Test/"));
     }
     @Test
-    public void sqlLoaderTest() {
+    public void sqlLoaderWorksTest() {
         List<String> statements = Core.sqlLoader().searchStatements("objectives");
         Core.sqlAsker().executeStatements(statements, "data", "Test/");
         assertEquals("x2Zx2Zm",Core.sqlAsker().selectFrom("SELECT * FROM objectives", "data", "requirements", "Test/").get(8));
     }
     @Test
-    public void getUserTest() {
+    public void getUserGivesCorrectUserTest() {
         Core.setUser("testeri123");
         assertEquals("testeri123", Core.getUser());
     }
     @Test
-    public void getGameModeTest() {
+    public void getGameModeGivesCorrectGamemodeTest() {
         Properties properties = Core.properties().loadProperties("dicelock");
         Core.setGameMode((GameModeIF) new GameMode(properties));
         GameModeIF gameMode = Core.getGameMode();
@@ -65,14 +65,36 @@ public class CoreTest {
         assertEquals(2000,gameMode.getReRollTime());
     }
     @Test
-    public void propertiesTest() {
+    public void propertiesGivesCorrectPropertiesTest() {
         Properties properties = Core.properties().loadProperties("default_cluster");
         assertEquals("3", properties.get("reroll_count"));
         assertEquals("classic", properties.get("controller"));
         assertEquals("false", properties.get("enabled"));
     }
     @Test
-    public void getPahtTest() {
+    public void getPahtGivesCorrectPathTest() {
         assertEquals(System.getProperty("user.dir") + "/", Core.getPath());
     }
+    @Test
+    public void addUpperCountAddsCountCorrectTest() {
+        for (int i = 0; i < 313; i++) {
+            Core.addUpperCount();
+        }
+        assertEquals(313, Core.getUpperCount());
+    }
+    @Test 
+    public void upperCountClearingWorksTest() {
+        Core.addUpperCount();
+        assertEquals(1, Core.getUpperCount());
+        Core.clearUpperCount();
+        assertEquals(0, Core.getUpperCount());
+    }
+    @Test
+    public void setAndGetBonusPointsWorksTest() {
+        Core.setBonusPoints(313);
+        assertEquals(313, Core.getBonusPoints());
+        Core.setBonusPoints(13);
+        assertEquals(13, Core.getBonusPoints());
+    }
+    
 }

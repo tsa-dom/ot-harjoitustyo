@@ -13,6 +13,7 @@ import service.domain.ObjectiveIF;
 import service.domain.PropertiesNodeIF;
 import service.domain.SQLNodeIF;
 import service.domain.StatisticIF;
+import service.domain.UpperNodeIF;
 import service.game.GameMode;
 import service.node.SQLNode;
 import service.game.Objective;
@@ -21,15 +22,19 @@ import service.node.PropertiesNode;
 import service.node.UpperNode;
 
 public class ItemNode {
+    // Helps to index variables when loading objectives to the game
     private static int nextId;
+    // Includes objective index that contains bonus objective information
     protected static int upperId;
+    // TabelView variables
     protected static ObservableList<StatisticIF> statistics;
     protected static ObservableList<ObjectiveIF> objectives;
     protected static ObservableList<ObjectiveIF> objectiveNames;
     protected static ObservableList<GameModeIF> gameModes;
+    // All used nodes from service
     protected static SQLNodeIF sqlNode;
     protected static PropertiesNodeIF propertiesNode;
-    protected static UpperNode upperNode;
+    protected static UpperNodeIF upperNode;
     
     /** Creates or resets ItemNode.
      */

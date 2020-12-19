@@ -43,7 +43,7 @@ public class CalculatorTest {
     }
     
     @Test
-    public void StraightTest() {
+    public void StraightCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(313, 312, 311, 310, 309, 308, 307));
         assertEquals(2170, calculator.straight("313A307", dices));
         assertEquals(0, calculator.straight("313A306", dices));
@@ -53,14 +53,16 @@ public class CalculatorTest {
         assertEquals(310, calculator.straight("310A310", dices));
     }
     @Test
-    public void RandomTest() {
+    public void RandomCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(313, 31, 30, 11, 9, 8, 3));
         assertEquals(405, calculator.random("7", dices));
+        calculator = new Calculator();
         assertEquals(385, calculator.random("4", dices));
+        calculator = new Calculator();
         assertEquals(313, calculator.random("1", dices));
     }
     @Test
-    public void upperSectionTest() {
+    public void upperSectionCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(6, 6, 5, 5, 5, 4, 3, 3, 3, 3, 2, 1));
         assertEquals(12, calculator.upperSection("6", dices));
         assertEquals(15, calculator.upperSection("5", dices));
@@ -69,7 +71,7 @@ public class CalculatorTest {
         assertEquals(1, calculator.upperSection("1", dices));
     }
     @Test
-    public void timesTest() {
+    public void timesCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 43, 34, 34, 34, 34, 25, 16, 16));
         assertEquals(122, calculator.times("2", dices));
         assertEquals(136, calculator.times("4", dices));
@@ -80,7 +82,7 @@ public class CalculatorTest {
         assertEquals(43, calculator.times("1", dices));
     }
     @Test
-    public void timesTest2() {
+    public void timesCalculatesCorrectTest2() {
         dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 49, 34, 34, 34, 34, 29, 16, 16));
         assertEquals(61, calculator.times("1", dices));
         assertEquals(136, calculator.times("4", dices));
@@ -91,23 +93,27 @@ public class CalculatorTest {
         assertEquals(29, calculator.times("1", dices));
     }
     @Test
-    public void calculateTest() {
+    public void calculateCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 49, 34, 34, 34, 34, 17, 16, 16));
         assertEquals(449, calculator.calculate("x4", 313, dices));
         assertEquals(173, calculator.calculate("y52", 17, dices));
-        assertEquals(175, calculator.calculate("r3", 1, dices));
+        assertEquals(172, calculator.calculate("r3", 1, dices));
         assertEquals(233, calculator.calculate("d17A16", 200, dices));
     }
     @Test
-    public void customOrNotTest() {
+    public void customOrNotWithoutCustomPointsTest() {
         assertEquals(313, calculator.customOrNot("m", 313, true));
         assertEquals(-1, calculator.customOrNot("m", 313, false));
+    }
+    public void customOrNotWithCustomPointsTest() {
         assertEquals(313, calculator.customOrNot("c/313", 100, true));
         assertEquals(-1, calculator.customOrNot("c/313", 100, false));
+    }
+    public void customOrNotInvalidInputTest() {
         assertEquals(-1, calculator.customOrNot("j", 13, true));
     }
     @Test
-    public void getPointsTest() {
+    public void getPointsCalculatesCorrectTest() {
         dices.addAll(Arrays.asList(61, 61, 52, 52, 52, 43, 34, 34, 34, 34, 25, 16, 16));
         ObjectiveIF objective = new Objective("test", "x4Zx3Zm", 5);
         assertEquals(292, calculator.getPoints(objective, dices));

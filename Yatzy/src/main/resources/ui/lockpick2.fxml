@@ -84,11 +84,6 @@
             <Font size="14.0" />
          </font>
       </Button>
-      <Button layoutX="818.0" layoutY="501.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="194.0" text="Give up">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Button>
       <Label alignment="CENTER" layoutX="818.0" layoutY="618.0" prefHeight="42.0" prefWidth="194.0">
          <font>
             <Font size="14.0" />

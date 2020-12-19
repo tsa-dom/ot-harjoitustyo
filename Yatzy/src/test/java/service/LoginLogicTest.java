@@ -33,16 +33,24 @@ public class LoginLogicTest {
     }
     
     @Test
-    public void setUserTest() {
+    public void setUserCorrectTest() {
         loginLogic.setUser("313Tester313");
         assertEquals("313Tester313", Core.getUser());
     }
     @Test
-    public void correctInputTest() {
+    public void tooShortUsernameTest() {
         assertEquals("Username is too short", loginLogic.correctInput("dfd", "asalkfdjsal"));
+    }
+    public void tooLongUsernameTest() {
         assertEquals("Username is too long", loginLogic.correctInput("dfasdfasdfsadfsdfsdfsdfsdfsdfsdfd", "asalkfdjsal"));
+    }
+    public void tooShortPasswordTest() {
         assertEquals("Password is too short", loginLogic.correctInput("dfdadsf", "sal"));
+    }
+    public void tooLongPaawordTest() {
         assertEquals("Password is too long", loginLogic.correctInput("dfasdfd", "asalkfdjasdfasdfasdfasdfasfddasfsal"));
+    }
+    public void correctInputTest() {
         assertEquals("", loginLogic.correctInput("dfasdfd", "asalkfdjsal"));
     }
 }

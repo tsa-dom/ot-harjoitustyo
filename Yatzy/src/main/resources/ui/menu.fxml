@@ -27,22 +27,17 @@
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="337.0" layoutY="290.0" mnemonicParsing="false" onAction="#loadGame" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Load game">
+      <Button layoutX="337.0" layoutY="304.0" mnemonicParsing="false" onAction="#statistics" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Leaderboards">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="337.0" layoutY="369.0" mnemonicParsing="false" onAction="#statistics" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Leaderboards">
+      <Button layoutX="337.0" layoutY="396.0" mnemonicParsing="false" onAction="#logOut" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Log out">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
       </Button>
-      <Button layoutX="337.0" layoutY="450.0" mnemonicParsing="false" onAction="#logOut" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Log out">
-         <font>
-            <Font name="Comic Sans MS" size="24.0" />
-         </font>
-      </Button>
-      <Button layoutX="337.0" layoutY="530.0" mnemonicParsing="false" onAction="#quit" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Quit game">
+      <Button layoutX="337.0" layoutY="492.0" mnemonicParsing="false" onAction="#quit" prefHeight="59.0" prefWidth="376.0" scaleX="1.75" text="Quit game">
          <font>
             <Font name="Comic Sans MS" size="24.0" />
          </font>
