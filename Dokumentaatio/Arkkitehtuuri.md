@@ -27,6 +27,20 @@ Ytimen daon luokat ovat ytimen ainoa luokat joilla on omat rajapintansa ytimen o
 
 ![Logic](https://github.com/tsa-dom/ot-harjoitustyo/blob/master/Images/logic.png)
 
-## Sekvenssikaaviot
-Ohessa on sekvenssikaavio tapahtumasta, jossa käyttäjä painaa *Make choice* nappulaa
+## Tietojen tallentaminen
+Pelin käyttämät tiedostot on tallennettu ohjelmiston sisältävän tiedostopolun *Programfiles* kansioon. Kansio sisältää tietokannan *data.db* ja kansion *Cluster*. Cluster kansio sisältää viisi eri properties tiedostoa, jotka on numeroitu. Tietokantaan tallennetaan rekisteröityneet pelaajat, peliin tallennetut objektiivit ja pelattujen pelien data. Cluster kansion properties tiedostot sisältävät custom pelimuotojen configuraatioita. Cluster tiedostot ovat vain lukua varten eikä niihin ohjelman aikana tallenneta mitään poislukien asennuksen aikana luodut configuraatiot.
+
+## Toiminnalisuudet
+Ohessa on sekvenssikaavio tapahtumasta, jossa käyttäjä painaa *Make choice* nappulaa. Kun pelaaja tekee jonkin valinnan, niin pisteet lasketaan pelaajan valitsemaansa kohtaan tai vaihtoehtoisesti jos on enään yksi objektiivi jäljellä, asetetaan pelaaja pelin päätös sceneen.
 ![Make choice](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgbWFrZUNob2ljZQoKR2FtZUNvbnRyb2xsZXItPgACDjogYWRkUG9pbnRzKCkACyFjcmVhdGVEaWNlTGlzdAAeE09iamVjdGl2ZUxvZ2ljOiBnZXQAVgdvABIILCAgezEsIDIsIDIsIDN9KQoAJg4tPkNhbGN1bGF0b3IAKRcAMQ4AJQoALQ5jAEAHZSgieDIiLCAwABEodGltZXMoMgBNGwCBFg40AAEaAA4NAIEQDnVzdG9tT3JOb3QoIngiLCA0LCB0cnVlAE0bLTEAgUgkbQBGBgCBCDQAgQcaAE4HAIECHwCBeg8Ag3wQNACDWhAAhHoSNACELSRVcHBlclN0YXR1cygAhC0RAIVOEnRydWUAhXQRSXRlbU5vZGU6IHVwcGVySWQKAAoIAIEEEi0xAIVNGgCFXQVJZAB8DACBRBMzAGUbAIYPCXMuZ2V0KDMpLnMAhisJIjQiAIcCEgCBMQpuYW1lc0lzRW1wdHkoKQCBJxsAgW4WWWF0enlVaTogc2V0Um9vdCgiZW5kZ2FtZSIpCgAVBwAaC2xvYWRGWE1MABEVRW5kAIhHEGluaXRpYWxpemUoKQoK&s=default)
+
+Oheisessa sekvenssikaaviossa pelaaja painaa *Reroll* nappulaa.
+
+![Reroll](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgcmVSb2xsCgpnYW1lQ29udHJvbGxlciAtPiBzY2VuZUxvZ2ljOiBnZXRSACQFU3RhdHVzKCkKABQKABwQMQAPDS0-IABNDjogMQBaEwAUEGdldFN1bSgpAIEHEQA8FDMAgR8fdXBkYXRlAIE7BkNvdW50AEUTAIFZFwAnCACBMiEKCgo&s=default)
+
+## Sovellukseen jääneet heikkoudet
+Sovellus ei tarkkaan noudata haluttua nelitasoista mallia, sillä on tapauksia, joissa käyttöliittymä asio *Core*:n kanssa eikä sovelluslogiikan. Toisaalta tämä järjestely vähentää kiertoa ohjelman sisällä. Kuitenkin sovelluksessa on myös tapauksia, joissa käyttöliittymän mahdollinen oikopolku suoraan *core*:en onkin toteutettu kiertotienä sovelluslogiikan kautta.
+
+Pelin custom pelimuotoihin jäi turhan vähän customointi pelivaraa, joka saattaa hieman rajoittaa käyttökokemusta pelille, sekä sen pidempiaikaista pelattavuutta.
+
+Dao luokkien käyttö ei ole välttämättä täysin selkeä, sillä sovellukseen jäi kohtia, joissa käyttöliittymä käyttää *Core*:n sisältämiä daoluokkia suoraan, ilman että käytetään ensin *SQLNode*:n metodeja, joka sisältää siis sovelluslogiikan dao kyselyt pääsosin.
