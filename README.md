@@ -13,6 +13,7 @@ Sovellus toimii javan versiolla 11 ja se on testattu Windows 10 ja Cubbli Linux 
 #### [Viikko 6 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-linux)
 #### [Viikko 6 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko6-win)
 #### [Viikko 7 - linux](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/viikko7-linux)
+#### [Viikko 7 - windows](https://github.com/tsa-dom/ot-harjoitustyo/releases/tag/Viikko7-win)
 ## Komentorivitoiminnot
 ### Testaaminen
 Ohjelman testaus tapahtuu komennolla
