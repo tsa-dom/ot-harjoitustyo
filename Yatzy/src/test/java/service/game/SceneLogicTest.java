@@ -26,12 +26,12 @@ public class SceneLogicTest {
     
     @Before
     public void setUp() {
-        sceneLogic = new SceneLogic();
         Core core = new Core();
         core.install("Test/");
         properties = new PropertiesNode();
         properties.loadGameModes("classic", "cluster1", "Test/Cluster/");
         Core.setGameMode(new GameMode(properties.getInGameModes()));
+        sceneLogic = new SceneLogic();
     }
     
     @After
@@ -55,5 +55,22 @@ public class SceneLogicTest {
     @Test
     public void getReRollCountTest() {
         assertEquals(3, sceneLogic.getReRollCount());
+    }
+    @Test
+    public void waitingTimesWorksTest() throws InterruptedException {
+        sceneLogic.upDateReRollCount();
+        TimeUnit.SECONDS.sleep(10);
+        if (-9 <= sceneLogic.getWaitingTime() && -7 >= sceneLogic.getWaitingTime()) {
+            assertTrue(true);
+        } else {
+            assertTrue(false);
+        }
+    }
+    @Test
+    public void negativeRerollStatusGetsZeroTest() {
+        for (int i = 0; i < 10; i++) {
+            sceneLogic.upDateReRollCount();
+        }
+        assertEquals(0, sceneLogic.getReRollStatus());
     }
 }

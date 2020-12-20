@@ -41,15 +41,19 @@ public class LoginLogicTest {
     public void tooShortUsernameTest() {
         assertEquals("Username is too short", loginLogic.correctInput("dfd", "asalkfdjsal"));
     }
+    @Test
     public void tooLongUsernameTest() {
         assertEquals("Username is too long", loginLogic.correctInput("dfasdfasdfsadfsdfsdfsdfsdfsdfsdfd", "asalkfdjsal"));
     }
+    @Test
     public void tooShortPasswordTest() {
         assertEquals("Password is too short", loginLogic.correctInput("dfdadsf", "sal"));
     }
+    @Test
     public void tooLongPaawordTest() {
         assertEquals("Password is too long", loginLogic.correctInput("dfasdfd", "asalkfdjasdfasdfasdfasdfasfddasfsal"));
     }
+    @Test
     public void correctInputTest() {
         assertEquals("", loginLogic.correctInput("dfasdfd", "asalkfdjsal"));
     }

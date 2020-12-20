@@ -30,10 +30,11 @@ public class LoginController implements Initializable {
         try {
             String foundPassword = sql.getLogin(username.getText(), "Programfiles/").get(0);
             if (password.getText().equals(foundPassword)) {
-                loginLogic.setUser(sql.getLogin(username.getText(), "Programfiles/").get(0));
+                loginLogic.setUser(username.getText());
                 YatzyUi.setRoot("menu");
             }
         } catch (Exception e) {
+            // Nothing to happen here!
         }
         username.clear();
         password.clear();

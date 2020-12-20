@@ -168,6 +168,7 @@ public class GameController implements Initializable {
                 sum += Integer.valueOf(dices[i].getText());
             }
         } catch (Exception ex) {
+            // Nothing to happen here!
         }
         return sum;
     }

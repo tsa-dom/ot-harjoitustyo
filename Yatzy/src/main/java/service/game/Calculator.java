@@ -63,8 +63,9 @@ public class Calculator implements CalculatorIF {
         if (requirement.substring(0, 1).equals("x")) {
             points += times(requirement.substring(1), dices);
         } else if (requirement.substring(0, 1).equals("y")) {
-            points += upperSection(requirement.substring(1), dices);
-            upperCountCheck(upperSection(requirement.substring(1), dices));
+            int session = upperSection(requirement.substring(1), dices);
+            points += session;
+            upperCountCheck(session);
         } else if (requirement.substring(0, 1).equals("r")) {
             points += random(requirement.substring(1), dices);
         } else if (requirement.substring(0, 1).equals("d")) {
@@ -78,8 +79,7 @@ public class Calculator implements CalculatorIF {
         Set<Integer> memory = new HashSet<>();
         int diceFace = -1;
         for (int i = 0; i < dices.size(); i++) {
-            if (diceFace == dices.get(i) && !memory.contains(i)) {
-            } else {
+            if (diceFace != dices.get(i) || memory.contains(i)) {
                 diceFace = dices.get(i);
                 memory.clear();
             }
