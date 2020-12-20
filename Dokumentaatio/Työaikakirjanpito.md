@@ -37,4 +37,4 @@
 |8.12.2020||Tehty peliin pieniä muutoksia|
 |19.12.2020|5h|Dokumentaation tekemistä|
 |20.12.2020|9h|Dokumentaation tekemistä|
-|Yht|131h||
+|Yht|145h||
