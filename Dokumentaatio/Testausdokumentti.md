@@ -10,4 +10,4 @@ Sovelluksen rivikattavuus on 86% ja haarautuma kattavuus 91%.
 Sovelluksen käyttöliittymää ei testata yksikkötesteissä, vaan testaaminen on suoritettu sovelluksen käyttötestauksena.
 
 ## Puutteet testeissä
-Testesihin jäi hieman puutteita nimentään ja testaurakenteeseen. Testejä olisi voinut jakaa tarkemmin useammiksi eri testeiksi.
+Testesihin jäi hieman puutteita nimentään ja testausrakenteeseen. Testejä olisi voinut jakaa tarkemmin useammiksi eri testeiksi.
