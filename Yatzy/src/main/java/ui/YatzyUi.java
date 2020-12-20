@@ -22,6 +22,7 @@ public class YatzyUi extends Application {
         core = new Core();
         core.install("Programfiles/");
         itemNode = new ItemNode();
+        Core.clearUpperCount();
     }
     @Override
     public void start(Stage stage) throws IOException {

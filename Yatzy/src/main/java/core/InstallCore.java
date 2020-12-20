@@ -23,7 +23,6 @@ public class InstallCore {
     protected void executeInstall(String folder) {
         programFilesFolder(folder);
         clusterFolder(folder);
-        gameProperties(folder);
         createClusters(folder);
         createUsers(folder, "data");
         createScoreTable(folder, "data");
@@ -42,18 +41,6 @@ public class InstallCore {
         }
         File file = new File(Core.getPath() + folder + "Cluster");
         return file.mkdir();
-    }
-    private boolean gameProperties(String folder) {
-        try {
-            if (Files.exists(Paths.get(Core.getPath() + folder + "game.properties"))) {
-                return false;
-            }
-            File file = new File(Core.getPath() + folder + "game.properties");
-            writeProperties(file, "default_game");
-            return file.createNewFile();
-        } catch (IOException ex) {
-            return false;
-        }
     }
     private boolean createClusters(String folder) {
         for (int i = 1; i <= 5; i++) {
