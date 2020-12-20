@@ -38,6 +38,10 @@ Oheisessa sekvenssikaaviossa pelaaja painaa *Reroll* nappulaa.
 
 ![Reroll](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgcmVSb2xsCgpnYW1lQ29udHJvbGxlciAtPiBzY2VuZUxvZ2ljOiBnZXRSACQFU3RhdHVzKCkKABQKABwQMQAPDS0-IABNDjogMQBaEwAUEGdldFN1bSgpAIEHEQA8FDMAgR8fdXBkYXRlAIE7BkNvdW50AEUTAIFZFwAnCACBMiEKCgo&s=default)
 
+Pelin alustamista kuvaavassa sekvenssi kaaviossa on jätettu pois luokassa *ItemNode* tapahtuvat asiat. Tässä tapauksessa luokka *ItemNode* luo käyttöliittymän käyttämät ObservableArrayList:it.
+
+![New game](https://www.websequencediagrams.com/cgi-bin/cdraw?lz=dGl0bGUgc3RhcnRHYW1lCgpOZXdHYW1lQ29udHJvbGxlciAtPiAADgdMb2dpYzogc2UAJwVtb2RlKEdhbWVNb2RlSUYgZwAEBykAPAgAKgUgLT4gQ29yZQAuCU1vZGUoABsRAFQcZ2V0AIEFCigATxAAgRUKAIEqCjogU3RyaW5nIGMAgT4JAIFDFllhdHp5VUkAgU8FUm9vdCgAJwopCgAXBmkgLT4gAE8QaW5pdGlhbGl6ZSgpCgCCHhIAFRoAgj4FAB8VRGljAIJZCG5ldwAFCgBMFU9iamVjdGl2ACYMAAYOAIEDFVNjZW4AWQwABgoAgSIlbG9hZEZhY3RvcmllcwCBZBVJdGVtTm9kAINoBlRvcFN0YXRpc3RpYwAMIwCBSwlzKCk&s=default)
+
 ## Sovellukseen jääneet heikkoudet
 Sovellus ei tarkkaan noudata haluttua nelitasoista mallia, sillä on tapauksia, joissa käyttöliittymä asio *Core*:n kanssa eikä sovelluslogiikan. Toisaalta tämä järjestely vähentää kiertoa ohjelman sisällä. Kuitenkin sovelluksessa on myös tapauksia, joissa käyttöliittymän mahdollinen oikopolku suoraan *core*:en onkin toteutettu kiertotienä sovelluslogiikan kautta.
 
